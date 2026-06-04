@@ -58,7 +58,7 @@
   --background: #ffffff;
   --foreground: #0f172a; /* Slate 900 for high-contrast reading */
   
-  --primary: #4a90d9;        /* Core Brand Blue */
+  --primary: #1b73ba;        /* Core Brand Blue */
   --primary-hover: #357abd;  /* Deep Blue for interactive states */
   --primary-foreground: #ffffff;
   
@@ -104,9 +104,9 @@
   --background: #0f172a;     /* Midnight Slate Background */
   --foreground: #f8fafc;
   
-  --primary: #4a90d9;        /* Main brand blue remains persistent */
-  --primary-hover: #60a5fa;  /* Vibrantly illuminated active blue tint */
-  --primary-foreground: #0f172a; /* Midnight text overlay on bright buttons */
+  --primary: #1b73ba;        /* Main brand blue remains persistent */
+  --primary-hover: #357abd;  /* Vibrantly illuminated active blue tint */
+  --primary-foreground: #ffffff; /* Midnight text overlay on bright buttons */
   
   --card: #1e293b;
   --card-foreground: #f8fafc;

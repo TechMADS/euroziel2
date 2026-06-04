@@ -126,15 +126,15 @@ export default function Hero() {
       ? '1px solid rgba(74,144,217,0.4)'
       : '1px solid rgba(74,144,217,0.35)',
     letterSpacing: '0.15em',
-    color: (!mounted || isDark) ? '#ffffff' : '#0f172a',
+    color: (!mounted || isDark) ? '#ffd97d' : '#ffd97d',
     transition: mounted ? 'all 0.4s ease' : 'none',
   };
 
   const headingStyle: CSSProperties = {
     color: (!mounted || isDark) ? '#f8fafc' : '#0f172a',
-    textShadow: (!mounted || isDark)
-      ? '0 2px 20px rgba(15,23,42,0.6)'
-      : '0 2px 12px rgba(255,255,255,0.9)',
+    // textShadow: (!mounted || isDark)
+    //   ? '0 2px 20px rgba(15,23,42,0.6)'
+    //   : '0 2px 12px rgba(255,255,255,0.9)',
     transition: mounted ? 'color 0.4s ease' : 'none',
   };
 
@@ -234,7 +234,7 @@ export default function Hero() {
           className="inline-block mb-4 text-xs font-semibold tracking-widest uppercase px-4 py-1 rounded-full"
           style={eyebrowStyle}
         >
-          India → Germany
+          Germany's Trusted Student Bridge
         </span>
 
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight" style={headingStyle}>
