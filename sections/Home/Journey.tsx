@@ -12,6 +12,7 @@ interface Step {
     stats: [string, string];
     Icon: React.ElementType;
     accent: string;
+    image: string;
 }
 
 const steps: Step[] = [
@@ -19,8 +20,7 @@ const steps: Step[] = [
         number: '01',
         label: 'Discovery',
         title: 'Your German Dream Begins',
-        description:
-            'Start with a personalized consultation designed around your academic background, career goals, and future plans in Germany.',
+        description: 'Start with a personalized consultation...',
         bullets: [
             'Free 30-Minute Consultation',
             'Profile Evaluation',
@@ -30,13 +30,14 @@ const steps: Step[] = [
         stats: ['98% Student Satisfaction', '< 24 Hours Initial Response Time'],
         Icon: Search,
         accent: '#4A90D9',
+        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f'
     },
+
     {
         number: '02',
         label: 'Strategy',
         title: 'Building Your Germany Roadmap',
-        description:
-            'We create a customized application and admission strategy tailored specifically to your profile and target universities.',
+        description: 'We create a customized application...',
         bullets: [
             'Personalized Application Strategy',
             'Domain-Based Expert Guidance',
@@ -46,13 +47,14 @@ const steps: Step[] = [
         stats: ['Germany-Focused Guidance', 'Tailored for Your Profile'],
         Icon: Map,
         accent: '#ffd97d',
+        image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40'
     },
+
     {
         number: '03',
         label: 'Applications',
         title: 'Turning Plans Into Offers',
-        description:
-            'From SOPs to uni-assist submissions, we handle every critical step with accuracy and clarity.',
+        description: 'From SOPs to uni-assist submissions...',
         bullets: [
             'SOP & LOR Guidance',
             'Application Submission Support',
@@ -62,29 +64,31 @@ const steps: Step[] = [
         stats: ['Error-Free Documentation', 'End-to-End Support'],
         Icon: FileText,
         accent: '#7ED8A4',
+        image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85'
     },
+
     {
         number: '04',
         label: 'Visa & Pre-Departure',
         title: 'Preparing You for Germany',
-        description:
-            'We guide you through every major requirement before departure so nothing feels overwhelming.',
+        description: 'We guide you through every requirement...',
         bullets: [
             'Blocked Account Guidance',
             'Visa Documentation Support',
             'Accommodation Assistance',
-            'Travel & Pre-Departure Preparation',
+            'Travel Preparation',
         ],
         stats: ['Step-by-Step Visa Support', 'Complete Pre-Arrival Guidance'],
         Icon: Plane,
         accent: '#C084FC',
+        image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05'
     },
+
     {
         number: '05',
         label: 'Arrival & Settlement',
         title: 'Settling Into Your New Life',
-        description:
-            'Our support continues even after you land in Germany through our peer and professional network.',
+        description: 'Our support continues even after landing...',
         bullets: [
             'Anmeldung Guidance',
             'Health Insurance Support',
@@ -94,23 +98,25 @@ const steps: Step[] = [
         stats: ['On-Ground Student Support', 'Real Guidance From Germany'],
         Icon: Home,
         accent: '#FB923C',
+        image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b'
     },
+
     {
         number: '06',
         label: 'Growth & Career',
         title: 'Beyond Admission. Toward Your Future.',
-        description:
-            'EuroZiel helps students adapt, network, and understand long-term opportunities in Germany and Europe.',
+        description: 'Career and networking support...',
         bullets: [
-            'Career & Networking Support',
-            'Industry Insights From Professionals',
-            'Internship & Job Market Guidance',
-            'Long-Term Growth Mentorship',
+            'Career Support',
+            'Industry Insights',
+            'Internship Guidance',
+            'Long-Term Mentorship',
         ],
-        stats: ['Built for Long-Term Success', 'Germany to Career Pathway'],
+        stats: ['Built for Long-Term Success', 'Germany Career Pathway'],
         Icon: TrendingUp,
         accent: '#4A90D9',
-    },
+        image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72'
+    }
 ];
 
 export default function Journey() {
@@ -162,7 +168,7 @@ export default function Journey() {
                     slide.style.opacity = '1';
                     slide.style.zIndex = String(i + 1);
                 }
-                
+
                 // } else if (i === currentIndex + 1) {
                 //   // incoming — slides in from right
                 //   const tx = 100 - localProgress * 100;
@@ -240,7 +246,9 @@ export default function Journey() {
                                     <div
                                         className={`relative hidden md:block ${imageLeft ? 'order-1' : 'order-2'}`}
                                         style={{
-                                            background: `linear-gradient(135deg, #061628 0%, #0d2540 60%, #0f3060 100%)`,
+                                            backgroundImage: `linear-gradient( rgba(4,17,31,0.65),rgba(4,17,31,0.85)),url(${step.image})`,
+                                            backgroundSize: 'cover',
+                                            backgroundPosition: 'center'
                                         }}
                                     >
                                         {/* Step number watermark */}
