@@ -273,12 +273,7 @@ export default function Hero() {
 
           {/* Left — text panel bleeding from screen edge */}
           <div
-            className="flex flex-col items-start text-left
-              px-8 py-10
-              sm:px-10 sm:py-12
-              md:px-12 md:py-14
-              lg:px-16 lg:py-16
-              xl:px-20 xl:py-20"
+            className="flex flex-col items-start text-left px-8 py-10 sm:px-10 sm:py-12 md:px-12 md:py-14 lg:px-16 lg:py-16 xl:px-20 xl:py-20"
             style={textPanelStyle}
           >
             <span
@@ -289,8 +284,7 @@ export default function Hero() {
             </span>
 
             <h1
-              className="font-bold mb-4 leading-[1.12] tracking-tight
-                text-[clamp(22px,3.5vw,52px)]"
+              className="font-bold mb-4 leading-[1.12] tracking-tight text-[clamp(22px,3.5vw,52px)]"
               style={headingStyle}
             >
               Your bridge from India<br />to Germany,{' '}
@@ -298,8 +292,7 @@ export default function Hero() {
             </h1>
 
             <p
-              className="mb-7 max-w-sm leading-relaxed
-                text-[clamp(13px,1.2vw,17px)]"
+              className="mb-7 max-w-sm leading-relaxed text-[clamp(13px,1.2vw,17px)]"
               style={subtitleStyle}
             >
               Personalised guidance, real experiences, zero gatekeeping —
@@ -309,10 +302,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="#get-started"
-                className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300
-                  py-2.5 px-6 text-sm
-                  sm:py-3 sm:px-7 sm:text-sm
-                  lg:py-3 lg:px-7 lg:text-base"
+                className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 py-2.5 px-6 text-sm sm:py-3 sm:px-7 sm:text-sm lg:py-3 lg:px-7 lg:text-base"
                 style={primaryBtnStyle}
                 onMouseEnter={handlePrimaryEnter}
                 onMouseLeave={handlePrimaryLeave}
@@ -321,10 +311,7 @@ export default function Hero() {
               </a>
               <a
                 href="#how-it-works"
-                className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300
-                  py-2.5 px-6 text-sm
-                  sm:py-3 sm:px-7 sm:text-sm
-                  lg:py-3 lg:px-7 lg:text-base"
+                className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 py-2.5 px-6 text-sm sm:py-3 sm:px-7 sm:text-sm lg:py-3 lg:px-7 lg:text-base"
                 style={secondaryBtnStyle}
                 onMouseEnter={handleSecondaryEnter}
                 onMouseLeave={handleSecondaryLeave}
@@ -336,8 +323,7 @@ export default function Hero() {
 
           {/* Right — float cards, padded away from edge */}
           <div
-            className="hidden md:flex items-center justify-center
-              px-8 lg:px-12 xl:px-16"
+            className="hidden md:flex items-center justify-center px-8 lg:px-12 xl:px-16"
           >
             <div className="w-full max-w-sm lg:max-w-md xl:max-w-lg">
               <FloatCluster />

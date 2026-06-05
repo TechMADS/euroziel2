@@ -1,9 +1,12 @@
+// components/FloatingNavbar.tsx
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
+import FloatingThemeToggle from './FloatingThemeToggle';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -20,17 +23,18 @@ export default function FloatingNavbar() {
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true);
+    const id = window.setTimeout(() => setMounted(true), 0);
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.clearTimeout(id);
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
   if (!mounted) return null;
 
   const isDark = resolvedTheme === 'dark';
-
-  // Navbar bg: dark = navy, light = white
   const navBg = isDark ? '15,23,42' : '255,255,255';
   const shadowRgb = isDark ? '15,23,42' : '74,144,217';
 
@@ -40,36 +44,15 @@ export default function FloatingNavbar() {
       <nav
         className="fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-1 px-3 py-2 rounded-full transition-all duration-300"
         style={{
-          background: scrolled
-            ? `rgba(${navBg}, 0.94)`
-            : `rgba(${navBg}, 0.78)`,
+          background: scrolled ? `rgba(${navBg},0.94)` : `rgba(${navBg},0.78)`,
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(74,144,217,0.18)',
           boxShadow: scrolled
-            ? `0 8px 32px rgba(${shadowRgb}, 0.12)`
-            : `0 4px 16px rgba(${shadowRgb}, 0.08)`,
-          transition: 'all 0.3s ease',
+            ? `0 8px 32px rgba(${shadowRgb},0.12)`
+            : `0 4px 16px rgba(${shadowRgb},0.08)`,
         }}
       >
-        {/* Logo */}
-        {/* <Link
-          href="/"
-          className="flex items-center gap-2 px-3 py-1.5 mr-2 font-bold text-base rounded-full"
-          style={{ color: 'var(--primary)', fontFamily: 'var(--font-serif)' }}
-        >
-          <span
-            className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold"
-            style={{ background: 'var(--primary)' }}
-          >
-            E
-          </span>
-          EuroZiel
-        </Link>
-
-        <span className="w-px h-5 mr-2" style={{ background: 'var(--border)' }} aria-hidden="true" /> */}
-
-        {/* Nav links */}
         {navLinks.map(({ href, label }) => {
           const isActive = pathname === href;
           return (
@@ -98,7 +81,6 @@ export default function FloatingNavbar() {
           );
         })}
 
-        {/* CTA */}
         <Link
           href="#get-started"
           className="ml-2 px-5 py-1.5 rounded-full text-sm font-semibold transition-all duration-200"
@@ -124,61 +106,75 @@ export default function FloatingNavbar() {
 
       {/* ── Mobile navbar ─────────────────────────────────── */}
       <nav
-        className="fixed top-4 left-4 right-4 z-50 flex md:hidden items-center justify-between px-4 py-2.5 rounded-2xl transition-all duration-300"
+        className="fixed top-3 left-3 right-3 z-50 flex md:hidden items-center justify-between px-3 py-2 rounded-2xl transition-all duration-300"
         style={{
-          background: `rgba(${navBg}, 0.94)`,
+          background: `rgba(${navBg},0.94)`,
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(74,144,217,0.18)',
-          boxShadow: `0 4px 16px rgba(${shadowRgb}, 0.1)`,
+          boxShadow: `0 4px 16px rgba(${shadowRgb},0.1)`,
         }}
       >
-        <Link
-          href="/"
-          className="flex items-center gap-2 font-bold text-base"
-          style={{ color: 'var(--primary)', fontFamily: 'var(--font-serif)' }}
-        >
-          <span
-            className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold"
-            style={{ background: 'var(--primary)' }}
+        {/* Logo inside mobile navbar, fluid size */}
+        <Link href="/" className="flex items-center">
+          <div
+            style={{
+              width: 'clamp(48px, 22vw, 110px)',
+              height: 'auto',
+            }}
           >
-            E
-          </span>
-          EuroZiel
+            <Image
+              src="/images/logo/logo2.svg"
+              alt="EuroZiel Logo"
+              width={110}
+              height={110}
+              className="w-full h-auto object-contain"
+              priority
+            />
+          </div>
         </Link>
 
-        <button
-          onClick={() => setMenuOpen((o) => !o)}
-          aria-label="Toggle menu"
-          className="flex flex-col gap-1.5 p-1.5 rounded-lg"
-        >
-          {[
-            menuOpen ? 'rotate(45deg) translateY(6px)' : 'none',
-            'none',
-            menuOpen ? 'rotate(-45deg) translateY(-6px)' : 'none',
-          ].map((transform, i) => (
+        <div className="flex items-center gap-2">
+          <FloatingThemeToggle inline className="md:hidden" />
+
+          {/* Hamburger */}
+          <button
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Toggle menu"
+            className="flex flex-col gap-1.5 p-1.5 rounded-lg"
+          >
+          {[0, 1, 2].map((i) => (
             <span
               key={i}
-              className="block h-0.5 w-5 rounded-full transition-all duration-300"
+              className="block h-0.5 rounded-full transition-all duration-300"
               style={{
+                width: i === 1 ? '14px' : '20px',
                 background: 'var(--foreground)',
-                transform,
-                opacity: i === 1 ? (menuOpen ? 0 : 1) : 1,
+                transform:
+                  menuOpen
+                    ? i === 0
+                      ? 'rotate(45deg) translateY(6px)'
+                      : i === 2
+                      ? 'rotate(-45deg) translateY(-6px)'
+                      : 'none'
+                    : 'none',
+                opacity: menuOpen && i === 1 ? 0 : 1,
               }}
             />
           ))}
         </button>
+      </div>
       </nav>
 
       {/* Mobile dropdown */}
       <div
-        className="fixed top-20 left-4 right-4 z-40 md:hidden rounded-2xl overflow-hidden transition-all duration-300"
+        className="fixed top-[72px] left-3 right-3 z-40 md:hidden rounded-2xl overflow-hidden transition-all duration-300"
         style={{
-          background: `rgba(${navBg}, 0.97)`,
+          background: `rgba(${navBg},0.97)`,
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(74,144,217,0.18)',
-          boxShadow: `0 8px 32px rgba(${shadowRgb}, 0.12)`,
+          boxShadow: `0 8px 32px rgba(${shadowRgb},0.12)`,
           maxHeight: menuOpen ? '400px' : '0px',
           opacity: menuOpen ? 1 : 0,
           pointerEvents: menuOpen ? 'auto' : 'none',
