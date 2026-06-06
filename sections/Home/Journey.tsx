@@ -1,6 +1,8 @@
+// sections/Home/Journey.tsx
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useTheme } from 'next-themes';
 import { Search, Map, FileText, Plane, Home, TrendingUp } from 'lucide-react';
 
 interface Step {
@@ -20,7 +22,7 @@ const steps: Step[] = [
         number: '01',
         label: 'Discovery',
         title: 'Your German Dream Begins',
-        description: 'Start with a personalized consultation...',
+        description: 'Start with a personalized consultation to map out your unique path to Germany.',
         bullets: [
             'Free 30-Minute Consultation',
             'Profile Evaluation',
@@ -32,12 +34,11 @@ const steps: Step[] = [
         accent: '#4A90D9',
         image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f'
     },
-
     {
         number: '02',
         label: 'Strategy',
         title: 'Building Your Germany Roadmap',
-        description: 'We create a customized application...',
+        description: 'We create a customized application strategy based on your profile and goals.',
         bullets: [
             'Personalized Application Strategy',
             'Domain-Based Expert Guidance',
@@ -49,12 +50,11 @@ const steps: Step[] = [
         accent: '#ffd97d',
         image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40'
     },
-
     {
         number: '03',
         label: 'Applications',
         title: 'Turning Plans Into Offers',
-        description: 'From SOPs to uni-assist submissions...',
+        description: 'From SOPs to uni-assist submissions, we ensure error-free documentation.',
         bullets: [
             'SOP & LOR Guidance',
             'Application Submission Support',
@@ -66,12 +66,11 @@ const steps: Step[] = [
         accent: '#7ED8A4',
         image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85'
     },
-
     {
         number: '04',
         label: 'Visa & Pre-Departure',
         title: 'Preparing You for Germany',
-        description: 'We guide you through every requirement...',
+        description: 'We guide you through every requirement for a smooth transition.',
         bullets: [
             'Blocked Account Guidance',
             'Visa Documentation Support',
@@ -83,12 +82,11 @@ const steps: Step[] = [
         accent: '#C084FC',
         image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05'
     },
-
     {
         number: '05',
         label: 'Arrival & Settlement',
         title: 'Settling Into Your New Life',
-        description: 'Our support continues even after landing...',
+        description: 'Our support continues even after you land in Germany.',
         bullets: [
             'Anmeldung Guidance',
             'Health Insurance Support',
@@ -100,12 +98,11 @@ const steps: Step[] = [
         accent: '#FB923C',
         image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b'
     },
-
     {
         number: '06',
         label: 'Growth & Career',
         title: 'Beyond Admission. Toward Your Future.',
-        description: 'Career and networking support...',
+        description: 'Career and networking support to help you thrive in Germany.',
         bullets: [
             'Career Support',
             'Industry Insights',
@@ -119,9 +116,19 @@ const steps: Step[] = [
     }
 ];
 
+function hexToRgb(hex: string): string {
+    const h = hex.replace('#', '');
+    const r = parseInt(h.substring(0, 2), 16);
+    const g = parseInt(h.substring(2, 4), 16);
+    const b = parseInt(h.substring(4, 6), 16);
+    return `${r}, ${g}, ${b}`;
+}
+
 export default function Journey() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const stickyRef = useRef<HTMLDivElement>(null);
+    const { resolvedTheme } = useTheme();
+    const isDark = resolvedTheme === 'dark';
 
     useEffect(() => {
         const section = sectionRef.current;
@@ -142,12 +149,10 @@ export default function Journey() {
 
             slides.forEach((slide, i) => {
                 if (i < currentIndex) {
-                    // fully behind — pinned in place, slightly scaled
                     slide.style.transform = 'translateX(0%) scale(0.96)';
                     slide.style.opacity = '0.5';
                     slide.style.zIndex = String(i + 1);
                 } else if (i === currentIndex) {
-                    // current — ease out to left as next comes in
                     const tx = -localProgress * 6;
                     const sc = 1 - localProgress * 0.04;
                     const op = 1 - localProgress * 0.5;
@@ -155,32 +160,17 @@ export default function Journey() {
                     slide.style.opacity = String(op);
                     slide.style.zIndex = String(total + 1);
                 } else if (i === currentIndex + 1) {
-                    // incoming — alternates left/right
                     const direction = i % 2 === 0 ? 1 : -1;
                     const tx = direction * (100 - localProgress * 100);
                     slide.style.transform = `translateX(${tx}%)`;
                     slide.style.opacity = '1';
                     slide.style.zIndex = String(total + 2);
                 } else {
-                    // waiting off-screen, alternating side
                     const direction = i % 2 === 0 ? 1 : -1;
                     slide.style.transform = `translateX(${direction * 100}%)`;
                     slide.style.opacity = '1';
                     slide.style.zIndex = String(i + 1);
                 }
-
-                // } else if (i === currentIndex + 1) {
-                //   // incoming — slides in from right
-                //   const tx = 100 - localProgress * 100;
-                //   slide.style.transform = `translateX(${tx}%)`;
-                //   slide.style.opacity = '1';
-                //   slide.style.zIndex = String(total + 2);
-                // } else {
-                //   // waiting off-screen to the right
-                //   slide.style.transform = 'translateX(100%)';
-                //   slide.style.opacity = '1';
-                //   slide.style.zIndex = String(i + 1);
-                // }
             });
         };
 
@@ -189,10 +179,24 @@ export default function Journey() {
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
+    // Theme-aware background colors
+    const sectionBg = isDark ? '#061628' : '#e8f4fd';
+    const stickyBg = isDark ? '#04111f' : '#d4eaff';
+    const textPanelBg = isDark ? '#04111f' : '#f0f8ff';
+    const textColor = isDark ? '#f0f6ff' : '#1a2a4a';
+    const textSecondary = isDark ? 'rgba(200,220,245,0.75)' : 'rgba(30,50,80,0.75)';
+    const bulletColor = isDark ? 'rgba(220,235,255,0.90)' : 'rgba(30,50,80,0.85)';
+    const statBg = isDark ? 'rgba(74,144,217,0.08)' : 'rgba(74,144,217,0.12)';
+    const statText = isDark ? '#A8C8F0' : '#2a5a9a';
+    const dotInactive = isDark ? 'rgba(74,144,217,0.25)' : 'rgba(74,144,217,0.4)';
+
     return (
         <>
-            {/* ── Section header (outside sticky) ── */}
-            <div className="bg-[#061628] py-16 px-6 text-center">
+            {/* Section header */}
+            <div 
+                className="py-16 px-6 text-center transition-colors duration-300"
+                style={{ backgroundColor: sectionBg }}
+            >
                 <span
                     className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"
                     style={{
@@ -205,17 +209,21 @@ export default function Journey() {
                     Your Complete Journey
                 </span>
                 <h2
-                    className="font-bold text-[clamp(26px,4vw,52px)] leading-tight text-[#f0f6ff] max-w-3xl mx-auto"
+                    className="font-bold text-[clamp(26px,4vw,52px)] leading-tight max-w-3xl mx-auto"
+                    style={{ color: textColor }}
                 >
                     Six steps from dream{' '}
                     <span className="text-[#4A90D9]">to Deutschland.</span>
                 </h2>
-                <p className="mt-4 text-[clamp(14px,1.2vw,17px)] text-[rgba(200,220,245,0.75)] max-w-xl mx-auto leading-relaxed">
+                <p 
+                    className="mt-4 text-[clamp(14px,1.2vw,17px)] max-w-xl mx-auto leading-relaxed"
+                    style={{ color: textSecondary }}
+                >
                     A structured, end-to-end journey — designed so you always know what comes next.
                 </p>
             </div>
 
-            {/* ── Scroll-driven sticky container ── */}
+            {/* Scroll-driven sticky container */}
             <div
                 ref={sectionRef}
                 style={{ height: `${steps.length * 100}vh` }}
@@ -223,8 +231,8 @@ export default function Journey() {
             >
                 <div
                     ref={stickyRef}
-                    className="sticky top-0 h-screen overflow-hidden"
-                    style={{ background: '#04111f' }}
+                    className="sticky top-0 h-screen overflow-hidden transition-colors duration-300"
+                    style={{ backgroundColor: stickyBg }}
                 >
                     {steps.map((step, i) => {
                         const imageLeft = i % 2 === 0;
@@ -236,13 +244,13 @@ export default function Journey() {
                                     transform: i === 0 ? 'translateX(0%)' : 'translateX(100%)',
                                     zIndex: i === 0 ? steps.length + 1 : i + 1,
                                     transition: 'none',
-                                    background: '#04111f',
+                                    backgroundColor: textPanelBg,
                                 }}
                             >
                                 {/* Inner grid */}
                                 <div className="w-full h-full grid grid-cols-1 md:grid-cols-2">
 
-                                    {/* ── Image column ── */}
+                                    {/* Image column */}
                                     <div
                                         className={`relative hidden md:block ${imageLeft ? 'order-1' : 'order-2'}`}
                                         style={{
@@ -251,7 +259,6 @@ export default function Journey() {
                                             backgroundPosition: 'center'
                                         }}
                                     >
-                                        {/* Step number watermark */}
                                         <div
                                             className="absolute inset-0 flex items-center justify-center select-none pointer-events-none"
                                             style={{
@@ -265,7 +272,6 @@ export default function Journey() {
                                             {step.number}
                                         </div>
 
-                                        {/* Accent bar */}
                                         <div
                                             className="absolute top-0 bottom-0 w-[3px]"
                                             style={{
@@ -275,7 +281,6 @@ export default function Journey() {
                                             }}
                                         />
 
-                                        {/* Icon centered */}
                                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-6">
                                             <div
                                                 className="rounded-2xl flex items-center justify-center"
@@ -304,25 +309,24 @@ export default function Journey() {
                                             </div>
                                         </div>
 
-                                        {/* Corner grid lines decoration */}
                                         <div
                                             className="absolute inset-0 pointer-events-none"
                                             style={{
                                                 backgroundImage: `
-                          linear-gradient(rgba(74,144,217,0.04) 1px, transparent 1px),
-                          linear-gradient(90deg, rgba(74,144,217,0.04) 1px, transparent 1px)
-                        `,
+                                                    linear-gradient(rgba(74,144,217,0.04) 1px, transparent 1px),
+                                                    linear-gradient(90deg, rgba(74,144,217,0.04) 1px, transparent 1px)
+                                                `,
                                                 backgroundSize: '48px 48px',
                                             }}
                                         />
                                     </div>
 
-                                    {/* ── Text column ── */}
+                                    {/* Text column */}
                                     <div
                                         className={`flex flex-col justify-center px-8 py-10 sm:px-12 md:px-14 lg:px-16 xl:px-20 ${imageLeft ? 'order-2' : 'order-1'}`}
-                                        style={{ background: '#04111f' }}
+                                        style={{ backgroundColor: textPanelBg }}
                                     >
-                                        {/* Mobile: step badge */}
+                                        {/* Mobile step badge */}
                                         <div className="md:hidden mb-6">
                                             <span
                                                 className="inline-block text-[10px] font-semibold tracking-widest uppercase px-3 py-1 rounded-full"
@@ -346,8 +350,8 @@ export default function Journey() {
 
                                         {/* Title */}
                                         <h3
-                                            className="font-bold leading-tight mb-4 text-[#f0f6ff]"
-                                            style={{ fontSize: 'clamp(22px, 3vw, 42px)' }}
+                                            className="font-bold leading-tight mb-4"
+                                            style={{ fontSize: 'clamp(22px, 3vw, 42px)', color: textColor }}
                                         >
                                             {step.title}
                                         </h3>
@@ -357,7 +361,7 @@ export default function Journey() {
                                             className="mb-8 leading-relaxed"
                                             style={{
                                                 fontSize: 'clamp(13px, 1.1vw, 16px)',
-                                                color: 'rgba(200,220,245,0.75)',
+                                                color: textSecondary,
                                                 maxWidth: '38ch',
                                             }}
                                         >
@@ -381,7 +385,7 @@ export default function Journey() {
                                                     </span>
                                                     <span
                                                         className="text-sm font-medium"
-                                                        style={{ color: 'rgba(220,235,255,0.90)' }}
+                                                        style={{ color: bulletColor }}
                                                     >
                                                         {b}
                                                     </span>
@@ -394,11 +398,11 @@ export default function Journey() {
                                             {step.stats.map((s) => (
                                                 <div
                                                     key={s}
-                                                    className="px-4 py-2 rounded-xl text-xs font-semibold"
+                                                    className="px-4 py-2 rounded-xl text-xs font-semibold transition-colors duration-300"
                                                     style={{
-                                                        background: 'rgba(74,144,217,0.08)',
+                                                        background: statBg,
                                                         border: '1px solid rgba(74,144,217,0.20)',
-                                                        color: '#A8C8F0',
+                                                        color: statText,
                                                     }}
                                                 >
                                                     {s}
@@ -415,10 +419,7 @@ export default function Journey() {
                                                     style={{
                                                         width: di === i ? 20 : 6,
                                                         height: 6,
-                                                        background:
-                                                            di === i
-                                                                ? step.accent
-                                                                : 'rgba(74,144,217,0.25)',
+                                                        background: di === i ? step.accent : dotInactive,
                                                     }}
                                                 />
                                             ))}
@@ -432,13 +433,4 @@ export default function Journey() {
             </div>
         </>
     );
-}
-
-// Utility: convert hex to "r, g, b" string for rgba()
-function hexToRgb(hex: string): string {
-    const h = hex.replace('#', '');
-    const r = parseInt(h.substring(0, 2), 16);
-    const g = parseInt(h.substring(2, 4), 16);
-    const b = parseInt(h.substring(4, 6), 16);
-    return `${r}, ${g}, ${b}`;
 }
