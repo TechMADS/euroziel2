@@ -193,29 +193,15 @@ export default function Journey() {
     return (
         <>
             {/* Section header */}
-            <div 
-                className="py-16 px-6 text-center transition-colors duration-300"
-                style={{ backgroundColor: sectionBg }}
-            >
-                <span
-                    className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"
-                    style={{
-                        background: 'rgba(74,144,217,0.15)',
-                        border: '1px solid rgba(74,144,217,0.35)',
-                        letterSpacing: '0.15em',
-                        color: '#ffd97d',
-                    }}
-                >
+            <div className="py-16 px-6 text-center transition-colors duration-300" style={{ backgroundColor: sectionBg }}>
+                <span className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full" style={{ background: 'rgba(74,144,217,0.15)', border: '1px solid rgba(74,144,217,0.35)', letterSpacing: '0.15em', color: '#ffd97d', }}>
                     Your Complete Journey
                 </span>
-                <h2
-                    className="font-bold text-[clamp(26px,4vw,52px)] leading-tight max-w-3xl mx-auto"
-                    style={{ color: textColor }}
-                >
-                    Six steps from dream{' '}
-                    <span className="text-[#4A90D9]">to Deutschland.</span>
+                <h2 className="font-bold text-[clamp(26px,4vw,52px)] leading-tight max-w-3xl mx-auto" style={{ color: textColor }}>
+                    Six steps from dream
+                    <span className="text-[#4A90D9]"> to Deutschland.</span>
                 </h2>
-                <p 
+                <p
                     className="mt-4 text-[clamp(14px,1.2vw,17px)] max-w-xl mx-auto leading-relaxed"
                     style={{ color: textSecondary }}
                 >

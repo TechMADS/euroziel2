@@ -42,7 +42,7 @@ export default function FloatingNavbar() {
     <>
       {/* ── Desktop ───────────────────────────────────────── */}
       <nav
-        className="fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-1 mt-5 px-3 py-2 rounded-full transition-all duration-300"
+        className="fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden lg:flex items-center gap-1 mt-5 px-3 py-2 rounded-full transition-all duration-300"
         style={{
           background: scrolled ? `rgba(${navBg},0.94)` : `rgba(${navBg},0.78)`,
           backdropFilter: 'blur(16px)',
@@ -106,7 +106,7 @@ export default function FloatingNavbar() {
 
       {/* ── Mobile navbar ─────────────────────────────────── */}
       <nav
-        className="fixed top-3 left-3 right-3 z-50 flex md:hidden items-center justify-between px-3 py-2 rounded-2xl transition-all duration-300"
+        className="fixed top-3 left-3 right-3 z-50 flex lg:hidden items-center justify-between px-3 py-2 rounded-2xl transition-all duration-300"
         style={{
           background: `rgba(${navBg},0.94)`,
           backdropFilter: 'blur(16px)',
@@ -168,7 +168,7 @@ export default function FloatingNavbar() {
 
       {/* Mobile dropdown */}
       <div
-        className="fixed top-[72px] left-3 right-3 z-40 md:hidden rounded-2xl overflow-hidden transition-all duration-300"
+        className="fixed top-[72px] left-3 right-3 z-40 lg:hidden rounded-2xl overflow-hidden transition-all duration-300"
         style={{
           background: `rgba(${navBg},0.97)`,
           backdropFilter: 'blur(16px)',

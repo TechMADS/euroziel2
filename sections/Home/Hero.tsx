@@ -374,7 +374,7 @@ export default function Hero() {
             style={textPanelStyle}
           >
             <span
-              className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-3 py-1 sm:px-4 sm:py-1.5 rounded-full"
+              className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-3 py-1 sm:px-4 sm:py-1.5 rounded-full md:hidden lg:inline-block"
               style={eyebrowStyle}
             >
               Germany&apos;s Trusted Student Bridge
@@ -418,26 +418,26 @@ export default function Hero() {
             </div>
 
             {/* Social Contact Links */}
-            <div className="mt-8 flex items-center gap-4">
+            <div className="mt-6 flex flex-wrap items-center gap-3 sm:gap-4">
 
               <a href="#" aria-label="WhatsApp" className="group flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#25D366] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_0_30px_rgba(37,211,102,0.5)]">
-                <FaWhatsapp className="text-3xl" />
+                <FaWhatsapp className="text-xl sm:text-3xl" />
               </a>
 
               <a href="mailto:yourmail@example.com" aria-label="Email" className="group flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#EA4335] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_0_30px_rgba(234,67,53,0.5)]">
-                <FaEnvelope className="text-3xl" />
+                <FaEnvelope className="text-xl sm:text-3xl" />
               </a>
 
               <a href="#" aria-label="YouTube" className="group flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#FF0000] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,0,0,0.5)]">
-                <FaYoutube className="text-3xl" />
+                <FaYoutube className="text-xl sm:text-3xl" />
               </a>
 
               <a href="#" aria-label="Instagram" className="group flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#E4405F] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_0_30px_rgba(228,64,95,0.5)]">
-                <FaInstagram className="text-3xl" />
+                <FaInstagram className="text-xl sm:text-3xl" />
               </a>
 
               <a href="#" aria-label="LinkedIn" className="group flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#0A66C2] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_0_30px_rgba(10,102,194,0.5)]">
-                <FaLinkedin className="text-3xl" />
+                <FaLinkedin className="text-xl sm:text-3xl" />
               </a>
 
               <div className="ml-2 hidden sm:block text-sm text-white/70 leading-tight">

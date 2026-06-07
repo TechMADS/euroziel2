@@ -29,17 +29,17 @@ export default function FloatingThemeToggle({ inline = false, className = '' }: 
       className={`${inline ? 'relative' : 'fixed'} z-50 flex items-center justify-center rounded-full transition-all duration-300 ${className}`}
       style={{
         // Fluid size: 40px on tiny screens → 56px on large
-        width: 'clamp(40px, 5vw, 56px)',
-        height: 'clamp(40px, 5vw, 56px)',
+        width: inline ? '42px' : 'clamp(44px,5vw,58px)',
+        height: inline ? '42px' : 'clamp(44px,5vw,58px)',
         ...(inline
           ? {}
           : {
-              top: 'clamp(10px, 2vw, 24px)',
-              right: 'clamp(10px, 2vw, 24px)',
-            }),
+            top: '20px',
+            right: '24px',
+          }),
         background: isDark
-          ? 'radial-gradient(circle at 40% 40%, rgba(99,120,180,0.25), rgba(15,23,42,0.6))'
-          : 'radial-gradient(circle at 60% 40%, rgba(255,230,100,0.45), rgba(255,200,50,0.15))',
+          ? 'radial-gradient(circle at 35% 35%, #334155, #020617)'
+          : 'radial-gradient(circle at 35% 35%, #fff7b2, #f59e0b)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
         border: isDark
@@ -62,7 +62,7 @@ export default function FloatingThemeToggle({ inline = false, className = '' }: 
           viewBox="0 0 32 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ width: '55%', height: '55%' }}
+          style={{ width: '65%', height: '65%' }}
         >
           {/* Moon glow */}
           <circle cx="16" cy="16" r="14" fill="rgba(180,200,255,0.06)" />
@@ -88,7 +88,7 @@ export default function FloatingThemeToggle({ inline = false, className = '' }: 
           viewBox="0 0 32 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ width: '60%', height: '60%' }}
+          style={{ width: '65%', height: '65%' }}
         >
           <defs>
             <radialGradient id="sunCore" cx="50%" cy="40%" r="60%">
