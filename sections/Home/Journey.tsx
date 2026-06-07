@@ -116,305 +116,308 @@ const steps: Step[] = [
     }
 ];
 
-function hexToRgb(hex: string): string {
+
+function hexToRgb(hex: string) {
     const h = hex.replace('#', '');
-    const r = parseInt(h.substring(0, 2), 16);
-    const g = parseInt(h.substring(2, 4), 16);
-    const b = parseInt(h.substring(4, 6), 16);
-    return `${r}, ${g}, ${b}`;
+    return `${parseInt(h.substring(0, 2), 16)}, 
+            ${parseInt(h.substring(2, 4), 16)}, 
+            ${parseInt(h.substring(4, 6), 16)}`;
 }
 
+
 export default function Journey() {
+
     const sectionRef = useRef<HTMLDivElement>(null);
-    const stickyRef = useRef<HTMLDivElement>(null);
+    const trackRef = useRef<HTMLDivElement>(null);
+
     const { resolvedTheme } = useTheme();
-    const isDark = resolvedTheme === 'dark';
+    const isDark = resolvedTheme === "dark";
+
 
     useEffect(() => {
+
         const section = sectionRef.current;
-        const sticky = stickyRef.current;
-        if (!section || !sticky) return;
+        const track = trackRef.current;
 
-        const slides = sticky.querySelectorAll<HTMLDivElement>('.journey-slide');
-        const total = slides.length;
+        if (!section || !track) return;
 
-        const onScroll = () => {
+
+        let ticking = false;
+
+
+        const update = () => {
+
             const rect = section.getBoundingClientRect();
-            const scrolled = -rect.top;
-            const scrollable = rect.height - window.innerHeight;
-            const progress = Math.max(0, Math.min(1, scrolled / scrollable));
-            const rawIndex = progress * (total - 1);
-            const currentIndex = Math.floor(rawIndex);
-            const localProgress = rawIndex - currentIndex;
 
-            slides.forEach((slide, i) => {
-                if (i < currentIndex) {
-                    slide.style.transform = 'translateX(0%) scale(0.96)';
-                    slide.style.opacity = '0.5';
-                    slide.style.zIndex = String(i + 1);
-                } else if (i === currentIndex) {
-                    const tx = -localProgress * 6;
-                    const sc = 1 - localProgress * 0.04;
-                    const op = 1 - localProgress * 0.5;
-                    slide.style.transform = `translateX(${tx}%) scale(${sc})`;
-                    slide.style.opacity = String(op);
-                    slide.style.zIndex = String(total + 1);
-                } else if (i === currentIndex + 1) {
-                    const direction = i % 2 === 0 ? 1 : -1;
-                    const tx = direction * (100 - localProgress * 100);
-                    slide.style.transform = `translateX(${tx}%)`;
-                    slide.style.opacity = '1';
-                    slide.style.zIndex = String(total + 2);
-                } else {
-                    const direction = i % 2 === 0 ? 1 : -1;
-                    slide.style.transform = `translateX(${direction * 100}%)`;
-                    slide.style.opacity = '1';
-                    slide.style.zIndex = String(i + 1);
-                }
-            });
+            const total =
+                section.offsetHeight -
+                window.innerHeight;
+
+
+            const progress =
+                Math.min(
+                    1,
+                    Math.max(
+                        0,
+                        -rect.top / total
+                    )
+                );
+
+
+            const move =
+                progress *
+                (steps.length - 1) *
+                100;
+
+
+            track.style.transform =
+                `translate3d(-${move}vw,0,0)`;
+
+
+            ticking = false;
         };
 
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-        return () => window.removeEventListener('scroll', onScroll);
+
+
+        const onScroll = () => {
+
+            if (!ticking) {
+
+                requestAnimationFrame(update);
+                ticking = true;
+
+            }
+
+        };
+
+
+        window.addEventListener(
+            "scroll",
+            onScroll,
+            { passive: true }
+        );
+
+
+        update();
+
+
+        return () => {
+            window.removeEventListener(
+                "scroll",
+                onScroll
+            );
+        };
+
+
     }, []);
 
-    // Theme-aware background colors
-    const sectionBg = isDark ? '#061628' : '#e8f4fd';
-    const stickyBg = isDark ? '#04111f' : '#d4eaff';
-    const textPanelBg = isDark ? '#04111f' : '#f0f8ff';
-    const textColor = isDark ? '#f0f6ff' : '#1a2a4a';
-    const textSecondary = isDark ? 'rgba(200,220,245,0.75)' : 'rgba(30,50,80,0.75)';
-    const bulletColor = isDark ? 'rgba(220,235,255,0.90)' : 'rgba(30,50,80,0.85)';
-    const statBg = isDark ? 'rgba(74,144,217,0.08)' : 'rgba(74,144,217,0.12)';
-    const statText = isDark ? '#A8C8F0' : '#2a5a9a';
-    const dotInactive = isDark ? 'rgba(74,144,217,0.25)' : 'rgba(74,144,217,0.4)';
+
+
+    const sectionBg =
+        isDark ? "#061628" : "#e8f4fd";
+
+    const panelBg =
+        isDark ? "#04111f" : "#f0f8ff";
+
+    const textColor =
+        isDark ? "#f0f6ff" : "#1a2a4a";
+
+    const textSecondary =
+        isDark
+            ? "rgba(200,220,245,.75)"
+            : "rgba(30,50,80,.75)";
 
     return (
+
         <>
-            {/* Section header */}
-            <div className="py-16 px-6 text-center transition-colors duration-300" style={{ backgroundColor: sectionBg }}>
-                <span className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full" style={{ background: 'rgba(74,144,217,0.15)', border: '1px solid rgba(74,144,217,0.35)', letterSpacing: '0.15em', color: '#ffd97d', }}>
+            {/* heading */}
+
+            <div
+                className="py-16 px-6 text-center"
+                style={{ background: sectionBg }}
+            >
+
+                <span
+                    className="inline-block mb-4 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full"
+                    style={{
+                        color: "#ffd97d",
+                        background: "rgba(74,144,217,.15)"
+                    }}
+                >
                     Your Complete Journey
                 </span>
-                <h2 className="font-bold text-[clamp(26px,4vw,52px)] leading-tight max-w-3xl mx-auto" style={{ color: textColor }}>
+
+
+                <h2
+                    className="font-bold text-[clamp(26px,4vw,52px)]"
+                    style={{ color: textColor }}
+                >
+
                     Six steps from dream
-                    <span className="text-[#4A90D9]"> to Deutschland.</span>
+                    <span className="text-[#4A90D9]">
+                        {" "}to Deutschland.
+                    </span>
+
                 </h2>
+
+
                 <p
-                    className="mt-4 text-[clamp(14px,1.2vw,17px)] max-w-xl mx-auto leading-relaxed"
+                    className="mt-4 max-w-xl mx-auto"
                     style={{ color: textSecondary }}
                 >
-                    A structured, end-to-end journey — designed so you always know what comes next.
+                    A structured, end-to-end journey.
                 </p>
+
             </div>
 
-            {/* Scroll-driven sticky container */}
+
+
+
+
+            {/* horizontal scroll section */}
+
+
             <div
                 ref={sectionRef}
-                style={{ height: `${steps.length * 100}vh` }}
                 className="relative"
+                style={{
+                    height: `${steps.length * 100}vh`
+                }}
             >
+
+
                 <div
-                    ref={stickyRef}
-                    className="sticky top-0 h-screen overflow-hidden transition-colors duration-300"
-                    style={{ backgroundColor: stickyBg }}
+                    className="sticky top-0 h-screen overflow-hidden"
+                    style={{
+                        background: panelBg
+                    }}
                 >
-                    {steps.map((step, i) => {
-                        const imageLeft = i % 2 === 0;
-                        return (
-                            <div
-                                key={step.number}
-                                className="journey-slide absolute inset-0 h-full w-full will-change-transform"
-                                style={{
-                                    transform: i === 0 ? 'translateX(0%)' : 'translateX(100%)',
-                                    zIndex: i === 0 ? steps.length + 1 : i + 1,
-                                    transition: 'none',
-                                    backgroundColor: textPanelBg,
-                                }}
-                            >
-                                {/* Inner grid */}
-                                <div className="w-full h-full grid grid-cols-1 md:grid-cols-2">
+                    <div
+                        ref={trackRef}
+                        className="flex h-full will-change-transform"
+                    >
+                        {
+                            steps.map((step, i) => {
+                                const imageLeft = i % 2 === 0;
+                                return (
 
-                                    {/* Image column */}
                                     <div
-                                        className={`relative hidden md:block ${imageLeft ? 'order-1' : 'order-2'}`}
-                                        style={{
-                                            backgroundImage: `linear-gradient( rgba(4,17,31,0.65),rgba(4,17,31,0.85)),url(${step.image})`,
-                                            backgroundSize: 'cover',
-                                            backgroundPosition: 'center'
-                                        }}
+                                        key={step.number}
+                                        className="relative flex-shrink-0 w-screen h-full"
                                     >
                                         <div
-                                            className="absolute inset-0 flex items-center justify-center select-none pointer-events-none"
-                                            style={{
-                                                fontSize: 'clamp(120px, 20vw, 280px)',
-                                                fontWeight: 900,
-                                                color: 'rgba(74,144,217,0.06)',
-                                                lineHeight: 1,
-                                                fontVariantNumeric: 'tabular-nums',
-                                            }}
+                                            className="grid grid-cols-1 md:grid-cols-2 h-full"
                                         >
-                                            {step.number}
-                                        </div>
-
-                                        <div
-                                            className="absolute top-0 bottom-0 w-[3px]"
-                                            style={{
-                                                background: step.accent,
-                                                [imageLeft ? 'right' : 'left']: 0,
-                                                opacity: 0.6,
-                                            }}
-                                        />
-
-                                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-6">
+                                            {/* image */}
                                             <div
-                                                className="rounded-2xl flex items-center justify-center"
+                                                className={`hidden md:block relative ${imageLeft ? "order-1" : "order-2"}`}
                                                 style={{
-                                                    width: 88,
-                                                    height: 88,
-                                                    background: `rgba(${hexToRgb(step.accent)}, 0.12)`,
-                                                    border: `1.5px solid rgba(${hexToRgb(step.accent)}, 0.35)`,
+                                                    backgroundImage: `linear-gradient(rgba(4,17,31,.65),rgba(4,17,31,.85)), url(${step.image})`,
+                                                    backgroundSize: "cover",
+                                                    backgroundPosition: "center"
                                                 }}
                                             >
-                                                <step.Icon
-                                                    style={{ width: 40, height: 40, color: step.accent }}
-                                                    strokeWidth={1.5}
-                                                />
-                                            </div>
-                                            <div
-                                                className="text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full"
-                                                style={{
-                                                    background: `rgba(${hexToRgb(step.accent)}, 0.10)`,
-                                                    border: `1px solid rgba(${hexToRgb(step.accent)}, 0.30)`,
-                                                    color: step.accent,
-                                                    letterSpacing: '0.15em',
-                                                }}
-                                            >
-                                                Step {step.number} — {step.label}
-                                            </div>
-                                        </div>
-
-                                        <div
-                                            className="absolute inset-0 pointer-events-none"
-                                            style={{
-                                                backgroundImage: `
-                                                    linear-gradient(rgba(74,144,217,0.04) 1px, transparent 1px),
-                                                    linear-gradient(90deg, rgba(74,144,217,0.04) 1px, transparent 1px)
-                                                `,
-                                                backgroundSize: '48px 48px',
-                                            }}
-                                        />
-                                    </div>
-
-                                    {/* Text column */}
-                                    <div
-                                        className={`flex flex-col justify-center px-8 py-10 sm:px-12 md:px-14 lg:px-16 xl:px-20 ${imageLeft ? 'order-2' : 'order-1'}`}
-                                        style={{ backgroundColor: textPanelBg }}
-                                    >
-                                        {/* Mobile step badge */}
-                                        <div className="md:hidden mb-6">
-                                            <span
-                                                className="inline-block text-[10px] font-semibold tracking-widest uppercase px-3 py-1 rounded-full"
-                                                style={{
-                                                    background: `rgba(${hexToRgb(step.accent)}, 0.12)`,
-                                                    border: `1px solid rgba(${hexToRgb(step.accent)}, 0.35)`,
-                                                    color: step.accent,
-                                                }}
-                                            >
-                                                Step {step.number} — {step.label}
-                                            </span>
-                                        </div>
-
-                                        {/* Label */}
-                                        <p
-                                            className="mb-2 text-xs font-semibold uppercase tracking-widest hidden md:block"
-                                            style={{ color: step.accent, letterSpacing: '0.15em' }}
-                                        >
-                                            Step {step.number}
-                                        </p>
-
-                                        {/* Title */}
-                                        <h3
-                                            className="font-bold leading-tight mb-4"
-                                            style={{ fontSize: 'clamp(22px, 3vw, 42px)', color: textColor }}
-                                        >
-                                            {step.title}
-                                        </h3>
-
-                                        {/* Description */}
-                                        <p
-                                            className="mb-8 leading-relaxed"
-                                            style={{
-                                                fontSize: 'clamp(13px, 1.1vw, 16px)',
-                                                color: textSecondary,
-                                                maxWidth: '38ch',
-                                            }}
-                                        >
-                                            {step.description}
-                                        </p>
-
-                                        {/* Bullets */}
-                                        <ul className="space-y-3 mb-10">
-                                            {step.bullets.map((b) => (
-                                                <li key={b} className="flex items-center gap-3">
-                                                    <span
-                                                        className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
-                                                        style={{
-                                                            background: `rgba(${hexToRgb(step.accent)}, 0.15)`,
-                                                            border: `1px solid rgba(${hexToRgb(step.accent)}, 0.40)`,
-                                                        }}
-                                                    >
-                                                        <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                                                            <circle cx="4" cy="4" r="3" fill={step.accent} />
-                                                        </svg>
-                                                    </span>
-                                                    <span
-                                                        className="text-sm font-medium"
-                                                        style={{ color: bulletColor }}
-                                                    >
-                                                        {b}
-                                                    </span>
-                                                </li>
-                                            ))}
-                                        </ul>
-
-                                        {/* Stats */}
-                                        <div className="flex flex-wrap gap-3">
-                                            {step.stats.map((s) => (
                                                 <div
-                                                    key={s}
-                                                    className="px-4 py-2 rounded-xl text-xs font-semibold transition-colors duration-300"
+                                                    className="absolute inset-0 flex items-center justify-center"
                                                     style={{
-                                                        background: statBg,
-                                                        border: '1px solid rgba(74,144,217,0.20)',
-                                                        color: statText,
+                                                        fontSize: "clamp(120px,20vw,280px)",
+                                                        color: "rgba(74,144,217,.08)",
+                                                        fontWeight: 900
                                                     }}
                                                 >
-                                                    {s}
-                                                </div>
-                                            ))}
-                                        </div>
+                                                    {step.number}
 
-                                        {/* Progress dots */}
-                                        <div className="flex gap-2 mt-10">
-                                            {steps.map((_, di) => (
+                                                </div>
                                                 <div
-                                                    key={di}
-                                                    className="rounded-full transition-all duration-300"
+                                                    className="absolute inset-0 flex flex-col items-center justify-center gap-6"
+                                                >
+                                                    <div
+                                                        className="rounded-2xl flex items-center justify-center"
+                                                        style={{
+                                                            width: 90,
+                                                            height: 90,
+                                                            background:
+                                                                `rgba(${hexToRgb(step.accent)},.15)`
+                                                        }}
+                                                    >
+                                                        <step.Icon
+                                                            size={40}
+                                                            color={step.accent}
+                                                        />
+
+                                                    </div>
+                                                    <span
+                                                        className="px-4 py-2 rounded-full text-xs"
+                                                        style={{
+                                                            color: step.accent,
+                                                            background:
+                                                                `rgba(${hexToRgb(step.accent)},.1)`
+                                                        }}
+                                                    >
+                                                        Step {step.number} — {step.label}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            {/* content */}
+                                            <div
+                                                className={`flex flex-col justify-center px-8 lg:px-20 ${imageLeft ? "order-2" : "order-1"}`}
+                                                style={{
+                                                    background: panelBg
+                                                }}
+                                            >
+                                                <p
+                                                    className="text-xs uppercase tracking-widest mb-3"
                                                     style={{
-                                                        width: di === i ? 20 : 6,
-                                                        height: 6,
-                                                        background: di === i ? step.accent : dotInactive,
+                                                        color: step.accent
                                                     }}
-                                                />
-                                            ))}
+                                                >
+                                                    Step {step.number}
+                                                </p>
+                                                <h3
+                                                    className="font-bold text-[clamp(24px,3vw,44px)] mb-4"
+                                                    style={{
+                                                        color: textColor
+                                                    }}
+                                                >
+                                                    {step.title}
+                                                </h3>
+                                                <p
+                                                    className="mb-8 max-w-md"
+                                                    style={{
+                                                        color: textSecondary
+                                                    }}
+                                                >
+                                                    {step.description}
+                                                </p>
+                                                <ul className="space-y-3">
+                                                    {
+                                                        step.bullets.map(b => (
+
+                                                            <li
+                                                                key={b}
+                                                                className="flex gap-3"
+                                                            >
+                                                                <span
+                                                                    className="w-4 h-4 rounded-full"
+                                                                    style={{
+                                                                        background: step.accent
+                                                                    }}
+                                                                />
+                                                                <span>
+                                                                    {b}
+                                                                </span>
+                                                            </li>
+                                                        ))
+                                                    }
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        );
-                    })}
+
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </>

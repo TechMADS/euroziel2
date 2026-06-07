@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function FloatingLogo() {
   return (
-    <div className="absolute top-0 left-6 mt-5 z-50 hidden lg:block w-[clamp(60px,12vw,160px)] h-auto transition-all duration-300">
+    <div className="fixed top-5 left-6 z-50 hidden lg:block w-[clamp(60px,12vw,160px)] h-auto transition-all duration-300">
       <Image
         src="/images/logo/logo2.svg"
         alt="Logo"

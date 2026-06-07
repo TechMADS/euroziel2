@@ -155,3 +155,26 @@
     @apply font-serif tracking-tight;
   }
 }
+
+html {
+    scroll-behavior:smooth;
+}
+
+
+* {
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.journey-slide {
+    backface-visibility:hidden;
+}
+
+.journey-slide.active {
+    opacity:1;
+    transform:translateX(0) scale(1);
+}
+
+.journey-slide:not(.active) {
+    pointer-events:none;
+}
