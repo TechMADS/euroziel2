@@ -7,6 +7,7 @@ import FloatingThemeToggle from '@/components/FloatingThemeToggle';
 import { cn } from "@/lib/utils";
 import FloatingLogo from "@/components/FloatingLogo";
 import FloatingNavbar from "@/components/FloatingNavbar";
+import EnquiryModal from "@/components/EnquiryModal";
 
 // ── Only load fonts actually used in globals.css ──────────────
 const figtree = Figtree({
@@ -55,6 +56,7 @@ export default function RootLayout({
           <FloatingThemeToggle className="hidden lg:flex" />
 
           {children}
+          <EnquiryModal />
         </Providers>
       </body>
     </html>
