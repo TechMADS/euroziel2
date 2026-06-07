@@ -42,7 +42,7 @@ export default function FloatingNavbar() {
     <>
       {/* ── Desktop ───────────────────────────────────────── */}
       <nav
-        className="fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-1 px-3 py-2 rounded-full transition-all duration-300"
+        className="fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-1 mt-5 px-3 py-2 rounded-full transition-all duration-300"
         style={{
           background: scrolled ? `rgba(${navBg},0.94)` : `rgba(${navBg},0.78)`,
           backdropFilter: 'blur(16px)',
@@ -100,7 +100,7 @@ export default function FloatingNavbar() {
             e.currentTarget.style.boxShadow = '0 2px 12px rgba(255,217,125,0.4)';
           }}
         >
-          Get Started
+          Get&nbsp;Started
         </Link>
       </nav>
 

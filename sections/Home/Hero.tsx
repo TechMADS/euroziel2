@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState, CSSProperties, MouseEvent } from 'react';
+import React, { useEffect, useRef, useState, CSSProperties, MouseEvent, ElementType } from 'react';
 import { useTheme } from 'next-themes';
 import { GraduationCap, FileText, Award, Briefcase, Calendar } from 'lucide-react';
+import { FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 interface VantaEffect {
   destroy: () => void;
@@ -28,65 +29,161 @@ const BIRDS_CDN = 'https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.mi
 // ─── Float Card ───────────────────────────────────────────────────────────────
 
 interface FloatCardProps {
-  Icon: React.ElementType;
   title: string;
   sub: string;
   chip: string;
+  image: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-function FloatCard({ Icon, title, sub, chip, className = '' }: FloatCardProps) {
+function FloatCard({ title, sub, chip, image, className = '', style }: FloatCardProps) {
   return (
     <div
+      style={{
+        ...style,
+        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.90)), url('${image}')`,
+      }}
       className={[
-        'rounded-xl border border-[rgba(74,144,217,0.18)] bg-gradient-to-br from-[#0f2035] to-[#0D1B2A]',
-        'p-4 shadow-[0_4px_32px_rgba(0,0,0,0.5)]',
-        'transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(74,144,217,0.40)] hover:shadow-[0_8px_40px_rgba(74,144,217,0.18)]',
+        'relative flex flex-col justify-between rounded-xl border border-[rgba(255,255,255,0.15)] bg-cover bg-center',
+        'p-5 h-[150px] sm:h-[160px] w-full shadow-[0_12px_40px_rgba(0,0,0,0.6)]',
+        'transition-all duration-300 hover:border-[rgba(255,255,255,0.4)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.8)]',
+        'hover:scale-[1.02]',
         className,
       ].join(' ')}
     >
-      <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-[rgba(74,144,217,0.12)]">
-        <Icon className="h-4 w-4 text-[#4A90D9]" strokeWidth={1.5} />
+      {/* Content Wrapper - Large Readable Text */}
+      <div className="flex flex-col gap-2">
+        <div className="text-[20px] sm:text-[22px] font-bold leading-tight tracking-tight text-white">
+          {title}
+        </div>
+        <div className="text-[13px] sm:text-[14px] font-medium leading-relaxed text-[#D1D5DB]">
+          {sub}
+        </div>
       </div>
-      <div className="mb-0.5 text-[12.5px] font-bold leading-snug text-[#E8EDF5]">{title}</div>
-      <div className="text-[11px] leading-snug text-[#A8C8F0]">{sub}</div>
-      <div className="mt-2.5 inline-block rounded-full border border-[rgba(74,144,217,0.30)] bg-[rgba(74,144,217,0.10)] px-2.5 py-[3px] text-[10px] font-semibold tracking-[0.05em] text-[#A8C8F0]">
+
+      {/* Footer Chip - Monochromatic */}
+      {/* <div className="mt-4 self-start inline-block rounded-full border border-[rgba(255,255,255,0.3)] bg-[rgba(0,0,0,0.7)] backdrop-blur-sm px-3.5 py-1 text-[11px] font-bold tracking-wider uppercase text-white">
         {chip}
-      </div>
+      </div> */}
     </div>
   );
 }
 
-// ─── Float Cluster ────────────────────────────────────────────────────────────
+// ─── CSS Injection for Tailwind ──────────────────────────────────────────────
+const floatingStyles = `
+  @keyframes gentle-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  @media (min-width: 640px) {
+    .animate-float {
+      animation: gentle-float 6s ease-in-out infinite;
+    }
+  }
+`;
 
-function FloatCluster() {
+export function FloatCluster() {
   const cards = [
-    { Icon: GraduationCap, title: '1:1 Personalised Counselling', sub: 'From application to visa',      chip: 'Limited Slots'       },
-    { Icon: FileText,      title: 'Application Assistance',       sub: 'LOR, SOP & Document prep',      chip: 'Expert Review'       },
-    { Icon: Award,         title: 'Scholarship Guidance',         sub: 'DAAD & other funding options',  chip: '€861/month possible' },
-    { Icon: Briefcase,     title: 'Internship Support',           sub: 'Werkstudent & full-time roles', chip: 'German CV Format'    },
-    { Icon: Calendar,      title: 'Visa Timeline',                sub: 'APS, blocked account & more',   chip: '98% Success'         },
+    {
+      title: '1:1 Personalised Counselling',
+      sub: 'From application to visa guidance',
+      chip: 'Limited Slots',
+      image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800'
+    },
+    {
+      title: 'Application Assistance',
+      sub: 'LOR, SOP & Document prep management',
+      chip: 'Expert Review',
+      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800'
+    },
+    {
+      title: 'Scholarship Guidance',
+      sub: 'DAAD & funding options',
+      chip: 'Funding',
+      image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800'
+    },
+    {
+      title: 'Internship Support',
+      sub: 'Werkstudent & job guidance',
+      chip: 'CV Format',
+      image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800'
+    },
+    {
+      title: 'Visa Timeline',
+      sub: 'APS, blocked account tracking',
+      chip: '98% Success',
+      image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800'
+    },
   ];
 
+
   return (
-    <div className="flex flex-col gap-3">
-      <div className="grid grid-cols-2 gap-3">
-        <FloatCard {...cards[0]} />
-        <FloatCard {...cards[1]} />
+    <>
+      <style>{floatingStyles}</style>
+
+      <div className="mx-auto w-full max-w-[620px] px-2">
+
+
+        {/* Top */}
+        <div className="flex justify-center mb-6">
+
+          <FloatCard
+            {...cards[0]}
+            className="animate-float w-[85%]"
+            style={{ animationDelay: '0s' }}
+          />
+
+        </div>
+
+
+
+        {/* Middle */}
+        <div className="grid grid-cols-2 gap-5 mb-4">
+
+          <FloatCard
+            {...cards[1]}
+            className="animate-float"
+            style={{ animationDelay: '1.2s' }}
+          />
+
+          <FloatCard
+            {...cards[2]}
+            className="animate-float"
+            style={{ animationDelay: '2.2s' }}
+          />
+
+        </div>
+
+
+
+        {/* Bottom */}
+        <div className="grid grid-cols-2 gap-3">
+
+          <FloatCard
+            {...cards[3]}
+            className="animate-float"
+            style={{ animationDelay: '3s' }}
+          />
+
+          <FloatCard
+            {...cards[4]}
+            className="animate-float"
+            style={{ animationDelay: '4s' }}
+          />
+
+        </div>
+
+
       </div>
-      <FloatCard {...cards[2]} className="w-full" />
-      <div className="grid grid-cols-2 gap-3">
-        <FloatCard {...cards[3]} />
-        <FloatCard {...cards[4]} />
-      </div>
-    </div>
+    </>
   );
 }
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 export default function Hero() {
-  const birdsRef    = useRef<HTMLDivElement>(null);
+  const birdsRef = useRef<HTMLDivElement>(null);
   const birdsEffect = useRef<VantaEffect | null>(null);
 
   const { resolvedTheme } = useTheme();
@@ -171,7 +268,7 @@ export default function Hero() {
   const textPanelStyle: CSSProperties = {
     background: (!mounted || isDark)
       ? 'rgba(6, 18, 38, 0.82)'
-      : 'rgba(8, 30, 65, 0.75)',
+      : 'rgba(4, 1, 1, 0.75)',
     borderRight: (!mounted || isDark)
       ? '1px solid rgba(74,144,217,0.15)'
       : '1px solid rgba(74,144,217,0.20)',
@@ -273,7 +370,7 @@ export default function Hero() {
 
           {/* Left — text panel bleeding from screen edge */}
           <div
-            className="flex flex-col items-start text-left px-8 py-10 sm:px-10 sm:py-12 md:px-12 md:py-14 lg:px-16 lg:py-16 xl:px-20 xl:py-20"
+            className="flex flex-col items-start text-left px-8 py-10 sm:px-10 sm:py-12 md:px-12 md:py-14 lg:px-16 lg:py-16 xl:px-20 xl:py-10"
             style={textPanelStyle}
           >
             <span
@@ -318,6 +415,36 @@ export default function Hero() {
               >
                 Explore Germany
               </a>
+            </div>
+
+            {/* Social Contact Links */}
+            <div className="mt-8 flex items-center gap-4">
+
+              <a href="#" aria-label="WhatsApp" className="group flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#25D366] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_0_30px_rgba(37,211,102,0.5)]">
+                <FaWhatsapp className="text-3xl" />
+              </a>
+
+              <a href="mailto:yourmail@example.com" aria-label="Email" className="group flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#EA4335] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_0_30px_rgba(234,67,53,0.5)]">
+                <FaEnvelope className="text-3xl" />
+              </a>
+
+              <a href="#" aria-label="YouTube" className="group flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#FF0000] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,0,0,0.5)]">
+                <FaYoutube className="text-3xl" />
+              </a>
+
+              <a href="#" aria-label="Instagram" className="group flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#E4405F] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_0_30px_rgba(228,64,95,0.5)]">
+                <FaInstagram className="text-3xl" />
+              </a>
+
+              <a href="#" aria-label="LinkedIn" className="group flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#0A66C2] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_0_30px_rgba(10,102,194,0.5)]">
+                <FaLinkedin className="text-3xl" />
+              </a>
+
+              <div className="ml-2 hidden sm:block text-sm text-white/70 leading-tight">
+                <div className="font-semibold text-white">Connect with us</div>
+                <div>Get guidance instantly</div>
+              </div>
+
             </div>
           </div>
 
