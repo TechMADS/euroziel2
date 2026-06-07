@@ -34,8 +34,8 @@ export default function FloatingThemeToggle({ inline = false, className = '' }: 
         ...(inline
           ? {}
           : {
-            top: '20px',
-            right: '24px',
+            top: '24px',
+            right: '28px',
           }),
         background: isDark
           ? 'radial-gradient(circle at 35% 35%, #334155, #020617)'

@@ -134,8 +134,8 @@ export default function FloatingNavbar() {
           </div>
         </Link>
 
-        <div className="flex items-center gap-2">
-          <FloatingThemeToggle inline className="md:hidden" />
+        <div className="flex items-center gap-3">
+          <FloatingThemeToggle inline className="scale-90"/>
 
           {/* Hamburger */}
           <button

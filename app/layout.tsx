@@ -51,7 +51,9 @@ export default function RootLayout({
         <Providers>
           <FloatingLogo />
           <FloatingNavbar />
-          <FloatingThemeToggle inline className="lg:hidden" />
+
+          <FloatingThemeToggle className="hidden lg:flex" />
+
           {children}
         </Providers>
       </body>
