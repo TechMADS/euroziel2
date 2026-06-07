@@ -176,42 +176,82 @@ export default function Hero() {
           <div className="hidden md:flex flex-col items-center justify-center px-10 lg:px-16 xl:px-20 gap-8">
             {/* Flow text ticker */}
             <div className="w-full max-w-sm">
-              <div className="rounded-2xl overflow-hidden"
-                style={{ border: '1px solid rgba(74,144,217,0.22)', background: 'rgba(6,22,40,0.72)', backdropFilter: 'blur(12px)' }}>
+              <div
+                className="rounded-2xl overflow-hidden relative"
+                style={{
+                  border: '1px solid rgba(74,144,217,0.22)',
+                  background:
+                    'linear-gradient(rgba(6,22,40,0.78),rgba(6,22,40,0.92)), url("https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80")',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backdropFilter: 'blur(12px)'
+                }}
+              >
+
                 {/* Header */}
-                <div className="px-5 py-3 flex items-center gap-2"
-                  style={{ borderBottom: '1px solid rgba(74,144,217,0.15)', background: 'rgba(74,144,217,0.08)' }}>
-                  <div className="w-2 h-2 rounded-full" style={{ background: '#4A90D9' }} />
-                  <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: 'rgba(200,220,245,0.6)' }}>
+                <div
+                  className="px-5 py-3 flex items-center gap-2"
+                  style={{
+                    borderBottom: '1px solid rgba(74,144,217,0.15)',
+                    background: 'rgba(74,144,217,0.08)'
+                  }}
+                >
+                  <div
+                    className="w-2 h-2 rounded-full"
+                    style={{ background: '#4A90D9' }}
+                  />
+
+                  <span
+                    className="text-[11px] font-semibold tracking-widest uppercase"
+                    style={{ color: 'rgba(200,220,245,0.6)' }}
+                  >
                     Why EuroZiel
                   </span>
+
                 </div>
+
+
                 {/* Animated lines */}
                 <div className="px-5 py-5 min-h-[72px] flex items-center">
-                  <style>{`
-                    @keyframes flowIn {
-                      0% { opacity:0; transform: translateY(14px); }
-                      15% { opacity:1; transform: translateY(0); }
-                      80% { opacity:1; transform: translateY(0); }
-                      100% { opacity:0; transform: translateY(-10px); }
-                    }
-                    .flow-line { animation: flowIn 2.8s ease-in-out forwards; }
-                  `}</style>
+
                   {FLOW_LINES.map((line, i) => (
-                    <p key={i}
+                    <p
+                      key={i}
                       className={`flow-line text-[15px] font-medium leading-relaxed absolute ${i === activeFlow ? 'block' : 'hidden'}`}
-                      style={{ color: '#f0f6ff', position: i === activeFlow ? 'relative' : 'absolute' }}>
+                      style={{
+                        color: '#f0f6ff',
+                        position: i === activeFlow ? 'relative' : 'absolute'
+                      }}
+                    >
                       {line}
                     </p>
                   ))}
+
                 </div>
+
                 {/* Dot progress */}
                 <div className="px-5 pb-4 flex gap-1.5">
+
                   {FLOW_LINES.map((_, i) => (
-                    <div key={i} className="rounded-full transition-all duration-500"
-                      style={{ height: 4, width: i === activeFlow ? 20 : 6, background: i === activeFlow ? '#4A90D9' : 'rgba(74,144,217,0.25)' }} />
+
+                    <div
+                      key={i}
+                      className="rounded-full transition-all duration-500"
+                      style={{
+                        height: 4,
+                        width: i === activeFlow ? 20 : 6,
+                        background:
+                          i === activeFlow
+                            ? '#4A90D9'
+                            : 'rgba(74,144,217,0.25)'
+                      }}
+                    />
+
                   ))}
+
                 </div>
+
+
               </div>
             </div>
 

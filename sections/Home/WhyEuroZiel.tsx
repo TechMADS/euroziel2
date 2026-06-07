@@ -20,14 +20,14 @@ export default function WhyEuroZiel() {
   const cardBorder = isDark ? 'rgba(74,144,217,0.18)' : 'rgba(74,144,217,0.28)';
 
   return (
-    <section className="relative min-h-screen flex items-center py-20 overflow-hidden" style={{ background: sectionBg }}>
+    <section className="relative h-screen flex items-center overflow-hidden py-8" style={{ background: sectionBg }}>
       {/* Grid texture */}
       <div className="pointer-events-none absolute inset-0" style={{
         backgroundImage: 'linear-gradient(rgba(74,144,217,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(74,144,217,0.04) 1px,transparent 1px)',
         backgroundSize: '56px 56px',
       }} />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
         <div className="flex justify-center mb-6">
           <span className="inline-block text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"
             style={{ background: 'rgba(74,144,217,0.15)', border: '1px solid rgba(74,144,217,0.35)', letterSpacing: '0.15em', color: '#ffd97d' }}>
@@ -35,7 +35,8 @@ export default function WhyEuroZiel() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 xl:gap-12 items-center">
 
           {/* Image */}
           <div className="relative order-2 lg:order-1">
@@ -45,8 +46,15 @@ export default function WhyEuroZiel() {
               style={{ border: `1px solid ${imageBorder}`, boxShadow: isDark ? '0 24px 64px rgba(0,0,0,0.55)' : '0 24px 64px rgba(74,144,217,0.18)' }}>
               <div className="absolute inset-0 z-10 pointer-events-none"
                 style={{ background: 'linear-gradient(135deg,rgba(6,22,40,0.55) 0%,rgba(6,22,40,0.15) 100%)' }} />
-              <Image src="/images/home/why-euroziel.jpg" alt="EuroZiel guidance" width={680} height={520}
-                className="w-full h-auto object-cover" style={{ display: 'block', minHeight: 340, objectFit: 'cover' }} />
+              {/* <Image src="/images/home/why-euroziel.jpg" alt="EuroZiel guidance" width={680} height={520}
+                className="w-full h-auto object-cover" style={{ display: 'block', minHeight: 340, objectFit: 'cover' }} /> */}
+              <Image
+                src="/images/home/why-euroziel.jpg"
+                alt="EuroZiel guidance"
+                width={680}
+                height={520}
+                className="w-full h-[320px] lg:h-[420px] object-cover"
+              />
 
               {[
                 { val: '100%', label: 'Germany-Focused', accent: '#4A90D9', pos: 'bottom-5 left-5' },
@@ -63,19 +71,19 @@ export default function WhyEuroZiel() {
 
           {/* Text */}
           <div className="order-1 lg:order-2 stagger-children">
-            <h2 className="font-bold leading-tight mb-5" style={{ fontSize: 'clamp(26px,3.5vw,48px)', color: textColor }}>
+            <h2 className="font-bold leading-tight mb-3" style={{ fontSize: 'clamp(26px,3.5vw,48px)', color: textColor }}>
               More Than a Consultancy.{' '}
               <span style={{ color: '#4A90D9' }}>A Real Bridge</span> to Germany.
             </h2>
 
-            <p className="leading-relaxed mb-6" style={{ fontSize: 'clamp(14px,1.1vw,17px)', color: textSub, maxWidth: '54ch' }}>
+            <p className="leading-relaxed mb-4" style={{ fontSize: 'clamp(14px,1.1vw,17px)', color: textSub, maxWidth: '54ch' }}>
               EuroZiel was founded to give students access to guidance that is honest, Germany-focused,
               and built on real experience — not generic consultancy advice. We saw too many capable
               students lose opportunities because they were given copied strategies, unrealistic
               expectations, and little understanding of how the German system actually works.
             </p>
 
-            <p className="leading-relaxed mb-8" style={{ fontSize: 'clamp(14px,1.1vw,17px)', color: textSub, maxWidth: '54ch' }}>
+            <p className="leading-relaxed mb-4" style={{ fontSize: 'clamp(14px,1.1vw,17px)', color: textSub, maxWidth: '54ch' }}>
               That is why EuroZiel combines structured consultancy with direct insight from students
               currently studying at German public universities, Indian professionals working across
               Europe, and domain-specific mentors who understand your academic and career pathway.
@@ -83,7 +91,7 @@ export default function WhyEuroZiel() {
             </p>
 
             {/* Key points */}
-            <div className="space-y-3 mb-8">
+            <div className="space-y-2 mb-5">
               {[
                 'Guidance from students currently in German universities',
                 'Domain-specific mentors who know your field and career path',
