@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -80,13 +80,21 @@ export default function Journey() {
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const dark = resolvedTheme !== "light";
-
+  // ✅ Fix hydration mismatch
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // ⚠️ IMPORTANT: hooks must always run before returns
+  const dark = resolvedTheme === "dark";
+
+  // GSAP animations
+  useEffect(() => {
+    if (!mounted) return;
 
     const path = pathRef.current;
-
     if (!path) return;
 
     const length = path.getTotalLength();
@@ -107,35 +115,39 @@ export default function Journey() {
         }
       });
 
-      cardsRef.current.forEach((card, i) => {
+      cardsRef.current.forEach((card) => {
         if (!card) return;
+
         gsap.fromTo(
           card,
           {
             opacity: 0,
             y: 100,
-            scale: .9
+            scale: 0.9
           },
           {
             opacity: 1,
             y: 0,
             scale: 1,
             duration: 1,
-
             scrollTrigger: {
               trigger: card,
-              start: "top 75%",
-              end: "top 35%",
+              start: "top 80%",
+              end: "top 40%",
               scrub: true
             }
           }
-        )
+        );
       });
+
     }, sectionRef);
 
     return () => ctx.revert();
 
-  }, []);
+  }, [mounted]);
+
+  // ✅ prevent hydration mismatch render
+  if (!mounted) return null;
 
   return (
     <section
@@ -148,6 +160,8 @@ export default function Journey() {
       }}
     >
       <div className="max-w-6xl mx-auto px-6">
+
+        {/* HEADER */}
         <div className="text-center mb-24">
           <h2
             className="font-bold text-[clamp(32px,5vw,60px)]"
@@ -155,21 +169,22 @@ export default function Journey() {
               color: dark ? "white" : "#1a2a4a"
             }}
           >
-            Six Steps To
-            <span style={{ color: "#4A90D9" }}>
-              Germany
-            </span>
+            Six Steps To{" "}
+            <span style={{ color: "#4A90D9" }}>Germany</span>
           </h2>
+
           <p
             className="mt-4"
             style={{
-              color: "rgba(170,190,220,.8)"
+              color: dark ? "rgba(170,190,220,.8)" : "rgba(50,70,100,.7)"
             }}
           >
             A guided journey from dream to destination.
           </p>
         </div>
+
         <div className="relative">
+
           {/* CURVED ROAD */}
           <svg
             className="absolute left-1/2 -translate-x-1/2 top-32 hidden md:block"
@@ -187,73 +202,76 @@ export default function Journey() {
               opacity=".7"
             />
           </svg>
-          <div className="space-y-32">
-            {
-              steps.map((step, i) => {
-                const left = i % 2 === 0;
-                return (
-                  <div
-                    key={step.number}
-                    ref={(el) => {
-                      cardsRef.current[i] = el;
-                    }}
-                    className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${left ? "" : "md:[&>*:first-child]:order-2"}`}
-                  >
-                    <div>
-                      <div
-                        className="relative rounded-3xl overflow-hidden min-h-[340px]"
-                        style={{
-                          backgroundImage:
-                            `linear-gradient(180deg,rgba(4,17,31,.25),rgba(4,17,31,.9)),url(${step.image})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
 
-                          boxShadow:
-                            `0 30px 80px ${step.accent}33`
-                        }}
-                      >
-                        <div className="p-8 h-full flex flex-col justify-end">
-                          <div
-                            className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
-                            style={{
-                              background: `${step.accent}33`,
-                              backdropFilter: "blur(10px)"
-                            }}
-                          >
-                            <step.Icon
-                              color={step.accent}
-                              size={28}
-                            />
-                          </div>
-                          <h3
-                            className="text-3xl font-bold text-white"
-                          >
-                            {step.title}
-                          </h3>
-                          <p className="mt-3 text-white/70">
-                            {step.description}
-                          </p>
+          <div className="space-y-32">
+
+            {steps.map((step, i) => {
+              const left = i % 2 === 0;
+
+              return (
+                <div
+                  key={step.number}
+                  ref={(el) => {
+                    cardsRef.current[i] = el;
+                  }}
+                  className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${
+                    left ? "" : "md:[&>*:first-child]:order-2"
+                  }`}
+                >
+
+                  {/* CARD */}
+                  <div>
+                    <div
+                      className="relative rounded-3xl overflow-hidden min-h-[340px]"
+                      style={{
+                        backgroundImage:
+                          `linear-gradient(180deg,rgba(4,17,31,.25),rgba(4,17,31,.9)),url(${step.image})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        boxShadow: `0 30px 80px ${step.accent}33`
+                      }}
+                    >
+                      <div className="p-8 h-full flex flex-col justify-end">
+
+                        <div
+                          className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                          style={{
+                            background: `${step.accent}33`,
+                            backdropFilter: "blur(10px)"
+                          }}
+                        >
+                          <step.Icon color={step.accent} size={28} />
                         </div>
+
+                        <h3 className="text-3xl font-bold text-white">
+                          {step.title}
+                        </h3>
+
+                        <p className="mt-3 text-white/70">
+                          {step.description}
+                        </p>
+
                       </div>
                     </div>
-
-                    <div className="hidden md:block" />
-
-                    {/* glowing point */}
-                    <div
-                      className="absolute left-1/2 hidden md:block w-5 h-5 rounded-full -translate-x-1/2"
-                      style={{
-                        background: step.accent,
-                        boxShadow: `0 0 30px ${step.accent}`
-                      }}
-                    />
                   </div>
-                )
-              })
-            }
+
+                  <div className="hidden md:block" />
+
+                  {/* GLOW DOT */}
+                  <div
+                    className="absolute left-1/2 hidden md:block w-5 h-5 rounded-full -translate-x-1/2"
+                    style={{
+                      background: step.accent,
+                      boxShadow: `0 0 30px ${step.accent}`
+                    }}
+                  />
+                </div>
+              );
+            })}
+
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
