@@ -194,7 +194,9 @@ export default function Journey() {
                 return (
                   <div
                     key={step.number}
-                    ref={el => cardsRef.current[i] = el}
+                    ref={(el) => {
+                      cardsRef.current[i] = el;
+                    }}
                     className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${left ? "" : "md:[&>*:first-child]:order-2"}`}
                   >
                     <div>
