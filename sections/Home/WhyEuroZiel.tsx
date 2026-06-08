@@ -20,7 +20,7 @@ export default function WhyEuroZiel() {
   const cardBorder = isDark ? 'rgba(74,144,217,0.18)' : 'rgba(74,144,217,0.28)';
 
   return (
-    <section className="relative h-screen flex items-center overflow-hidden py-8" style={{ background: sectionBg }}>
+    <section className="relative h-screen flex items-center overflow-hidden pt-16 pb-2" style={{ background: sectionBg }}>
       {/* Grid texture */}
       <div className="pointer-events-none absolute inset-0" style={{
         backgroundImage: 'linear-gradient(rgba(74,144,217,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(74,144,217,0.04) 1px,transparent 1px)',
@@ -28,12 +28,12 @@ export default function WhyEuroZiel() {
       }} />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
-        <div className="flex justify-center mb-6">
+        {/* <div className="flex justify-center mb-6">
           <span className="inline-block text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"
             style={{ background: 'rgba(74,144,217,0.15)', border: '1px solid rgba(74,144,217,0.35)', letterSpacing: '0.15em', color: '#ffd97d' }}>
             Why EuroZiel
           </span>
-        </div>
+        </div> */}
 
         <div
           className="grid grid-cols-1 lg:grid-cols-2 gap-6 xl:gap-12 items-center">
@@ -49,8 +49,8 @@ export default function WhyEuroZiel() {
               {/* <Image src="/images/home/why-euroziel.jpg" alt="EuroZiel guidance" width={680} height={520}
                 className="w-full h-auto object-cover" style={{ display: 'block', minHeight: 340, objectFit: 'cover' }} /> */}
               <Image
-                src="/images/home/why-euroziel.jpg"
-                alt="EuroZiel guidance"
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&q=80"
+                alt="Students planning their Germany education journey"
                 width={680}
                 height={520}
                 className="w-full h-[320px] lg:h-[420px] object-cover"
@@ -108,7 +108,7 @@ export default function WhyEuroZiel() {
             </div>
 
             {/* CTA */}
-            <a href="#get-started"
+            {/* <a href="#get-started"
               className="inline-flex items-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-7 text-sm"
               style={{ background: '#4A90D9', color: '#ffffff', boxShadow: '0 4px 20px rgba(74,144,217,0.40)' }}
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(74,144,217,0.55)'; }}
@@ -117,7 +117,7 @@ export default function WhyEuroZiel() {
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

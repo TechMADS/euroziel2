@@ -110,9 +110,9 @@ export default function Hero() {
 
           {/* Left panel */}
           <div className="flex flex-col items-start text-left px-8 py-10 sm:px-10 md:px-12 lg:px-16 xl:px-20" style={textPanelStyle}>
-            <span className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-3 py-1 sm:px-4 sm:py-1.5 rounded-full" style={eyebrowStyle}>
+            {/* <span className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-3 py-1 sm:px-4 sm:py-1.5 rounded-full" style={eyebrowStyle}>
               Germany&apos;s Trusted Student Bridge
-            </span>
+            </span> */}
 
             <h1 className="font-bold mb-4 leading-[1.12] tracking-tight text-[clamp(20px,3.2vw,50px)]" style={{ color: '#f0f6ff' }}>
               Your bridge from India<br />to Germany,{' '}
