@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState, CSSProperties, MouseEvent } from 'react';
 import { useTheme } from 'next-themes';
 import { FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
+import { openEnquiryModal } from '@/lib/enquiryModal';
 
 interface VantaEffect { destroy: () => void; }
 
@@ -136,13 +137,14 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-3 mb-6">
-              <a href="#get-started"
+              <button
+                onClick={openEnquiryModal}
                 className="inline-flex items-center gap-2 font-semibold rounded-full transition-all duration-300 py-2.5 px-6 text-sm"
                 style={{ background: 'var(--accent-gold,#ffd97d)', color: '#1a1200', boxShadow: '0 4px 24px rgba(255,217,125,0.45)' }}
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(255,217,125,0.6)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(255,217,125,0.45)'; }}>
                 Book a Free Consultation
-              </a>
+              </button>
               <a href="#how-it-works"
                 className="inline-flex items-center gap-2 font-semibold rounded-full transition-all duration-300 py-2.5 px-6 text-sm"
                 style={{ background: 'rgba(255,255,255,0.08)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.25)' }}
@@ -273,13 +275,14 @@ export default function Hero() {
                 <div className="text-[13px] font-semibold" style={{ color: '#ffd97d' }}>Free Consultation</div>
                 <div className="text-[11px]" style={{ color: 'rgba(200,220,245,0.6)' }}>Limited slots available</div>
               </div>
-              <a href="#get-started"
+              <button
+                onClick={openEnquiryModal}
                 className="rounded-full px-4 py-2 text-[12px] font-bold transition-all duration-200"
                 style={{ background: '#ffd97d', color: '#1a1200' }}
                 onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.05)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; }}>
                 Book Now →
-              </a>
+              </button>
             </div>
           </div>
 

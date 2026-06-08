@@ -46,7 +46,7 @@ const EMPTY: FormData = { name: '', email: '', phone: '', course: '', budget: ''
 
 function hexToRgb(hex: string) {
   const h = hex.replace('#', '');
-  return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)].join(',');
+  return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)].join(',');
 }
 
 export default function EnquiryModal() {
@@ -61,18 +61,29 @@ export default function EnquiryModal() {
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
+  // Add this near the top of the file, below imports
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzbSFHQqPwUvxHgdesX8HAV_VdIlkvWc_N4c8_c6DpniqQ4uHCAasaXojRBp4Q8xMyTTg/exec';
 
   useEffect(() => { setMounted(true); }, []);
 
-  // 20-second trigger
   useEffect(() => {
+    // 20-second auto-trigger
     const already = sessionStorage.getItem('ez_modal_shown');
-    if (already) return;
-    timerRef.current = setTimeout(() => {
-      setOpen(true);
-      sessionStorage.setItem('ez_modal_shown', '1');
-    }, 20000);
-    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+    if (!already) {
+      timerRef.current = setTimeout(() => {
+        setOpen(true);
+        sessionStorage.setItem('ez_modal_shown', '1');
+      }, 20000);
+    }
+
+    // Manual trigger from any button
+    const handleOpen = () => setOpen(true);
+    window.addEventListener('open-enquiry-modal', handleOpen);
+
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      window.removeEventListener('open-enquiry-modal', handleOpen);
+    };
   }, []);
 
   const isDark = mounted ? resolvedTheme === 'dark' : true;
@@ -117,9 +128,39 @@ export default function EnquiryModal() {
 
   async function handleSubmit() {
     setSubmitting(true);
-    await new Promise(r => setTimeout(r, 1400));
-    setSubmitting(false);
-    setSubmitted(true);
+    setErrors({});
+
+    try {
+      const payload = {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim(),
+        course: form.course,
+        budget: form.budget,
+        timeline: form.timeline,
+        message: form.message.trim(),
+      };
+
+      const res = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        // Apps Script requires text/plain for CORS — JSON is parsed server-side
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        setSubmitted(true);
+      } else {
+        throw new Error(json.error || 'Submission failed');
+      }
+    } catch (err) {
+      console.error('Enquiry submission error:', err);
+      setErrors({ message: 'Something went wrong. Please try WhatsApp or email us directly.' });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   function close() {
@@ -283,7 +324,7 @@ export default function EnquiryModal() {
                     style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.18)', color: textSub }}>
                     Close
                   </button>
-                  <a href="https://wa.me/your-number" target="_blank" rel="noopener noreferrer"
+                  <a href="https://wa.me/916382619604" target="_blank" rel="noopener noreferrer"
                     className="flex-1 rounded-full py-2.5 text-[13px] font-semibold text-center transition-all duration-200"
                     style={{ background: '#25D366', color: '#fff' }}>
                     Chat on WhatsApp
@@ -475,6 +516,14 @@ export default function EnquiryModal() {
                     <p className="text-[11px]" style={{ color: textSub }}>
                       By submitting, you agree to be contacted by EuroZiel. No spam, ever.
                     </p>
+                  </div>
+                )}
+
+                {/* Below the textarea in Step 3, add: */}
+                {errors.message && (
+                  <div className="rounded-xl px-4 py-3"
+                    style={{ background: 'rgba(248,113,113,0.10)', border: '1px solid rgba(248,113,113,0.30)' }}>
+                    <p className="text-[13px]" style={{ color: '#f87171' }}>{errors.message}</p>
                   </div>
                 )}
 
