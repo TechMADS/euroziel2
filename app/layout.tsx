@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import FloatingLogo from "@/components/FloatingLogo";
 import FloatingNavbar from "@/components/FloatingNavbar";
 import EnquiryModal from "@/components/EnquiryModal";
+import ClientLayout from "@/components/ClientLayout";
 
 // ── Only load fonts actually used in globals.css ──────────────
 const figtree = Figtree({
@@ -20,8 +21,6 @@ const libreBaskerville = Libre_Baskerville({
   weight: ['400', '700'],
   variable: '--font-baskerville',
 });
-
-// ── Remove: geistSans, geistMono, inter — not referenced in globals.css
 
 export const metadata: Metadata = {
   title: "EuroZiel — Your Bridge from India to Germany",
@@ -39,7 +38,7 @@ export default function RootLayout({
         figtree.variable,
         libreBaskerville.variable,
       )}
-      suppressHydrationWarning  // needed because data-theme is set client-side
+      suppressHydrationWarning
     >
       <head>
         <style>{`
@@ -50,12 +49,9 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <Providers>
-          <FloatingLogo />
-          <FloatingNavbar />
-
-          <FloatingThemeToggle className="hidden lg:flex" />
-
-          {children}
+          <ClientLayout>
+            {children}
+          </ClientLayout>
           <EnquiryModal />
         </Providers>
       </body>

@@ -78,6 +78,7 @@ export default function Journey() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const timelineRef = useRef<HTMLDivElement>(null);
 
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -95,7 +96,9 @@ export default function Journey() {
     if (!mounted) return;
 
     const path = pathRef.current;
-    if (!path) return;
+    const timeline = timelineRef.current;
+
+    if (!path || !timeline) return;
 
     const length = path.getTotalLength();
 
@@ -107,38 +110,40 @@ export default function Journey() {
       gsap.to(path, {
         strokeDashoffset: 0,
         ease: "none",
+
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1.2
+          trigger: timeline,
+          start: "top center",
+          end: "bottom center",
+          scrub: 0.4,
         }
       });
 
       cardsRef.current.forEach((card) => {
+
         if (!card) return;
 
         gsap.fromTo(
           card,
           {
             opacity: 0,
-            y: 100,
-            scale: 0.9
+            y: 120,
+            scale: .96
           },
           {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 1,
+
             scrollTrigger: {
               trigger: card,
-              start: "top 80%",
-              end: "top 40%",
-              scrub: true
+              start: "top 75%",
+              end: "top 35%",
+              scrub: .5
             }
           }
-        );
-      });
+        )
+      })
 
     }, sectionRef);
 
@@ -189,13 +194,14 @@ export default function Journey() {
           <svg
             className="absolute left-1/2 -translate-x-1/2 top-32 hidden md:block"
             width="500"
-            height="1800"
-            viewBox="0 0 500 1800"
+            height="100%"
+            viewBox="0 0 500 2600"
+            preserveAspectRatio="none"
             fill="none"
           >
             <path
               ref={pathRef}
-              d="M250 120 C80 150 420 300 250 500 C70 700 430 850 250 1050 C80 1250 420 1450 250 1800"
+              d="M250 120 C80 300 420 500 250 750 C70 1000 430 1200 250 1500 C80 1800 420 2200 250 2500"
               stroke="#4A90D9"
               strokeWidth="5"
               strokeLinecap="round"
@@ -203,7 +209,10 @@ export default function Journey() {
             />
           </svg>
 
-          <div className="space-y-32">
+          <div
+            ref={timelineRef}
+            className="space-y-40 relative"
+          >
 
             {steps.map((step, i) => {
               const left = i % 2 === 0;
@@ -214,57 +223,152 @@ export default function Journey() {
                   ref={(el) => {
                     cardsRef.current[i] = el;
                   }}
-                  className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${
-                    left ? "" : "md:[&>*:first-child]:order-2"
-                  }`}
+                  className="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
                 >
 
-                  {/* CARD */}
-                  <div>
-                    <div
-                      className="relative rounded-3xl overflow-hidden min-h-[340px]"
-                      style={{
-                        backgroundImage:
-                          `linear-gradient(180deg,rgba(4,17,31,.25),rgba(4,17,31,.9)),url(${step.image})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        boxShadow: `0 30px 80px ${step.accent}33`
-                      }}
-                    >
-                      <div className="p-8 h-full flex flex-col justify-end">
-
-                        <div
-                          className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                  {/* LEFT SIDE */}
+                  {left ? (
+                    <>
+                      {/* GIANT NUMBER */}
+                      <div
+                        className="hidden md:flex items-center justify-end"
+                      >
+                        <span
+                          className="font-black text-[220px] leading-none select-none"
                           style={{
-                            background: `${step.accent}33`,
-                            backdropFilter: "blur(10px)"
+                            color: dark
+                              ? "rgba(255,255,255,.06)"
+                              : "rgba(74,144,217,.12)"
                           }}
                         >
-                          <step.Icon color={step.accent} size={28} />
+                          {step.number}
+                        </span>
+                      </div>
+
+
+                      {/* CARD */}
+                      <div>
+                        <div
+                          className="relative rounded-3xl overflow-hidden min-h-[340px]"
+                          style={{
+                            backgroundImage:
+                              `linear-gradient(180deg,rgba(4,17,31,.25),rgba(4,17,31,.9)),url(${step.image})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            boxShadow: `0 30px 80px ${step.accent}33`
+                          }}
+                        >
+
+                          <div className="p-8 h-full flex flex-col justify-end">
+
+                            <div
+                              className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                              style={{
+                                background: `${step.accent}33`,
+                                backdropFilter: "blur(10px)"
+                              }}
+                            >
+                              <step.Icon
+                                color={step.accent}
+                                size={28}
+                              />
+                            </div>
+
+
+                            <h3 className="text-3xl font-bold text-white">
+                              {step.title}
+                            </h3>
+
+                            <p className="mt-3 text-white/70">
+                              {step.description}
+                            </p>
+
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+
+                    <>
+
+                      {/* CARD */}
+                      <div>
+
+                        <div
+                          className="relative rounded-3xl overflow-hidden min-h-[340px]"
+                          style={{
+                            backgroundImage:
+                              `linear-gradient(180deg,rgba(4,17,31,.25),rgba(4,17,31,.9)),url(${step.image})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            boxShadow: `0 30px 80px ${step.accent}33`
+                          }}
+                        >
+
+                          <div className="p-8 h-full flex flex-col justify-end">
+
+
+                            <div
+                              className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                              style={{
+                                background: `${step.accent}33`,
+                                backdropFilter: "blur(10px)"
+                              }}
+                            >
+                              <step.Icon
+                                color={step.accent}
+                                size={28}
+                              />
+                            </div>
+
+
+                            <h3 className="text-3xl font-bold text-white">
+                              {step.title}
+                            </h3>
+
+
+                            <p className="mt-3 text-white/70">
+                              {step.description}
+                            </p>
+
+                          </div>
+
                         </div>
 
-                        <h3 className="text-3xl font-bold text-white">
-                          {step.title}
-                        </h3>
+                      </div>
 
-                        <p className="mt-3 text-white/70">
-                          {step.description}
-                        </p>
+
+                      {/* GIANT NUMBER */}
+                      <div
+                        className="hidden md:flex items-center justify-start"
+                      >
+
+                        <span
+                          className="font-black text-[220px] leading-none select-none"
+                          style={{
+                            color: dark
+                              ? "rgba(255,255,255,.06)"
+                              : "rgba(74,144,217,.12)"
+                          }}
+                        >
+                          {step.number}
+                        </span>
 
                       </div>
-                    </div>
-                  </div>
 
-                  <div className="hidden md:block" />
+                    </>
+                  )}
 
-                  {/* GLOW DOT */}
+
+                  {/* CENTER DOT */}
                   <div
-                    className="absolute left-1/2 hidden md:block w-5 h-5 rounded-full -translate-x-1/2"
+                    className="absolute left-1/2 top-1/2 hidden md:block w-5 h-5 rounded-full -translate-x-1/2"
                     style={{
                       background: step.accent,
                       boxShadow: `0 0 30px ${step.accent}`
                     }}
                   />
+
                 </div>
               );
             })}
