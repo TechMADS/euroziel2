@@ -71,8 +71,8 @@ export default function Home() {
       <div className="scroll-section"><Journey /></div>
       <div className="section-rule" />
       <div className="scroll-section"><Testimonials /></div>
-      <div className="section-rule" />
-      <div className="scroll-section"><FinalCTA /></div>
+      {/* <div className="section-rule" /> */}
+      {/* <div className="scroll-section"><FinalCTA /></div> */}
     </>
   );
 }

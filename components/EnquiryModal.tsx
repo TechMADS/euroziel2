@@ -324,7 +324,7 @@ export default function EnquiryModal() {
                     style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.18)', color: textSub }}>
                     Close
                   </button>
-                  <a href="https://wa.me/916382619604" target="_blank" rel="noopener noreferrer"
+                  <a href="https://wa.me/917598969875" target="_blank" rel="noopener noreferrer"
                     className="flex-1 rounded-full py-2.5 text-[13px] font-semibold text-center transition-all duration-200"
                     style={{ background: '#25D366', color: '#fff' }}>
                     Chat on WhatsApp

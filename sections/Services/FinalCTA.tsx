@@ -37,7 +37,7 @@ function Reveal({ children, delay = 0, className = '' }: { children: React.React
   );
 }
 
-export default function FinalCTASection() {
+export default function ServicesFinalCTASection() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -61,7 +61,8 @@ export default function FinalCTASection() {
           <div className="relative z-10">
             <p className="text-[13px] font-semibold uppercase tracking-widest mb-5" style={{ color: '#4A90D9' }}>Free Consultation · Limited Slots</p>
             <h2 className="font-serif font-bold mb-5 leading-tight" style={{ fontSize: 'clamp(28px, 4.5vw, 42px)', color: text }}>
-              Ready to start your <span style={{ color: '#FFD97D' }}>Germany journey?</span>
+              Ready to start your{' '}
+              <span style={{ color: '#FFD97D' }}>Germany journey?</span>
             </h2>
             <p className="text-[17px] leading-relaxed mb-10 mx-auto" style={{ color: sub, maxWidth: '44ch' }}>
               Get a free 30-minute consultation with someone who actually knows your domain and the German system — not a generalist reading from a script.

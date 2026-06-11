@@ -52,7 +52,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
   );
 }
 
-export default function HeroSection() {
+export default function ServicesHeroSection() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -76,7 +76,7 @@ export default function HeroSection() {
       />
 
       <Reveal>
-        <Pill isDark={isDark}>ABOUT EUROZIEL</Pill>
+        <Pill isDark={isDark}>OUR SERVICES</Pill>
       </Reveal>
 
       <Reveal delay={80}>
@@ -87,7 +87,7 @@ export default function HeroSection() {
             color: text,
           }}
         >
-          Not a consultancy that{' '}
+          Guided by people{' '}
           <span
             style={{
               background: 'linear-gradient(135deg, #4A90D9, #7ED8A4)',
@@ -96,15 +96,22 @@ export default function HeroSection() {
               backgroundClip: 'text',
             }}
           >
-            read about Germany.
+            already living your dream.
           </span>
-          <br />
-          Connected to people{' '}
-          <span style={{ color: '#FFD97D' }}>living it right now.</span>
         </h1>
       </Reveal>
 
       <Reveal delay={160}>
+        <p
+          className="text-[18px] leading-relaxed mx-auto"
+          style={{ color: sub, maxWidth: '56ch' }}
+        >
+          Our mentors are not sitting in an office in India guessing what Germany is like. 
+          They are there. Right now. And they are part of your team.
+        </p>
+      </Reveal>
+
+      <Reveal delay={240}>
         <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
           <button
             onClick={openEnquiryModal}
@@ -123,7 +130,7 @@ export default function HeroSection() {
               (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(74,144,217,0.38)';
             }}
           >
-            Book Free Consultation →
+            Start Your Journey →
           </button>
           <a
             href="https://wa.me/917598969875"

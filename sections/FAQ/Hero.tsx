@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
-import { openEnquiryModal } from '@/lib/enquiryModal';
 
 function useReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -52,9 +51,20 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
   );
 }
 
-export default function HeroSection() {
+function FAQIcon({ color = '#4A90D9', size = 64 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke={color} strokeWidth="1.5"/>
+      <path d="M9 9C9 7 10 6 12 6C14 6 15 7 15 9C15 11 13 12 13 13" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="12" cy="17" r="0.5" fill={color} stroke={color} strokeWidth="1"/>
+    </svg>
+  );
+}
+
+export default function FAQHeroSection() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  
   useEffect(() => setMounted(true), []);
   
   const isDark = mounted ? resolvedTheme === 'dark' : true;
@@ -64,7 +74,7 @@ export default function HeroSection() {
   if (!mounted) return null;
   
   return (
-    <section className="relative pt-40 pb-24 px-5 sm:px-8 max-w-5xl mx-auto text-center">
+    <section className="relative pt-40 pb-20 px-5 sm:px-8 max-w-5xl mx-auto text-center">
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full pointer-events-none"
         style={{
@@ -76,18 +86,22 @@ export default function HeroSection() {
       />
 
       <Reveal>
-        <Pill isDark={isDark}>ABOUT EUROZIEL</Pill>
+        <Pill isDark={isDark}>FREQUENTLY ASKED QUESTIONS</Pill>
       </Reveal>
 
       <Reveal delay={80}>
+        <div className="flex justify-center mb-6">
+          <FAQIcon color="#4A90D9" size={56} />
+        </div>
         <h1
-          className="font-serif font-bold mt-6 mb-6 leading-[1.2]"
+          className="font-serif font-bold mt-4 mb-6 leading-[1.2]"
           style={{
             fontSize: 'clamp(42px, 7vw, 72px)',
             color: text,
           }}
         >
-          Not a consultancy that{' '}
+          Everything you need to know
+          <br />
           <span
             style={{
               background: 'linear-gradient(135deg, #4A90D9, #7ED8A4)',
@@ -96,57 +110,19 @@ export default function HeroSection() {
               backgroundClip: 'text',
             }}
           >
-            read about Germany.
+            about studying in Germany.
           </span>
-          <br />
-          Connected to people{' '}
-          <span style={{ color: '#FFD97D' }}>living it right now.</span>
         </h1>
       </Reveal>
 
       <Reveal delay={160}>
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
-          <button
-            onClick={openEnquiryModal}
-            className="rounded-full px-8 py-4 text-[16px] font-bold transition-all duration-200 cursor-pointer"
-            style={{
-              background: '#4A90D9',
-              color: '#fff',
-              boxShadow: '0 4px 20px rgba(74,144,217,0.38)',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
-              (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 30px rgba(74,144,217,0.50)';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
-              (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(74,144,217,0.38)';
-            }}
-          >
-            Book Free Consultation →
-          </button>
-          <a
-            href="https://wa.me/917598969875"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full px-8 py-4 text-[16px] font-semibold transition-all duration-200"
-            style={{
-              background: 'rgba(255,255,255,0.07)',
-              border: '1px solid rgba(255,255,255,0.18)',
-              color: sub,
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.color = text;
-              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.13)';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.color = sub;
-              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.07)';
-            }}
-          >
-            Chat on WhatsApp
-          </a>
-        </div>
+        <p
+          className="text-[18px] leading-relaxed mx-auto"
+          style={{ color: sub, maxWidth: '56ch' }}
+        >
+          From Ausbildung and bachelor's to master's, visas, costs, and settling in Germany —
+          answered by people who have actually been through it.
+        </p>
       </Reveal>
     </section>
   );

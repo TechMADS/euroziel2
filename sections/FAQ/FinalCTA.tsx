@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { openEnquiryModal } from '@/lib/enquiryModal';
 
 function useReveal(threshold = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = React.useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const el = ref.current;
@@ -37,9 +37,10 @@ function Reveal({ children, delay = 0, className = '' }: { children: React.React
   );
 }
 
-export default function FinalCTASection() {
+export default function FAQFinalCTASection() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  
   useEffect(() => setMounted(true), []);
   
   const isDark = mounted ? resolvedTheme === 'dark' : true;
@@ -59,12 +60,14 @@ export default function FinalCTASection() {
         }}>
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(74,144,217,0.18) 0%, transparent 70%)' }} aria-hidden />
           <div className="relative z-10">
-            <p className="text-[13px] font-semibold uppercase tracking-widest mb-5" style={{ color: '#4A90D9' }}>Free Consultation · Limited Slots</p>
+            <p className="text-[13px] font-semibold uppercase tracking-widest mb-5" style={{ color: '#4A90D9' }}>Still Have Questions?</p>
             <h2 className="font-serif font-bold mb-5 leading-tight" style={{ fontSize: 'clamp(28px, 4.5vw, 42px)', color: text }}>
-              Ready to start your <span style={{ color: '#FFD97D' }}>Germany journey?</span>
+              Get a free consultation
+              <br />
+              <span style={{ color: '#FFD97D' }}>tailored to your profile.</span>
             </h2>
             <p className="text-[17px] leading-relaxed mb-10 mx-auto" style={{ color: sub, maxWidth: '44ch' }}>
-              Get a free 30-minute consultation with someone who actually knows your domain and the German system — not a generalist reading from a script.
+              Talk to someone who has actually been through the German education system — not a generalist reading from a script.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <button
