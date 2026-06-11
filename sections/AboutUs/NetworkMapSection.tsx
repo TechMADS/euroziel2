@@ -41,6 +41,24 @@ const CONNECTIONS: [number, number][] = [
   [4, 5], [4, 8], [5, 8], [6, 4],
 ];
 
+const CITY_COLORS = [
+  '#E85D75', // Munich - pink-red
+  '#4A90D9', // Aachen - blue
+  '#F5A623', // Berlin - amber
+  '#7ED321', // Hamburg - green
+  '#9B59B6', // Frankfurt - purple
+  '#1ABC9C', // Stuttgart - teal
+  '#E74C3C', // Cologne - red
+  '#3498DB', // Dresden - sky blue
+  '#F39C12', // Heidelberg - orange
+];
+
+const CONNECTION_COLORS = [
+  '#E85D75', '#4A90D9', '#F5A623', '#7ED321',
+  '#9B59B6', '#1ABC9C', '#E74C3C', '#3498DB',
+  '#F39C12', '#E85D75', '#4A90D9', '#F5A623',
+];
+
 const GEO_URL =
   'https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson';
 
@@ -137,20 +155,16 @@ function GermanyNetworkMap({ isDark }: { isDark: boolean }) {
     const svg = svgRef.current;
     if (!svg || !geoData) return;
 
-    const W = svg.clientWidth  || 600;
+    const W = svg.clientWidth || 600;
     const H = svg.clientHeight || 520;
 
-    const mapFill     = isDark ? '#0d2240' : '#ddeaf7';
-    const mapStroke   = isDark ? '#1b3d6b' : '#96bedd';
-    const lineColor   = '#4A90D9';
-    const dotColor    = '#4A90D9';
-    const labelCol    = isDark ? 'rgba(190,215,245,0.9)' : 'rgba(15,45,85,0.85)';
+    const mapFill   = isDark ? '#0d1f3c' : '#c8dff5';
+    const mapStroke = isDark ? '#1e3a5f' : '#7aafd4';
+    const labelCol  = isDark ? 'rgba(230,240,255,0.9)' : 'rgba(10,30,70,0.85)';
 
-    // Fit projection to Germany bounds
     const projection = d3.geoMercator().fitExtent([[32, 24], [W - 32, H - 24]], geoData as any);
     const path = d3.geoPath().projection(projection);
 
-    // Project city coords
     const projected = CITIES.map((c) => ({
       ...c,
       px: projection(c.coordinates)!,
@@ -159,117 +173,118 @@ function GermanyNetworkMap({ isDark }: { isDark: boolean }) {
     const root = d3.select(svg);
     root.selectAll('*').remove();
 
-    // ── Germany fill ──────────────────────────────────────────────────────────
+    // Defs for glow filters
+    const defs = root.append('defs');
+    CITY_COLORS.forEach((color, i) => {
+      const filter = defs.append('filter').attr('id', `glow-${i}`);
+      filter.append('feGaussianBlur').attr('stdDeviation', '3').attr('result', 'blur');
+      filter.append('feComposite').attr('in', 'SourceGraphic').attr('in2', 'blur').attr('operator', 'over');
+    });
+
+    // Germany base fill with a subtle inner region tint
     root.append('path')
       .datum(geoData)
       .attr('d', path as any)
       .attr('fill', mapFill)
       .attr('stroke', mapStroke)
-      .attr('stroke-width', 0.8);
+      .attr('stroke-width', 1.2);
 
-    // ── Connection lines ──────────────────────────────────────────────────────
-    const lineGroup = root.append('g').attr('class', 'connections');
+    // Connection lines — each with its own color
+    const lineGroup = root.append('g');
 
     CONNECTIONS.forEach(([a, b], i) => {
-      const from = projected[a];
-      const to   = projected[b];
+      const from  = projected[a];
+      const to    = projected[b];
+      const color = CONNECTION_COLORS[i];
       const isHov = hovered === from.city || hovered === to.city;
 
       lineGroup.append('line')
-        .attr('class', `conn conn-${from.city} conn-${to.city}`)
         .attr('x1', from.px[0]).attr('y1', from.px[1])
-        .attr('x2', to.px[0])  .attr('y2', to.px[1])
-        .attr('stroke', lineColor)
-        .attr('stroke-width', isHov ? 1.6 : 0.85)
-        .attr('stroke-opacity', isHov ? 0.75 : 0.28)
-        .attr('stroke-dasharray', isHov ? 'none' : '4 5')
-        .style('transition', 'stroke-opacity 0.25s, stroke-width 0.2s')
-        // Animate in with staggered delay
+        .attr('x2', to.px[0]).attr('y2', to.px[1])
+        .attr('stroke', color)
+        .attr('stroke-width', isHov ? 2.0 : 1.0)
+        .attr('stroke-opacity', isHov ? 0.9 : 0.45)
+        .attr('stroke-dasharray', isHov ? 'none' : '5 4')
+        .style('transition', 'all 0.25s')
         .style('opacity', 0)
         .transition()
-        .delay(300 + i * 70)
+        .delay(300 + i * 60)
         .duration(400)
         .style('opacity', 1);
     });
 
-    // ── City markers ──────────────────────────────────────────────────────────
-    const nodeGroup = root.append('g').attr('class', 'cities');
-    const dotRadius = (s: number) => 4 + s * 0.5;
+    // City nodes
+    const nodeGroup = root.append('g');
+    const dotRadius = (s: number) => 5 + s * 0.55;
 
     projected.forEach((city, idx) => {
       const [cx, cy] = city.px;
       const r        = dotRadius(city.students);
+      const color    = CITY_COLORS[idx];
       const isHov    = hovered === city.city;
       const g        = nodeGroup.append('g')
-        .attr('class', 'city-node')
         .attr('cursor', 'pointer')
         .style('opacity', 0);
 
-      // Animate in
-      g.transition().delay(600 + idx * 60).duration(350).style('opacity', 1);
+      g.transition().delay(600 + idx * 65).duration(350).style('opacity', 1);
 
-      // Outer glow ring (always faint, stronger on hover — handled via hovered state re-render)
+      // Outer glow ring
       g.append('circle')
         .attr('cx', cx).attr('cy', cy)
-        .attr('r', r + 7)
-        .attr('fill', dotColor)
-        .attr('fill-opacity', isHov ? 0.14 : 0.06);
+        .attr('r', r + 9)
+        .attr('fill', color)
+        .attr('fill-opacity', isHov ? 0.20 : 0.08);
 
       // Mid ring
       g.append('circle')
         .attr('cx', cx).attr('cy', cy)
-        .attr('r', r + 3.5)
-        .attr('fill', dotColor)
-        .attr('fill-opacity', isHov ? 0.22 : 0.10);
+        .attr('r', r + 4)
+        .attr('fill', color)
+        .attr('fill-opacity', isHov ? 0.30 : 0.14);
 
-      // Core
+      // Core dot
       g.append('circle')
         .attr('cx', cx).attr('cy', cy)
         .attr('r', r)
-        .attr('fill', dotColor)
-        .attr('fill-opacity', isHov ? 1 : 0.88)
+        .attr('fill', color)
+        .attr('fill-opacity', 1)
         .attr('stroke', '#fff')
-        .attr('stroke-width', isHov ? 1.8 : 1.1);
+        .attr('stroke-width', isHov ? 2.2 : 1.4);
 
-      // Student count inside dot
+      // Student count
       g.append('text')
         .attr('x', cx).attr('y', cy)
         .attr('text-anchor', 'middle')
         .attr('dominant-baseline', 'central')
         .attr('fill', '#fff')
-        .attr('font-size', r < 7 ? 5 : 6)
+        .attr('font-size', r < 8 ? 6 : 7)
         .attr('font-weight', 700)
         .attr('pointer-events', 'none')
         .text(city.students);
 
-      // Label — offset below dot, avoid clipping edges
-      const labelY = cy + r + 12;
+      // Label with colored underline effect
       g.append('text')
-        .attr('x', cx).attr('y', labelY)
+        .attr('x', cx).attr('y', cy + r + 13)
         .attr('text-anchor', 'middle')
-        .attr('fill', isHov ? dotColor : labelCol)
-        .attr('font-size', 8.5)
-        .attr('font-weight', isHov ? 600 : 500)
+        .attr('fill', isHov ? color : labelCol)
+        .attr('font-size', 9)
+        .attr('font-weight', isHov ? 700 : 500)
         .attr('pointer-events', 'none')
         .text(city.label);
 
-      // Invisible hit area for interaction
+      // Hit area
       g.append('circle')
         .attr('cx', cx).attr('cy', cy)
-        .attr('r', r + 10)
+        .attr('r', r + 12)
         .attr('fill', 'transparent')
         .on('mouseenter', (event: MouseEvent) => {
           setHovered(city.city);
           const rect = svg.getBoundingClientRect();
-          setTooltip({
-            x: event.clientX - rect.left,
-            y: event.clientY - rect.top,
-            city,
-          });
+          setTooltip({ x: event.clientX - rect.left, y: event.clientY - rect.top, city });
         })
         .on('mousemove', (event: MouseEvent) => {
           const rect = svg.getBoundingClientRect();
-          setTooltip((prev) => prev ? { ...prev, x: event.clientX - rect.left, y: event.clientY - rect.top } : null);
+          setTooltip(prev => prev ? { ...prev, x: event.clientX - rect.left, y: event.clientY - rect.top } : null);
         })
         .on('mouseleave', () => {
           setHovered(null);
@@ -311,21 +326,23 @@ function GermanyNetworkMap({ isDark }: { isDark: boolean }) {
         <div
           className="pointer-events-none absolute z-10"
           style={{
-            left: tooltip.x + 12,
-            top:  tooltip.y - 48,
-            background: isDark ? 'rgba(8,22,48,0.94)' : 'rgba(255,255,255,0.96)',
-            border: '1px solid rgba(74,144,217,0.4)',
+            left: tooltip.x + 14,
+            top: tooltip.y - 52,
+            background: isDark ? 'rgba(8,20,45,0.95)' : 'rgba(255,255,255,0.97)',
+            border: `1.5px solid ${CITY_COLORS[CITIES.findIndex(c => c.city === tooltip.city.city)]}`,
             borderRadius: 10,
             padding: '8px 14px',
             backdropFilter: 'blur(10px)',
-            boxShadow: '0 6px 28px rgba(0,0,0,0.18)',
+            boxShadow: '0 6px 24px rgba(0,0,0,0.16)',
             whiteSpace: 'nowrap',
           }}
         >
-          <p className="text-[13px] font-semibold" style={{ color: '#4A90D9' }}>
+          <p className="text-[13px] font-semibold"
+            style={{ color: CITY_COLORS[CITIES.findIndex(c => c.city === tooltip.city.city)] }}>
             {tooltip.city.label}
           </p>
-          <p className="text-[12px] mt-0.5" style={{ color: isDark ? 'rgba(190,215,245,0.7)' : 'rgba(20,50,90,0.6)' }}>
+          <p className="text-[12px] mt-0.5"
+            style={{ color: isDark ? 'rgba(190,215,245,0.7)' : 'rgba(20,50,90,0.6)' }}>
             {tooltip.city.students} students · {tooltip.city.professionals} professionals
           </p>
         </div>
