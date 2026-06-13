@@ -9,22 +9,22 @@ const SEMESTERS = [
     season: 'Winter Semester',
     months: 'October Start',
     badge: 'Main Intake',
-    badgeColor: '#0f4c8f',
+    badgeColor: '#006d9e',
     icon: '❄️',
     applicationOpen: 'January',
     deadline: 'July 15',
-    description: 'The widest choice of programmes, the most seats, and the most competitive. Start APS and language preparation at least 12 months before October.',
-    warning: 'If you are reading this in June and have not started APS yet — you are applying next year.',
+    description: 'This is the main intake. The widest choice of programmes, the most seats, and the most competitive. If you are targeting winter semester you should be starting your APS and language preparation at least 12 months before October.',
+    warning: 'If you are reading this in June and you have not started APS yet, you are applying next year.',
   },
   {
     season: 'Summer Semester',
     months: 'April Start',
-    badge: 'Limited Intake',
-    badgeColor: '#f59e0b',
+    badge: 'Alternative Intake',
+    badgeColor: '#059669',
     icon: '☀️',
     applicationOpen: 'July',
     deadline: 'January 15',
-    description: 'Fewer programmes offer a summer intake. Competition is slightly lower because fewer students know about it. Good option if your profile is strong.',
+    description: 'Fewer programmes offer a summer intake. Competition is slightly lower because fewer students know about it. Good option if your profile is strong and you do not want to wait a full year.',
     warning: null,
   },
 ];
@@ -164,14 +164,14 @@ export default function StudySemesterCalendar() {
         }}
       >
         <span
-          className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}
+          className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full backdrop-blur-sm"
+          style={{ color: isDark ? '#22d3ee' : '#006d9e', background: isDark ? 'rgba(8,145,178,0.15)' : 'rgba(0,109,158,0.12)', border: '1px solid rgba(8,145,178,0.40)' }}
         >
           Semester Calendar
         </span>
         <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
-          When to Apply &{' '}
-          <span style={{ color: '#f59e0b' }}>Why Timing Is Everything</span>
+          Know Your Deadlines,{' '}
+          <span style={{ color: '#006d9e' }}>Plan Your Timeline</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
           Missing a deadline does not mean waiting a few weeks. It means waiting a full year.
@@ -204,17 +204,17 @@ export default function StudySemesterCalendar() {
             border: '1px solid rgba(15,76,143,0.22)',
           }}
         >
-          <p className="text-[12px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0f4c8f' }}>
+          <p className="text-[12px] font-bold uppercase tracking-widest mb-4" style={{ color: isDark ? '#22d3ee' : '#006d9e' }}>
             The Honest Advice
           </p>
           <p className="text-[16px] leading-relaxed mb-3" style={{ color: text }}>
-            Start the process the moment you have made the decision. Not when your final semester results are out. Not after the holidays.
+            Start the process the moment you have made the decision. Not when your final semester results are out. Not after the holidays. The APS alone can take up to 3 months. Language preparation to B2 takes 10 to 14 months minimum. The students who get to Germany on time are the ones who started earlier than felt necessary.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mt-5">
             {[
-              { label: 'APS Processing', time: 'Up to 3 months', color: '#EF4444' },
+              { label: 'APS Processing', time: 'Up to 3 months', color: '#dc2626' },
               { label: 'Language to B2', time: '10–14 months', color: '#f59e0b' },
-              { label: 'Application Window', time: '2–3 months', color: '#0f4c8f' },
+              { label: 'Application Window', time: '2–3 months', color: '#006d9e' },
             ].map((item, i) => (
               <div
                 key={i}

@@ -3,10 +3,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
+import { FaCogs, FaCode, FaChartLine, FaAtom, FaPalette, FaHeartbeat } from 'react-icons/fa';
 
 const FIELDS = [
   {
-    icon: '⚙️',
+    icon: 'cogs',
     title: 'Engineering & Technology',
     accent: '#006d9e',
     image: '/images/study/engineering.png',
@@ -17,7 +18,7 @@ const FIELDS = [
     statLabel: 'TU Munich, RWTH, KIT rankings',
   },
   {
-    icon: '💻',
+    icon: 'code',
     title: 'Computer Science & IT',
     accent: '#7c3aed',
     image: '/images/study/computer-science.png',
@@ -28,7 +29,7 @@ const FIELDS = [
     statLabel: 'graduate employment within 6 months',
   },
   {
-    icon: '📈',
+    icon: 'chart',
     title: 'Business & Management',
     accent: '#059669',
     image: '/images/study/business.png',
@@ -39,7 +40,7 @@ const FIELDS = [
     statLabel: 'European business school rankings',
   },
   {
-    icon: '🔬',
+    icon: 'atom',
     title: 'Natural Sciences',
     accent: '#dc2626',
     image: '/images/study/natural-sciences.png',
@@ -50,7 +51,7 @@ const FIELDS = [
     statLabel: 'annual DFG research funding',
   },
   {
-    icon: '🎨',
+    icon: 'palette',
     title: 'Design & Architecture',
     accent: '#0891b2',
     image: '/images/study/student-life.png',
@@ -61,7 +62,7 @@ const FIELDS = [
     statLabel: 'Bauhaus design legacy',
   },
   {
-    icon: '🏥',
+    icon: 'heart',
     title: 'Medicine & Health',
     accent: '#f59e0b',
     image: '/images/study/career-prospects.png',
@@ -72,6 +73,19 @@ const FIELDS = [
     statLabel: 'where the degree is recognised',
   },
 ];
+
+function getFieldIcon(iconName: string, size = 24) {
+  const iconProps = { size, style: { color: 'currentColor' } };
+  switch (iconName) {
+    case 'cogs': return <FaCogs {...iconProps} />;
+    case 'code': return <FaCode {...iconProps} />;
+    case 'chart': return <FaChartLine {...iconProps} />;
+    case 'atom': return <FaAtom {...iconProps} />;
+    case 'palette': return <FaPalette {...iconProps} />;
+    case 'heart': return <FaHeartbeat {...iconProps} />;
+    default: return null;
+  }
+}
 
 function useReveal(threshold = 0.10) {
   const ref = useRef<HTMLDivElement>(null);
@@ -143,10 +157,10 @@ function FieldCard({ field, index, isDark }: { field: typeof FIELDS[0]; index: n
         {/* Header */}
       <div className="flex items-start gap-3">
         <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-          style={{ background: `${field.accent}18`, border: `1px solid ${field.accent}30` }}
+          className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+          style={{ background: `${field.accent}18`, border: `1px solid ${field.accent}30`, color: field.accent }}
         >
-          {field.icon}
+          {getFieldIcon(field.icon, 20)}
         </div>
         <div>
           <h3 className="font-serif font-bold text-[17px] leading-snug" style={{ color: text }}>
@@ -234,13 +248,13 @@ export default function StudyFields() {
           transition: 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1)',
         }}
       >
-        <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
+        <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full backdrop-blur-sm"
+          style={{ color: isDark ? '#22d3ee' : '#006d9e', background: isDark ? 'rgba(8,145,178,0.15)' : 'rgba(0,109,158,0.12)', border: '1px solid rgba(8,145,178,0.40)' }}>
           Fields & Specialisations
         </span>
         <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
           What You Can Study{' '}
-          <span style={{ color: '#0f4c8f' }}>and Where It Takes You</span>
+          <span style={{ color: '#006d9e' }}>and Where It Takes You</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
           Every field below has a real industry behind it in Germany — not just a degree programme.

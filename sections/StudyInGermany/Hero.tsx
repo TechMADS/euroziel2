@@ -81,14 +81,14 @@ export default function StudyHero() {
         >
           The degree costs nothing.{' '}
           <br className="hidden sm:block" />
-          <span style={{ color: '#f59e0b' }}>The opportunity</span> is{' '}
-          <span style={{ color: '#0891b2' }}>everything.</span>
+          <span style={{ color: '#f59e0b' }}>The opportunity</span> costs{' '}
+          <span style={{ color: '#0891b2' }}>everything</span> if you miss it.
         </h1>
         <p
           className="mx-auto leading-relaxed"
           style={{ fontSize: 'clamp(16px, 2vw, 20px)', color: sub, maxWidth: '60ch' }}
         >
-          Germany's public universities charge <strong style={{ color: isDark ? '#f0f6ff' : '#1a2a4a' }}>zero tuition fees</strong> to international students — the same universities that train engineers at Siemens, researchers at BASF, and technologists at SAP. You pay for living. The education is free.
+          Germany's public universities charge <strong style={{ color: isDark ? '#f0f6ff' : '#1a2a4a' }}>zero tuition fees</strong> to international students. The same universities that train engineers at Siemens, researchers at BASF, and technologists at SAP. You pay for living. The education is free.
         </p>
       </div>
 
