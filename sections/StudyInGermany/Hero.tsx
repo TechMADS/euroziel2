@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { openEnquiryModal } from '@/lib/enquiryModal';
+import ParallaxSection from '@/components/ParallaxSection';
 
 export default function StudyHero() {
   const { resolvedTheme } = useTheme();
@@ -16,14 +17,19 @@ export default function StudyHero() {
   const sub = isDark ? 'rgba(200,220,245,0.68)' : 'rgba(30,50,80,0.65)';
 
   return (
-    <section
+    <ParallaxSection
+      speed={0.4}
       className="relative min-h-[94vh] flex flex-col items-center justify-center px-5 pt-32 pb-20 overflow-hidden text-center"
-      style={{
-        background: isDark
-          ? 'linear-gradient(160deg, #020d1a 0%, #0b1323 55%, #0a1f35 100%)'
-          : 'linear-gradient(160deg, #eef8ff 0%, #f5faff 55%, #f8fafc 100%)',
-      }}
+      id="study-hero"
     >
+      <section
+        className="relative min-h-[94vh] flex flex-col items-center justify-center px-5 pt-32 pb-20 overflow-hidden text-center w-full"
+        style={{
+          background: isDark
+            ? 'linear-gradient(160deg, #020d1a 0%, #0b1323 55%, #0a1f35 100%)'
+            : 'linear-gradient(160deg, #eef8ff 0%, #f5faff 55%, #f8fafc 100%)',
+        }}
+      >
       {/* Background image with overlay */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <img 
@@ -117,6 +123,7 @@ export default function StudyHero() {
         <span className="text-[11px] uppercase tracking-widest" style={{ color: sub }}>Scroll</span>
         <div className="w-px h-8 bg-gradient-to-b from-[#0f4c8f] to-transparent" />
       </div>
-    </section>
+      </section>
+    </ParallaxSection>
   );
 }

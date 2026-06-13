@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState, CSSProperties, MouseEvent } from 'r
 import { useTheme } from 'next-themes';
 import { FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 import { openEnquiryModal } from '@/lib/enquiryModal';
+import ParallaxSection from '@/components/ParallaxSection';
 
 interface VantaEffect { destroy: () => void; }
 
@@ -293,6 +294,7 @@ export default function Hero() {
         <span className="uppercase tracking-widest" style={{ fontSize: '10px', color: 'rgba(255,255,255,0.6)' }}>Scroll</span>
         <span className="animate-bounce" style={{ fontSize: '18px', color: 'rgba(255,255,255,0.6)' }}>↓</span>
       </div>
-    </section>
+      </section>
+    </ParallaxSection>
   );
 }

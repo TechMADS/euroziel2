@@ -9,19 +9,19 @@ const CAREER_STATS = [
     number: '€52,000',
     label: 'Average Starting Salary',
     context: 'Not a tech outlier figure. This is the average across all fields for international graduates in Germany.',
-    accent: '#0f4c8f',
+    accent: '#006d9e',
   },
   {
     number: '3.4%',
     label: 'Graduate Unemployment Rate',
     context: 'UK graduate unemployment is over 6%. The US is above 5%. Germany at 3.4% is not a coincidence — it is policy.',
-    accent: '#22C55E',
+    accent: '#059669',
   },
   {
     number: '18 months',
     label: 'Job Seeker Visa',
     context: 'Stay in Germany, keep looking, find the right role. No countdown pressure from your first month after graduation.',
-    accent: '#6C63FF',
+    accent: '#7c3aed',
   },
   {
     number: '1.7 million',
@@ -104,7 +104,7 @@ export default function StudyCareerProspects() {
 
   return (
     <section
-      className="relative py-28 px-5 sm:px-8 overflow-hidden"
+      className="relative py-20 px-5 sm:px-8 overflow-hidden"
       style={{
         background: isDark
           ? 'linear-gradient(180deg, #0b1323 0%, #030e1c 100%)'
@@ -114,7 +114,7 @@ export default function StudyCareerProspects() {
       {/* Header */}
       <div
         ref={headerRef}
-        className="max-w-2xl mx-auto text-center mb-16"
+        className="max-w-2xl mx-auto text-center mb-20"
         style={{
           opacity: headerVisible ? 1 : 0,
           transform: headerVisible ? 'translateY(0)' : 'translateY(28px)',
@@ -122,14 +122,14 @@ export default function StudyCareerProspects() {
         }}
       >
         <span
-          className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}
+          className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full backdrop-blur-sm"
+          style={{ color: isDark ? '#22d3ee' : '#006d9e', background: isDark ? 'rgba(8,145,178,0.15)' : 'rgba(0,109,158,0.12)', border: '1px solid rgba(8,145,178,0.40)' }}
         >
           Career Prospects
         </span>
         <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
           What Happens{' '}
-          <span style={{ color: '#0f4c8f' }}>After You Graduate</span>
+          <span style={{ color: '#006d9e' }}>After You Graduate</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
           The reason Indian students choose Germany over other European countries is not just the free education. It is what comes after.
@@ -137,7 +137,7 @@ export default function StudyCareerProspects() {
       </div>
 
       {/* Stats grid */}
-      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-5 mb-16">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-5 mb-20">
         {CAREER_STATS.map((stat, i) => (
           <CareerStatCard key={i} stat={stat} index={i} isDark={isDark} />
         ))}
@@ -156,11 +156,11 @@ export default function StudyCareerProspects() {
         <div
           className="rounded-2xl px-8 py-8 text-center"
           style={{
-            background: isDark ? 'rgba(15,76,143,0.06)' : 'rgba(15,76,143,0.05)',
-            border: '1px solid rgba(15,76,143,0.18)',
+            background: isDark ? 'rgba(8,145,178,0.08)' : 'rgba(0,109,158,0.06)',
+            border: '1px solid rgba(8,145,178,0.25)',
           }}
         >
-          <p className="text-[12px] font-bold uppercase tracking-widest mb-5" style={{ color: '#0f4c8f' }}>
+          <p className="text-[12px] font-bold uppercase tracking-widest mb-5" style={{ color: '#006d9e' }}>
             Companies Where EuroZiel Students Now Work
           </p>
           <div className="flex flex-wrap justify-center gap-2.5">
@@ -169,8 +169,8 @@ export default function StudyCareerProspects() {
                 key={i}
                 className="px-4 py-2 rounded-full text-[13px] font-semibold"
                 style={{
-                  background: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.90)',
-                  border: '1px solid rgba(15,76,143,0.18)',
+                  background: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.95)',
+                  border: `1px solid rgba(8,145,178,0.25)`,
                   color: text,
                 }}
               >
