@@ -57,8 +57,8 @@ export default function ProcessChecklist() {
       className="relative py-28 px-5 sm:px-8"
       style={{
         background: isDark
-          ? 'linear-gradient(180deg, #030e1c 0%, #061628 100%)'
-          : 'linear-gradient(180deg, #eef7ff 0%, #f5faff 100%)',
+          ? 'linear-gradient(180deg, #030e1c 0%, #0b1323 100%)'
+          : 'linear-gradient(180deg, #f8fafc 0%, #f5faff 100%)',
       }}
     >
       <div className="max-w-3xl mx-auto">
@@ -71,7 +71,7 @@ export default function ProcessChecklist() {
           }}
         >
           <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-            style={{ color: '#4A90D9', background: 'rgba(74,144,217,0.10)', border: '1px solid rgba(74,144,217,0.22)' }}>
+            style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
             Pre-Departure Checklist
           </span>
           <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 40px)', color: text }}>
@@ -88,26 +88,26 @@ export default function ProcessChecklist() {
           className="rounded-2xl p-6 mb-8"
           style={{
             background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.85)',
-            border: '1px solid rgba(74,144,217,0.15)',
-            boxShadow: isDark ? '0 4px 24px rgba(0,0,0,0.25)' : '0 4px 24px rgba(74,144,217,0.08)',
+            border: '1px solid rgba(15,76,143,0.15)',
+            boxShadow: isDark ? '0 4px 24px rgba(0,0,0,0.25)' : '0 4px 24px rgba(15,76,143,0.08)',
           }}
         >
           <div className="flex items-center justify-between mb-3">
             <span className="text-[13px] font-semibold" style={{ color: text }}>
               {checkedCount} of {ITEMS.length} completed
             </span>
-            <span className="text-[13px] font-bold" style={{ color: progress === 100 ? '#22C55E' : '#4A90D9' }}>
+            <span className="text-[13px] font-bold" style={{ color: progress === 100 ? '#22C55E' : '#0f4c8f' }}>
               {Math.round(progress)}%
             </span>
           </div>
-          <div className="h-2 rounded-full overflow-hidden" style={{ background: isDark ? 'rgba(74,144,217,0.12)' : 'rgba(74,144,217,0.15)' }}>
+          <div className="h-2 rounded-full overflow-hidden" style={{ background: isDark ? 'rgba(15,76,143,0.12)' : 'rgba(15,76,143,0.15)' }}>
             <div
               className="h-full rounded-full transition-all duration-700"
               style={{
                 width: `${progress}%`,
                 background: progress === 100
                   ? 'linear-gradient(90deg, #22C55E, #16a34a)'
-                  : 'linear-gradient(90deg, #4A90D9, #6C63FF)',
+                  : 'linear-gradient(90deg, #0f4c8f, #6C63FF)',
               }}
             />
           </div>
@@ -131,7 +131,7 @@ export default function ProcessChecklist() {
                   : isDark ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.80)',
                 border: checked[i]
                   ? '1px solid rgba(34,197,94,0.30)'
-                  : '1px solid rgba(74,144,217,0.12)',
+                  : '1px solid rgba(15,76,143,0.12)',
                 transform: 'translateX(0)',
               }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = 'translateX(4px)'; }}
@@ -142,7 +142,7 @@ export default function ProcessChecklist() {
                 className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300"
                 style={{
                   background: checked[i] ? '#22C55E' : 'transparent',
-                  border: checked[i] ? '2px solid #22C55E' : '2px solid rgba(74,144,217,0.40)',
+                  border: checked[i] ? '2px solid #22C55E' : '2px solid rgba(15,76,143,0.40)',
                 }}
               >
                 {checked[i] && (
@@ -167,7 +167,7 @@ export default function ProcessChecklist() {
               <span
                 className="text-[11px] font-medium px-2 py-0.5 rounded-full flex-shrink-0"
                 style={{
-                  background: isDark ? 'rgba(74,144,217,0.10)' : 'rgba(74,144,217,0.08)',
+                  background: isDark ? 'rgba(15,76,143,0.10)' : 'rgba(15,76,143,0.08)',
                   color: isDark ? 'rgba(200,220,245,0.50)' : 'rgba(30,50,80,0.45)',
                 }}
               >

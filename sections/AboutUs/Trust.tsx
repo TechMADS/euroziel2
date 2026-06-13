@@ -41,9 +41,9 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
     <span
       className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full"
       style={{
-        background: 'rgba(74,144,217,0.12)',
-        border: '1px solid rgba(74,144,217,0.30)',
-        color: '#4A90D9',
+        background: 'rgba(15,76,143,0.12)',
+        border: '1px solid rgba(15,76,143,0.30)',
+        color: '#0f4c8f',
       }}
     >
       {children}
@@ -52,7 +52,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
 }
 
 // Icons
-function UsersIcon({ color = '#4A90D9', size = 26 }) {
+function UsersIcon({ color = '#0f4c8f', size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M17 21V19C17 16.8 15.2 15 13 15H5C2.8 15 1 16.8 1 19V21" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -63,7 +63,7 @@ function UsersIcon({ color = '#4A90D9', size = 26 }) {
   );
 }
 
-function BriefcaseIcon({ color = '#4A90D9', size = 26 }) {
+function BriefcaseIcon({ color = '#0f4c8f', size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <rect x="2" y="7" width="20" height="14" rx="2" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -73,7 +73,7 @@ function BriefcaseIcon({ color = '#4A90D9', size = 26 }) {
   );
 }
 
-function GermanyIcon({ color = '#4A90D9', size = 26 }) {
+function GermanyIcon({ color = '#0f4c8f', size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
@@ -84,7 +84,7 @@ function GermanyIcon({ color = '#4A90D9', size = 26 }) {
   );
 }
 
-function ShieldIcon({ color = '#4A90D9', size = 26 }) {
+function ShieldIcon({ color = '#0f4c8f', size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2L3 6V12C3 17.5 7.5 22 12 22C16.5 22 21 17.5 21 12V6L12 2Z" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -102,13 +102,13 @@ export default function TrustSection() {
   const isDark = mounted ? resolvedTheme === 'dark' : true;
   const text = isDark ? '#f0f6ff' : '#1a2a4a';
   const sub = isDark ? 'rgba(200,220,245,0.68)' : 'rgba(30,50,80,0.65)';
-  const border = isDark ? 'rgba(74,144,217,0.15)' : 'rgba(74,144,217,0.18)';
+  const border = isDark ? 'rgba(15,76,143,0.15)' : 'rgba(15,76,143,0.18)';
   
   if (!mounted) return null;
   
   const trustItems = [
-    { title: "Peer Proof", icon: UsersIcon, body: "You hear directly from students at TU Munich, RWTH Aachen, TU Berlin, University of Hamburg, and more. Not brochures. Not recycled success stories. Real people you can speak to.", accent: "#4A90D9", delay: 0 },
-    { title: "Professional Network", icon: BriefcaseIcon, body: "Our connections extend beyond university campuses. Indian professionals working in Germany across engineering, IT, healthcare, and business give our students an honest picture of what the career landscape actually looks like after graduation.", accent: "#FFD97D", delay: 80 },
+    { title: "Peer Proof", icon: UsersIcon, body: "You hear directly from students at TU Munich, RWTH Aachen, TU Berlin, University of Hamburg, and more. Not brochures. Not recycled success stories. Real people you can speak to.", accent: "#0f4c8f", delay: 0 },
+    { title: "Professional Network", icon: BriefcaseIcon, body: "Our connections extend beyond university campuses. Indian professionals working in Germany across engineering, IT, healthcare, and business give our students an honest picture of what the career landscape actually looks like after graduation.", accent: "#f59e0b", delay: 80 },
     { title: "Germany Only", icon: GermanyIcon, body: "We are not spreading our attention across ten countries. Every resource, connection, and piece of knowledge we have is built around Germany and Europe specifically.", accent: "#7ED8A4", delay: 160 },
     { title: "No Hidden Anything", icon: ShieldIcon, body: "What we offer is on our website. What we charge is discussed upfront. What we cannot help with, we tell you directly instead of pretending otherwise.", accent: "#c084fc", delay: 240 },
   ];

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
 import AccordionItem from './AccordionItem';
 
-function LanguageIcon({ color = '#4A90D9', size = 28 }) {
+function LanguageIcon({ color = '#0f4c8f', size = 28 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2V22" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
@@ -54,7 +54,7 @@ export default function Part4GermanLanguage() {
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="flex items-center gap-3 mb-8">
-        <LanguageIcon color="#FFD97D" size={32} />
+        <LanguageIcon color="#f59e0b" size={32} />
         <h2 className="font-serif font-bold text-[28px] sm:text-[32px]" style={{ color: text }}>
           Part 4 — German Language
         </h2>

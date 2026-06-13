@@ -41,9 +41,9 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
     <span
       className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full"
       style={{
-        background: 'rgba(74,144,217,0.12)',
-        border: '1px solid rgba(74,144,217,0.30)',
-        color: '#4A90D9',
+        background: 'rgba(15,76,143,0.12)',
+        border: '1px solid rgba(15,76,143,0.30)',
+        color: '#0f4c8f',
       }}
     >
       {children}
@@ -52,7 +52,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
 }
 
 // Icons for each step
-function ProfileIcon({ color = '#4A90D9', size = 24 }) {
+function ProfileIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M20 21V19C20 16.8 18.2 15 16 15H8C5.8 15 4 16.8 4 19V21" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
@@ -62,7 +62,7 @@ function ProfileIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function UniversityIcon({ color = '#4A90D9', size = 24 }) {
+function UniversityIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 3L2 9L12 15L22 9L12 3Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -72,7 +72,7 @@ function UniversityIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function APSIcon({ color = '#4A90D9', size = 24 }) {
+function APSIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <rect x="3" y="3" width="18" height="18" rx="2" stroke={color} strokeWidth="1.5"/>
@@ -84,7 +84,7 @@ function APSIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function SOPIcon({ color = '#4A90D9', size = 24 }) {
+function SOPIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M4 4H20V20H4V4Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -95,7 +95,7 @@ function SOPIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function LanguageIcon({ color = '#4A90D9', size = 24 }) {
+function LanguageIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2V22" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
@@ -106,7 +106,7 @@ function LanguageIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function ApplicationIcon({ color = '#4A90D9', size = 24 }) {
+function ApplicationIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M4 4H20V20H4V4Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -117,7 +117,7 @@ function ApplicationIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function OfferIcon({ color = '#4A90D9', size = 24 }) {
+function OfferIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M22 11.1C22 16.5 17.5 20.9 12 20.9C6.5 20.9 2 16.5 2 11.1C2 5.7 6.5 1.3 12 1.3C17.5 1.3 22 5.7 22 11.1Z" stroke={color} strokeWidth="1.5"/>
@@ -126,7 +126,7 @@ function OfferIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function LoanIcon({ color = '#4A90D9', size = 24 }) {
+function LoanIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <circle cx="12" cy="12" r="10" stroke={color} strokeWidth="1.5"/>
@@ -138,7 +138,7 @@ function LoanIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function BlockedIcon({ color = '#4A90D9', size = 24 }) {
+function BlockedIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <rect x="3" y="5" width="18" height="16" rx="2" stroke={color} strokeWidth="1.5"/>
@@ -149,7 +149,7 @@ function BlockedIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function InsuranceIcon({ color = '#4A90D9', size = 24 }) {
+function InsuranceIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2L3 6V12C3 17.5 7.5 22 12 22C16.5 22 21 17.5 21 12V6L12 2Z" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -159,7 +159,7 @@ function InsuranceIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function VisaIcon({ color = '#4A90D9', size = 24 }) {
+function VisaIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <rect x="2" y="4" width="20" height="16" rx="2" stroke={color} strokeWidth="1.5"/>
@@ -170,7 +170,7 @@ function VisaIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function FlightIcon({ color = '#4A90D9', size = 24 }) {
+function FlightIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2L12 8L17 12L22 12" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -181,7 +181,7 @@ function FlightIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function PickupIcon({ color = '#4A90D9', size = 24 }) {
+function PickupIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -191,7 +191,7 @@ function PickupIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function AccommodationIcon({ color = '#4A90D9', size = 24 }) {
+function AccommodationIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <rect x="4" y="8" width="16" height="12" rx="1" stroke={color} strokeWidth="1.5"/>
@@ -201,7 +201,7 @@ function AccommodationIcon({ color = '#4A90D9', size = 24 }) {
   );
 }
 
-function SettleIcon({ color = '#4A90D9', size = 24 }) {
+function SettleIcon({ color = '#0f4c8f', size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2L15 6H9L12 2Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -220,7 +220,7 @@ function StepCard({ number, title, icon: Icon, description, isDark, delay }: {
   delay: number;
 }) {
   const surface = isDark ? '#0d2540' : '#ffffff';
-  const border = isDark ? 'rgba(74,144,217,0.15)' : 'rgba(74,144,217,0.18)';
+  const border = isDark ? 'rgba(15,76,143,0.15)' : 'rgba(15,76,143,0.18)';
   const text = isDark ? '#f0f6ff' : '#1a2a4a';
   const sub = isDark ? 'rgba(200,220,245,0.68)' : 'rgba(30,50,80,0.65)';
 
@@ -233,11 +233,11 @@ function StepCard({ number, title, icon: Icon, description, isDark, delay }: {
         <div className="flex items-center gap-3 mb-3">
           <div
             className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[16px]"
-            style={{ background: '#4A90D9', color: '#fff' }}
+            style={{ background: '#0f4c8f', color: '#fff' }}
           >
             {number}
           </div>
-          <Icon color="#4A90D9" size={22} />
+          <Icon color="#0f4c8f" size={22} />
         </div>
         <h3 className="font-serif font-bold text-[17px] mb-2" style={{ color: text }}>{title}</h3>
         <p className="text-[14px] leading-relaxed" style={{ color: sub }}>{description}</p>
@@ -282,7 +282,7 @@ export default function ProcessStepsSection() {
           <h2 className="font-serif font-bold mt-5" style={{ fontSize: 'clamp(32px, 5vw, 48px)', color: text }}>
             From application to settlement.
             <br />
-            <span style={{ color: '#4A90D9' }}>Every step covered.</span>
+            <span style={{ color: '#0f4c8f' }}>Every step covered.</span>
           </h2>
         </Reveal>
       </div>

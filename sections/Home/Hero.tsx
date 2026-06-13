@@ -69,22 +69,22 @@ export default function Hero() {
   }, [mounted, isDark]);
 
   const skyStyle: CSSProperties = (!mounted || isDark)
-    ? { background: 'linear-gradient(to bottom, #061628 0%, #0d2540 40%, #0f3060 70%, #1a4a6e 100%)' }
-    : { background: 'linear-gradient(to bottom, #1a6fbf 0%, #3a8fd9 30%, #6ab0e8 65%, #a8d4f5 100%)' };
+    ? { background: 'linear-gradient(to bottom, #0b1323 0%, #0d2540 40%, #0f3060 70%, #0f4c8f 100%)' }
+    : { background: 'linear-gradient(to bottom, #1a6fbf 0%, #0ea5e9 30%, #0ea5e9 65%, #a8d4f5 100%)' };
 
   const textPanelStyle: CSSProperties = {
     background: (!mounted || isDark) ? 'rgba(6,18,38,0.84)' : 'rgba(4,1,1,0.78)',
-    borderRight: '1px solid rgba(74,144,217,0.15)',
-    borderTop: '1px solid rgba(74,144,217,0.10)',
-    borderBottom: '1px solid rgba(74,144,217,0.10)',
+    borderRight: '1px solid rgba(15,76,143,0.15)',
+    borderTop: '1px solid rgba(15,76,143,0.10)',
+    borderBottom: '1px solid rgba(15,76,143,0.10)',
     borderRadius: '0 2rem 2rem 0',
     boxShadow: '4px 0 40px rgba(0,0,0,0.35)',
   };
 
   const eyebrowStyle: CSSProperties = {
-    background: 'rgba(74,144,217,0.15)',
-    border: '1px solid rgba(74,144,217,0.35)',
-    letterSpacing: '0.15em', color: '#ffd97d',
+    background: 'rgba(15,76,143,0.15)',
+    border: '1px solid rgba(15,76,143,0.35)',
+    letterSpacing: '0.15em', color: '#f59e0b',
   };
 
   return (
@@ -116,7 +116,7 @@ export default function Hero() {
 
             <h1 className="font-bold mb-4 leading-[1.12] tracking-tight text-[clamp(20px,3.2vw,50px)]" style={{ color: '#f0f6ff' }}>
               Your bridge from India<br />to Germany,{' '}
-              <span style={{ color: '#4A90D9' }}>built by people already there.</span>
+              <span style={{ color: '#0f4c8f' }}>built by people already there.</span>
             </h1>
 
             <p className="mb-5 max-w-sm leading-relaxed text-[clamp(13px,1.1vw,16px)]" style={{ color: 'rgba(200,220,245,0.82)', fontWeight: 400 }}>
@@ -129,8 +129,8 @@ export default function Hero() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5 w-full max-w-md">
               {STATS.map((s) => (
                 <div key={s.label} className="rounded-xl px-3 py-2 text-center"
-                  style={{ background: 'rgba(74,144,217,0.10)', border: '1px solid rgba(74,144,217,0.22)' }}>
-                  <div className="text-[16px] font-bold" style={{ color: '#4A90D9' }}>{s.value}</div>
+                  style={{ background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
+                  <div className="text-[16px] font-bold" style={{ color: '#0f4c8f' }}>{s.value}</div>
                   <div className="text-[10px] leading-tight mt-0.5" style={{ color: 'rgba(200,220,245,0.65)' }}>{s.label}</div>
                 </div>
               ))}
@@ -140,9 +140,9 @@ export default function Hero() {
               <button
                 onClick={openEnquiryModal}
                 className="inline-flex items-center gap-2 font-semibold rounded-full transition-all duration-300 py-2.5 px-6 text-sm"
-                style={{ background: 'var(--accent-gold,#ffd97d)', color: '#1a1200', boxShadow: '0 4px 24px rgba(255,217,125,0.45)' }}
-                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(255,217,125,0.6)'; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(255,217,125,0.45)'; }}>
+                style={{ background: 'var(--accent-gold,#f59e0b)', color: '#1a1200', boxShadow: '0 4px 24px rgba(245,158,11,0.45)' }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(245,158,11,0.6)'; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(245,158,11,0.45)'; }}>
                 Book a Free Consultation
               </button>
               <a href="#how-it-works"
@@ -181,7 +181,7 @@ export default function Hero() {
               <div
                 className="rounded-2xl overflow-hidden relative"
                 style={{
-                  border: '1px solid rgba(74,144,217,0.22)',
+                  border: '1px solid rgba(15,76,143,0.22)',
                   background:
                     'linear-gradient(rgba(6,22,40,0.78),rgba(6,22,40,0.92)), url("https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80")',
                   backgroundSize: 'cover',
@@ -194,13 +194,13 @@ export default function Hero() {
                 <div
                   className="px-5 py-3 flex items-center gap-2"
                   style={{
-                    borderBottom: '1px solid rgba(74,144,217,0.15)',
-                    background: 'rgba(74,144,217,0.08)'
+                    borderBottom: '1px solid rgba(15,76,143,0.15)',
+                    background: 'rgba(15,76,143,0.08)'
                   }}
                 >
                   <div
                     className="w-2 h-2 rounded-full"
-                    style={{ background: '#4A90D9' }}
+                    style={{ background: '#0f4c8f' }}
                   />
 
                   <span
@@ -244,8 +244,8 @@ export default function Hero() {
                         width: i === activeFlow ? 20 : 6,
                         background:
                           i === activeFlow
-                            ? '#4A90D9'
-                            : 'rgba(74,144,217,0.25)'
+                            ? '#0f4c8f'
+                            : 'rgba(15,76,143,0.25)'
                       }}
                     />
 
@@ -261,8 +261,8 @@ export default function Hero() {
             <div className="w-full max-w-sm grid grid-cols-2 gap-3">
               {STATS.map((s) => (
                 <div key={s.label} className="rounded-xl px-4 py-4 text-center transition-all duration-300 hover:scale-[1.03]"
-                  style={{ background: 'rgba(6,22,40,0.72)', border: '1px solid rgba(74,144,217,0.22)', backdropFilter: 'blur(8px)' }}>
-                  <div className="text-[26px] font-bold leading-none mb-1" style={{ color: '#4A90D9' }}>{s.value}</div>
+                  style={{ background: 'rgba(6,22,40,0.72)', border: '1px solid rgba(15,76,143,0.22)', backdropFilter: 'blur(8px)' }}>
+                  <div className="text-[26px] font-bold leading-none mb-1" style={{ color: '#0f4c8f' }}>{s.value}</div>
                   <div className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'rgba(200,220,245,0.6)' }}>{s.label}</div>
                 </div>
               ))}
@@ -270,15 +270,15 @@ export default function Hero() {
 
             {/* CTA card */}
             <div className="w-full max-w-sm rounded-2xl px-5 py-4 flex items-center justify-between"
-              style={{ background: 'rgba(255,217,125,0.10)', border: '1px solid rgba(255,217,125,0.28)', backdropFilter: 'blur(8px)' }}>
+              style={{ background: 'rgba(245,158,11,0.10)', border: '1px solid rgba(245,158,11,0.28)', backdropFilter: 'blur(8px)' }}>
               <div>
-                <div className="text-[13px] font-semibold" style={{ color: '#ffd97d' }}>Free Consultation</div>
+                <div className="text-[13px] font-semibold" style={{ color: '#f59e0b' }}>Free Consultation</div>
                 <div className="text-[11px]" style={{ color: 'rgba(200,220,245,0.6)' }}>Limited slots available</div>
               </div>
               <button
                 onClick={openEnquiryModal}
                 className="rounded-full px-4 py-2 text-[12px] font-bold transition-all duration-200"
-                style={{ background: '#ffd97d', color: '#1a1200' }}
+                style={{ background: '#f59e0b', color: '#1a1200' }}
                 onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.05)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; }}>
                 Book Now →

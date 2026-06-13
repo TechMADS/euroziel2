@@ -41,9 +41,9 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
     <span
       className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full"
       style={{
-        background: 'rgba(74,144,217,0.12)',
-        border: '1px solid rgba(74,144,217,0.30)',
-        color: '#4A90D9',
+        background: 'rgba(15,76,143,0.12)',
+        border: '1px solid rgba(15,76,143,0.30)',
+        color: '#0f4c8f',
       }}
     >
       {children}
@@ -52,7 +52,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
 }
 
 // Icons
-function UsersIcon({ color = '#4A90D9', size = 26 }) {
+function UsersIcon({ color = '#0f4c8f', size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M17 21V19C17 16.8 15.2 15 13 15H5C2.8 15 1 16.8 1 19V21" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -74,7 +74,7 @@ function DomainIcon({ color = '#7ED8A4', size = 26 }) {
   );
 }
 
-function BridgeIcon({ color = '#FFD97D', size = 26 }) {
+function BridgeIcon({ color = '#f59e0b', size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M2 12C5 8 19 8 22 12" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
@@ -89,7 +89,7 @@ function DiffCard({ icon: Icon, title, body, accent, isDark, delay }: {
   title: string; body: string; accent: string; isDark: boolean; delay: number;
 }) {
   const surface = isDark ? '#0d2540' : '#ffffff';
-  const border = isDark ? 'rgba(74,144,217,0.18)' : 'rgba(74,144,217,0.20)';
+  const border = isDark ? 'rgba(15,76,143,0.18)' : 'rgba(15,76,143,0.20)';
   const text = isDark ? '#f0f6ff' : '#1a2a4a';
   const sub = isDark ? 'rgba(200,220,245,0.65)' : 'rgba(30,50,80,0.62)';
 
@@ -99,11 +99,11 @@ function DiffCard({ icon: Icon, title, body, accent, isDark, delay }: {
         className="h-full rounded-2xl p-7 flex flex-col gap-5 transition-all duration-300 group"
         style={{ background: surface, border: `1px solid ${border}` }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.boxShadow = isDark ? `0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px ${accent}44` : `0 8px 40px rgba(74,144,217,0.14), 0 0 0 1px ${accent}44`;
+          (e.currentTarget as HTMLElement).style.boxShadow = isDark ? `0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px ${accent}44` : `0 8px 40px rgba(15,76,143,0.14), 0 0 0 1px ${accent}44`;
           (e.currentTarget as HTMLElement).style.transform = 'translateY(-3px)';
         }}
         onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.boxShadow = isDark ? '0 4px 24px rgba(0,0,0,0.25)' : '0 4px 24px rgba(74,144,217,0.07)';
+          (e.currentTarget as HTMLElement).style.boxShadow = isDark ? '0 4px 24px rgba(0,0,0,0.25)' : '0 4px 24px rgba(15,76,143,0.07)';
           (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
         }}
       >
@@ -127,8 +127,8 @@ export default function WhatMakesDiffSection() {
   const isDark = mounted ? resolvedTheme === 'dark' : true;
   const text = isDark ? '#f0f6ff' : '#1a2a4a';
   const sub = isDark ? 'rgba(200,220,245,0.68)' : 'rgba(30,50,80,0.65)';
-  const surfaceAlt = isDark ? 'rgba(13,37,64,0.5)' : 'rgba(74,144,217,0.04)';
-  const border = isDark ? 'rgba(74,144,217,0.15)' : 'rgba(74,144,217,0.18)';
+  const surfaceAlt = isDark ? 'rgba(13,37,64,0.5)' : 'rgba(15,76,143,0.04)';
+  const border = isDark ? 'rgba(15,76,143,0.15)' : 'rgba(15,76,143,0.18)';
   
   if (!mounted) return null;
   
@@ -144,7 +144,7 @@ export default function WhatMakesDiffSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-        <DiffCard delay={0} accent="#4A90D9" isDark={isDark} icon={UsersIcon}
+        <DiffCard delay={0} accent="#0f4c8f" isDark={isDark} icon={UsersIcon}
           title="Peer Network Built In"
           body="Not testimonials on a website. Real students at TU Munich, RWTH Aachen, TU Berlin, University of Hamburg, and more — people you can speak to before you decide, during your application, and after you land."
         />
@@ -152,7 +152,7 @@ export default function WhatMakesDiffSection() {
           title="Domain Experts, Not Generalists"
           body="We don't have one counsellor handling everyone. Applying for CS at TU Berlin needs a different strategy than Mechanical at RWTH Aachen. We match you with someone who knows your field."
         />
-        <DiffCard delay={160} accent="#FFD97D" isDark={isDark} icon={BridgeIcon}
+        <DiffCard delay={160} accent="#f59e0b" isDark={isDark} icon={BridgeIcon}
           title="EuroZiel Is The Bridge"
           body="Between where you are in India and where you want to be in Germany. Between confusion and a clear step-by-step process where nothing falls through the cracks."
         />

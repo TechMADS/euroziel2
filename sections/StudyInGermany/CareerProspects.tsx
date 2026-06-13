@@ -9,7 +9,7 @@ const CAREER_STATS = [
     number: '€52,000',
     label: 'Average Starting Salary',
     context: 'Not a tech outlier figure. This is the average across all fields for international graduates in Germany.',
-    accent: '#4A90D9',
+    accent: '#0f4c8f',
   },
   {
     number: '3.4%',
@@ -27,7 +27,7 @@ const CAREER_STATS = [
     number: '1.7 million',
     label: 'Unfilled Skilled Positions',
     context: 'The Skilled Immigration Act (2023) was passed specifically to make it easier for non-EU graduates to stay and work.',
-    accent: '#F59E0B',
+    accent: '#f59e0b',
   },
 ];
 
@@ -67,7 +67,7 @@ function CareerStatCard({ stat, index, isDark }: { stat: typeof CAREER_STATS[0];
         transition: `opacity 0.65s ease ${index * 80}ms, transform 0.65s cubic-bezier(0.22,1,0.36,1) ${index * 80}ms`,
         background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.85)',
         border: `1px solid ${stat.accent}25`,
-        boxShadow: isDark ? '0 2px 12px rgba(0,0,0,0.20)' : '0 2px 12px rgba(74,144,217,0.06)',
+        boxShadow: isDark ? '0 2px 12px rgba(0,0,0,0.20)' : '0 2px 12px rgba(15,76,143,0.06)',
       }}
     >
       <div
@@ -107,8 +107,8 @@ export default function StudyCareerProspects() {
       className="relative py-28 px-5 sm:px-8 overflow-hidden"
       style={{
         background: isDark
-          ? 'linear-gradient(180deg, #061628 0%, #030e1c 100%)'
-          : 'linear-gradient(180deg, #f5faff 0%, #eef7ff 100%)',
+          ? 'linear-gradient(180deg, #0b1323 0%, #030e1c 100%)'
+          : 'linear-gradient(180deg, #f5faff 0%, #f8fafc 100%)',
       }}
     >
       {/* Header */}
@@ -123,13 +123,13 @@ export default function StudyCareerProspects() {
       >
         <span
           className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#4A90D9', background: 'rgba(74,144,217,0.10)', border: '1px solid rgba(74,144,217,0.22)' }}
+          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}
         >
           Career Prospects
         </span>
         <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
           What Happens{' '}
-          <span style={{ color: '#4A90D9' }}>After You Graduate</span>
+          <span style={{ color: '#0f4c8f' }}>After You Graduate</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
           The reason Indian students choose Germany over other European countries is not just the free education. It is what comes after.
@@ -156,11 +156,11 @@ export default function StudyCareerProspects() {
         <div
           className="rounded-2xl px-8 py-8 text-center"
           style={{
-            background: isDark ? 'rgba(74,144,217,0.06)' : 'rgba(74,144,217,0.05)',
-            border: '1px solid rgba(74,144,217,0.18)',
+            background: isDark ? 'rgba(15,76,143,0.06)' : 'rgba(15,76,143,0.05)',
+            border: '1px solid rgba(15,76,143,0.18)',
           }}
         >
-          <p className="text-[12px] font-bold uppercase tracking-widest mb-5" style={{ color: '#4A90D9' }}>
+          <p className="text-[12px] font-bold uppercase tracking-widest mb-5" style={{ color: '#0f4c8f' }}>
             Companies Where EuroZiel Students Now Work
           </p>
           <div className="flex flex-wrap justify-center gap-2.5">
@@ -170,7 +170,7 @@ export default function StudyCareerProspects() {
                 className="px-4 py-2 rounded-full text-[13px] font-semibold"
                 style={{
                   background: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.90)',
-                  border: '1px solid rgba(74,144,217,0.18)',
+                  border: '1px solid rgba(15,76,143,0.18)',
                   color: text,
                 }}
               >

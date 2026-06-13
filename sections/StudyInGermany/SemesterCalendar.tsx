@@ -9,7 +9,7 @@ const SEMESTERS = [
     season: 'Winter Semester',
     months: 'October Start',
     badge: 'Main Intake',
-    badgeColor: '#4A90D9',
+    badgeColor: '#0f4c8f',
     icon: '❄️',
     applicationOpen: 'January',
     deadline: 'July 15',
@@ -20,7 +20,7 @@ const SEMESTERS = [
     season: 'Summer Semester',
     months: 'April Start',
     badge: 'Limited Intake',
-    badgeColor: '#F59E0B',
+    badgeColor: '#f59e0b',
     icon: '☀️',
     applicationOpen: 'July',
     deadline: 'January 15',
@@ -60,7 +60,7 @@ function SemesterCard({ sem, index, isDark }: { sem: typeof SEMESTERS[0]; index:
         transition: `opacity 0.65s ease ${index * 100}ms, transform 0.65s cubic-bezier(0.22,1,0.36,1) ${index * 100}ms`,
         background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.88)',
         border: `1px solid ${sem.badgeColor}30`,
-        boxShadow: isDark ? '0 4px 24px rgba(0,0,0,0.25)' : '0 4px 24px rgba(74,144,217,0.08)',
+        boxShadow: isDark ? '0 4px 24px rgba(0,0,0,0.25)' : '0 4px 24px rgba(15,76,143,0.08)',
       }}
     >
       {/* Header row */}
@@ -92,9 +92,9 @@ function SemesterCard({ sem, index, isDark }: { sem: typeof SEMESTERS[0]; index:
       <div className="grid grid-cols-2 gap-3">
         <div
           className="rounded-xl px-4 py-3 text-center"
-          style={{ background: isDark ? 'rgba(74,144,217,0.08)' : 'rgba(74,144,217,0.07)', border: '1px solid rgba(74,144,217,0.15)' }}
+          style={{ background: isDark ? 'rgba(15,76,143,0.08)' : 'rgba(15,76,143,0.07)', border: '1px solid rgba(15,76,143,0.15)' }}
         >
-          <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: 'rgba(74,144,217,0.70)' }}>
+          <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: 'rgba(15,76,143,0.70)' }}>
             Applications Open
           </p>
           <p className="font-serif font-bold text-[15px]" style={{ color: text }}>
@@ -119,9 +119,9 @@ function SemesterCard({ sem, index, isDark }: { sem: typeof SEMESTERS[0]; index:
         <div
           className="rounded-xl px-4 py-3 text-[12px] font-medium"
           style={{
-            background: isDark ? 'rgba(255,217,125,0.08)' : 'rgba(255,217,125,0.18)',
-            border: '1px solid rgba(255,217,125,0.30)',
-            color: isDark ? '#FFD97D' : '#92650a',
+            background: isDark ? 'rgba(245,158,11,0.08)' : 'rgba(245,158,11,0.18)',
+            border: '1px solid rgba(245,158,11,0.30)',
+            color: isDark ? '#f59e0b' : '#92650a',
           }}
         >
           ⚠️ {sem.warning}
@@ -149,8 +149,8 @@ export default function StudySemesterCalendar() {
       className="relative py-28 px-5 sm:px-8"
       style={{
         background: isDark
-          ? 'linear-gradient(180deg, #030e1c 0%, #061628 100%)'
-          : 'linear-gradient(180deg, #eef7ff 0%, #f5faff 100%)',
+          ? 'linear-gradient(180deg, #030e1c 0%, #0b1323 100%)'
+          : 'linear-gradient(180deg, #f8fafc 0%, #f5faff 100%)',
       }}
     >
       {/* Header */}
@@ -165,13 +165,13 @@ export default function StudySemesterCalendar() {
       >
         <span
           className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#4A90D9', background: 'rgba(74,144,217,0.10)', border: '1px solid rgba(74,144,217,0.22)' }}
+          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}
         >
           Semester Calendar
         </span>
         <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
           When to Apply &{' '}
-          <span style={{ color: '#FFD97D' }}>Why Timing Is Everything</span>
+          <span style={{ color: '#f59e0b' }}>Why Timing Is Everything</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
           Missing a deadline does not mean waiting a few weeks. It means waiting a full year.
@@ -199,12 +199,12 @@ export default function StudySemesterCalendar() {
           className="rounded-2xl px-8 py-7"
           style={{
             background: isDark
-              ? 'linear-gradient(135deg, #0d2540, #061628)'
-              : 'linear-gradient(135deg, #e8f4ff, #f0f8ff)',
-            border: '1px solid rgba(74,144,217,0.22)',
+              ? 'linear-gradient(135deg, #0d2540, #0b1323)'
+              : 'linear-gradient(135deg, #eef8ff, #f8fafc)',
+            border: '1px solid rgba(15,76,143,0.22)',
           }}
         >
-          <p className="text-[12px] font-bold uppercase tracking-widest mb-4" style={{ color: '#4A90D9' }}>
+          <p className="text-[12px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0f4c8f' }}>
             The Honest Advice
           </p>
           <p className="text-[16px] leading-relaxed mb-3" style={{ color: text }}>
@@ -213,8 +213,8 @@ export default function StudySemesterCalendar() {
           <div className="flex flex-col sm:flex-row gap-3 mt-5">
             {[
               { label: 'APS Processing', time: 'Up to 3 months', color: '#EF4444' },
-              { label: 'Language to B2', time: '10–14 months', color: '#F59E0B' },
-              { label: 'Application Window', time: '2–3 months', color: '#4A90D9' },
+              { label: 'Language to B2', time: '10–14 months', color: '#f59e0b' },
+              { label: 'Application Window', time: '2–3 months', color: '#0f4c8f' },
             ].map((item, i) => (
               <div
                 key={i}

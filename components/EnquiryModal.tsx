@@ -88,13 +88,13 @@ export default function EnquiryModal() {
 
   const isDark = mounted ? resolvedTheme === 'dark' : true;
 
-  const bg = isDark ? '#061628' : '#f0f8ff';
+  const bg = isDark ? '#0b1323' : '#f8fafc';
   const surface = isDark ? '#0d2540' : '#ffffff';
-  const border = isDark ? 'rgba(74,144,217,0.22)' : 'rgba(74,144,217,0.28)';
+  const border = isDark ? 'rgba(15,76,143,0.22)' : 'rgba(15,76,143,0.28)';
   const textColor = isDark ? '#f0f6ff' : '#1a2a4a';
   const textSub = isDark ? 'rgba(200,220,245,0.72)' : 'rgba(30,50,80,0.68)';
-  const inputBg = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(74,144,217,0.05)';
-  const inputBorder = isDark ? 'rgba(74,144,217,0.25)' : 'rgba(74,144,217,0.30)';
+  const inputBg = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(15,76,143,0.05)';
+  const inputBorder = isDark ? 'rgba(15,76,143,0.25)' : 'rgba(15,76,143,0.30)';
   const inputColor = isDark ? '#f0f6ff' : '#1a2a4a';
   const placeholderColor = isDark ? 'rgba(200,220,245,0.35)' : 'rgba(30,50,80,0.35)';
 
@@ -183,7 +183,7 @@ export default function EnquiryModal() {
   if (!open) return null;
 
   const stepLabels = ['Contact', 'Preferences', 'Message'];
-  const accentColors: Record<Step, string> = { 1: '#4A90D9', 2: '#ffd97d', 3: '#7ED8A4' };
+  const accentColors: Record<Step, string> = { 1: '#0f4c8f', 2: '#f59e0b', 3: '#7ED8A4' };
   const accent = accentColors[step];
 
   const inputStyle: React.CSSProperties = {
@@ -240,8 +240,8 @@ export default function EnquiryModal() {
         .ez-modal-wrap   { animation: overlayIn 0.3s ease forwards; }
         .ez-modal-box    { animation: modalIn 0.45s cubic-bezier(0.22,1,0.36,1) forwards; }
         .ez-success-icon { animation: successPop 0.5s cubic-bezier(0.22,1,0.36,1) 0.1s both; }
-        .ez-input:focus  { border-color: #4A90D9 !important; }
-        .ez-select:focus { border-color: #ffd97d !important; }
+        .ez-input:focus  { border-color: #0f4c8f !important; }
+        .ez-select:focus { border-color: #f59e0b !important; }
         .ez-step-btn {
           transition: all 0.2s ease;
         }
@@ -251,7 +251,7 @@ export default function EnquiryModal() {
         /* Scrollbar for modal */
         .ez-scroll::-webkit-scrollbar { width:4px; }
         .ez-scroll::-webkit-scrollbar-track { background:transparent; }
-        .ez-scroll::-webkit-scrollbar-thumb { background:rgba(74,144,217,0.30); border-radius:4px; }
+        .ez-scroll::-webkit-scrollbar-thumb { background:rgba(15,76,143,0.30); border-radius:4px; }
       `}</style>
 
       {/* Overlay */}
@@ -272,7 +272,7 @@ export default function EnquiryModal() {
           }}
         >
           {/* Top accent bar */}
-          <div className="h-1 w-full" style={{ background: `linear-gradient(to right, #4A90D9, #ffd97d, #7ED8A4)` }} />
+          <div className="h-1 w-full" style={{ background: `linear-gradient(to right, #0f4c8f, #f59e0b, #7ED8A4)` }} />
 
           {/* Close button */}
           <button
@@ -300,19 +300,19 @@ export default function EnquiryModal() {
                   <h3 className="font-bold text-[22px] mb-2" style={{ color: textColor }}>You&apos;re on the list!</h3>
                   <p className="text-[14px] leading-relaxed" style={{ color: textSub, maxWidth: '34ch', margin: '0 auto' }}>
                     We&apos;ve received your enquiry. Expect a reply within{' '}
-                    <span style={{ color: '#4A90D9', fontWeight: 600 }}>24 hours</span> from our team.
+                    <span style={{ color: '#0f4c8f', fontWeight: 600 }}>24 hours</span> from our team.
                   </p>
                 </div>
                 <div className="w-full rounded-xl px-5 py-4 text-left"
-                  style={{ background: 'rgba(74,144,217,0.08)', border: '1px solid rgba(74,144,217,0.20)' }}>
-                  <div className="text-[12px] font-semibold uppercase tracking-wider mb-3" style={{ color: '#4A90D9' }}>Your Submission</div>
+                  style={{ background: 'rgba(15,76,143,0.08)', border: '1px solid rgba(15,76,143,0.20)' }}>
+                  <div className="text-[12px] font-semibold uppercase tracking-wider mb-3" style={{ color: '#0f4c8f' }}>Your Submission</div>
                   {[
                     { label: 'Name', val: form.name },
                     { label: 'Email', val: form.email },
                     { label: 'Course', val: form.course },
                     { label: 'Timeline', val: form.timeline },
                   ].map(({ label, val }) => (
-                    <div key={label} className="flex justify-between py-1.5" style={{ borderBottom: '1px solid rgba(74,144,217,0.10)' }}>
+                    <div key={label} className="flex justify-between py-1.5" style={{ borderBottom: '1px solid rgba(15,76,143,0.10)' }}>
                       <span className="text-[12px]" style={{ color: textSub }}>{label}</span>
                       <span className="text-[12px] font-medium" style={{ color: textColor }}>{val || '—'}</span>
                     </div>
@@ -338,7 +338,7 @@ export default function EnquiryModal() {
                 {/* Header */}
                 <div className="mb-6 pr-8">
                   <div className="inline-block mb-3 text-[10px] font-semibold tracking-widest uppercase px-3 py-1 rounded-full"
-                    style={{ background: 'rgba(74,144,217,0.15)', border: '1px solid rgba(74,144,217,0.35)', color: '#ffd97d', letterSpacing: '0.15em' }}>
+                    style={{ background: 'rgba(15,76,143,0.15)', border: '1px solid rgba(15,76,143,0.35)', color: '#f59e0b', letterSpacing: '0.15em' }}>
                     Free Consultation — Limited Slots
                   </div>
                   <h3 className="font-bold leading-tight text-[20px] sm:text-[22px]" style={{ color: textColor }}>
@@ -484,8 +484,8 @@ export default function EnquiryModal() {
                   <div className="space-y-4">
                     {/* Summary card */}
                     <div className="rounded-xl px-4 py-3"
-                      style={{ background: 'rgba(74,144,217,0.08)', border: '1px solid rgba(74,144,217,0.20)' }}>
-                      <div className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: '#4A90D9' }}>
+                      style={{ background: 'rgba(15,76,143,0.08)', border: '1px solid rgba(15,76,143,0.20)' }}>
+                      <div className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: '#0f4c8f' }}>
                         Your Profile Summary
                       </div>
                       <div className="grid grid-cols-2 gap-x-4 gap-y-1">

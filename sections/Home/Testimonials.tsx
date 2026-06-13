@@ -9,14 +9,14 @@ const TESTIMONIALS = [
     name: 'Aditya R.',
     role: 'M.Sc Computer Science, Germany',
     initials: 'AR',
-    accent: '#4A90D9',
+    accent: '#0f4c8f',
   },
   {
     quote: 'The biggest difference was honesty. They clearly explained which universities matched my profile and what improvements I needed instead of giving false promises. That transparency saved me months.',
     name: 'Keerthana S.',
     role: 'Mechanical Engineering Student',
     initials: 'KS',
-    accent: '#ffd97d',
+    accent: '#f59e0b',
   },
   {
     quote: 'From APS to accommodation, every step was properly guided. Even after reaching Germany, their peer network helped me settle faster and avoid common mistakes international students face.',
@@ -53,17 +53,17 @@ export default function Testimonials() {
 
   const isDark = mounted ? resolvedTheme === 'dark' : true;
   const sectionBg = isDark
-    ? 'linear-gradient(160deg,#061628 0%,#0d2540 55%,#061628 100%)'
+    ? 'linear-gradient(160deg,#0b1323 0%,#0d2540 55%,#0b1323 100%)'
     : 'linear-gradient(160deg,#e8f4fd 0%,#d4eaff 55%,#e8f4fd 100%)';
   const textColor = isDark ? '#f0f6ff' : '#1a2a4a';
   const textSub = isDark ? 'rgba(200,220,245,0.72)' : 'rgba(30,50,80,0.68)';
   const cardBg = isDark ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.78)';
-  const cardBorder = isDark ? 'rgba(74,144,217,0.16)' : 'rgba(74,144,217,0.22)';
+  const cardBorder = isDark ? 'rgba(15,76,143,0.16)' : 'rgba(15,76,143,0.22)';
 
   return (
     <section className="relative py-20 overflow-hidden" style={{ background: sectionBg, minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
       <div className="pointer-events-none absolute inset-0" style={{
-        backgroundImage: 'linear-gradient(rgba(74,144,217,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(74,144,217,0.035) 1px,transparent 1px)',
+        backgroundImage: 'linear-gradient(rgba(15,76,143,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(15,76,143,0.035) 1px,transparent 1px)',
         backgroundSize: '56px 56px',
       }} />
 
@@ -71,12 +71,12 @@ export default function Testimonials() {
         {/* Header */}
         <div className="text-center mb-14">
           <span className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"
-            style={{ background: 'rgba(74,144,217,0.15)', border: '1px solid rgba(74,144,217,0.35)', letterSpacing: '0.15em', color: '#ffd97d' }}>
+            style={{ background: 'rgba(15,76,143,0.15)', border: '1px solid rgba(15,76,143,0.35)', letterSpacing: '0.15em', color: '#f59e0b' }}>
             What Our Students Say
           </span>
           <h2 className="font-bold leading-tight" style={{ fontSize: 'clamp(26px,4vw,52px)', color: textColor }}>
             Real Experiences from{' '}
-            <span style={{ color: '#4A90D9' }}>Real Students.</span>
+            <span style={{ color: '#0f4c8f' }}>Real Students.</span>
           </h2>
           <p className="mt-4 mx-auto leading-relaxed" style={{ fontSize: 'clamp(14px,1.1vw,17px)', color: textSub, maxWidth: '42ch' }}>
             Students who trusted EuroZiel for their Germany journey share what made the difference.
@@ -137,7 +137,7 @@ export default function Testimonials() {
             {TESTIMONIALS.map((_, i) => (
               <button key={i} onClick={() => setActive(i)}
                 className="rounded-full transition-all duration-300"
-                style={{ width: i === active ? 20 : 6, height: 6, background: i === active ? '#4A90D9' : 'rgba(74,144,217,0.25)' }} />
+                style={{ width: i === active ? 20 : 6, height: 6, background: i === active ? '#0f4c8f' : 'rgba(15,76,143,0.25)' }} />
             ))}
           </div>
         </div>
@@ -149,9 +149,9 @@ export default function Testimonials() {
           </p>
           <a href="#get-started"
             className="inline-flex items-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-8 text-sm"
-            style={{ background: '#4A90D9', color: '#fff', boxShadow: '0 4px 20px rgba(74,144,217,0.38)' }}
-            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(74,144,217,0.55)'; }}
-            onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(74,144,217,0.38)'; }}>
+            style={{ background: '#0f4c8f', color: '#fff', boxShadow: '0 4px 20px rgba(15,76,143,0.38)' }}
+            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(15,76,143,0.55)'; }}
+            onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(15,76,143,0.38)'; }}>
             Read More Stories →
           </a>
         </div>

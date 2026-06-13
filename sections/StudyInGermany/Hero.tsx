@@ -20,16 +20,16 @@ export default function StudyHero() {
       className="relative min-h-[94vh] flex flex-col items-center justify-center px-5 pt-32 pb-20 overflow-hidden text-center"
       style={{
         background: isDark
-          ? 'linear-gradient(160deg, #020d1a 0%, #061628 55%, #0a1f35 100%)'
-          : 'linear-gradient(160deg, #e8f4ff 0%, #f5faff 55%, #eef7ff 100%)',
+          ? 'linear-gradient(160deg, #020d1a 0%, #0b1323 55%, #0a1f35 100%)'
+          : 'linear-gradient(160deg, #eef8ff 0%, #f5faff 55%, #f8fafc 100%)',
       }}
     >
       {/* Ambient orbs */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, #4A90D9 0%, transparent 70%)', filter: 'blur(80px)' }} />
+          style={{ background: 'radial-gradient(circle, #0f4c8f 0%, transparent 70%)', filter: 'blur(80px)' }} />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, #FFD97D 0%, transparent 70%)', filter: 'blur(60px)' }} />
+          style={{ background: 'radial-gradient(circle, #f59e0b 0%, transparent 70%)', filter: 'blur(60px)' }} />
         <div className="absolute top-1/4 right-1/3 w-64 h-64 rounded-full opacity-10"
           style={{ background: 'radial-gradient(circle, #6C63FF 0%, transparent 70%)', filter: 'blur(60px)' }} />
       </div>
@@ -39,12 +39,12 @@ export default function StudyHero() {
         <span
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-semibold uppercase tracking-widest"
           style={{
-            background: isDark ? 'rgba(74,144,217,0.12)' : 'rgba(74,144,217,0.10)',
-            border: '1px solid rgba(74,144,217,0.30)',
-            color: '#4A90D9',
+            background: isDark ? 'rgba(15,76,143,0.12)' : 'rgba(15,76,143,0.10)',
+            border: '1px solid rgba(15,76,143,0.30)',
+            color: '#0f4c8f',
           }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#4A90D9] animate-pulse inline-block" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#0f4c8f] animate-pulse inline-block" />
           Study in Germany & Europe
         </span>
       </div>
@@ -57,7 +57,7 @@ export default function StudyHero() {
         >
           The degree costs nothing.{' '}
           <br className="hidden sm:block" />
-          <span style={{ color: '#FFD97D' }}>The opportunity costs everything</span>{' '}
+          <span style={{ color: '#f59e0b' }}>The opportunity costs everything</span>{' '}
           if you miss it.
         </h1>
         <p
@@ -73,7 +73,7 @@ export default function StudyHero() {
         <button
           onClick={openEnquiryModal}
           className="rounded-full px-8 py-4 text-[15px] font-bold transition-all duration-200"
-          style={{ background: '#FFD97D', color: '#1a1200', boxShadow: '0 4px 24px rgba(255,217,125,0.40)' }}
+          style={{ background: '#f59e0b', color: '#1a1200', boxShadow: '0 4px 24px rgba(245,158,11,0.40)' }}
           onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
         >
@@ -83,12 +83,12 @@ export default function StudyHero() {
           href="#fields"
           className="rounded-full px-8 py-4 text-[15px] font-semibold transition-all duration-200"
           style={{
-            background: isDark ? 'rgba(74,144,217,0.10)' : 'rgba(74,144,217,0.08)',
-            border: '1px solid rgba(74,144,217,0.28)',
+            background: isDark ? 'rgba(15,76,143,0.10)' : 'rgba(15,76,143,0.08)',
+            border: '1px solid rgba(15,76,143,0.28)',
             color: isDark ? '#c8dcf5' : '#1a3a6a',
           }}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(74,144,217,0.18)'; }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? 'rgba(74,144,217,0.10)' : 'rgba(74,144,217,0.08)'; }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(15,76,143,0.18)'; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? 'rgba(15,76,143,0.10)' : 'rgba(15,76,143,0.08)'; }}
         >
           Explore Fields ↓
         </a>
@@ -97,7 +97,7 @@ export default function StudyHero() {
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40">
         <span className="text-[11px] uppercase tracking-widest" style={{ color: sub }}>Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-[#4A90D9] to-transparent" />
+        <div className="w-px h-8 bg-gradient-to-b from-[#0f4c8f] to-transparent" />
       </div>
     </section>
   );

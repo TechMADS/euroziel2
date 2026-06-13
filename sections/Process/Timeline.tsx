@@ -8,7 +8,7 @@ const MONTHS = [
     range: 'Month 1–2',
     title: 'Discovery, Planning & APS',
     tag: 'Foundation',
-    tagColor: '#4A90D9',
+    tagColor: '#0f4c8f',
     icon: '🔍',
     description: 'Your journey begins with understanding your profile, goals, and the right pathway for Germany.',
     items: [
@@ -54,7 +54,7 @@ const MONTHS = [
     range: 'Month 5–7',
     title: 'University Applications',
     tag: 'Submission',
-    tagColor: '#F59E0B',
+    tagColor: '#f59e0b',
     icon: '🎯',
     description: 'Applications strategically submitted based on deadlines, profile fit, and admission potential.',
     items: [
@@ -205,7 +205,7 @@ function CardContent({
         border: `1px solid ${month.tagColor}25`,
         boxShadow: isDark
           ? `0 4px 24px rgba(0,0,0,0.25), 0 0 0 1px ${month.tagColor}15`
-          : `0 4px 24px rgba(74,144,217,0.08)`,
+          : `0 4px 24px rgba(15,76,143,0.08)`,
       }}
     >
       {/* Range + tag */}
@@ -243,9 +243,9 @@ function CardContent({
         <div
           className="mt-4 px-4 py-2.5 rounded-xl text-[12px] font-medium"
           style={{
-            background: isDark ? 'rgba(255,217,125,0.08)' : 'rgba(255,217,125,0.18)',
-            border: '1px solid rgba(255,217,125,0.30)',
-            color: isDark ? '#FFD97D' : '#92650a',
+            background: isDark ? 'rgba(245,158,11,0.08)' : 'rgba(245,158,11,0.18)',
+            border: '1px solid rgba(245,158,11,0.30)',
+            color: isDark ? '#f59e0b' : '#92650a',
           }}
         >
           ⚠️ {month.alert}
@@ -285,19 +285,19 @@ export default function ProcessTimeline() {
       className="relative py-28 px-5 sm:px-8 overflow-hidden"
       style={{
         background: isDark
-          ? 'linear-gradient(180deg, #061628 0%, #030e1c 100%)'
-          : 'linear-gradient(180deg, #f5faff 0%, #eef7ff 100%)',
+          ? 'linear-gradient(180deg, #0b1323 0%, #030e1c 100%)'
+          : 'linear-gradient(180deg, #f5faff 0%, #f8fafc 100%)',
       }}
     >
       {/* Section header */}
       <div className="max-w-2xl mx-auto text-center mb-20">
         <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#4A90D9', background: 'rgba(74,144,217,0.10)', border: '1px solid rgba(74,144,217,0.22)' }}>
+          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
           Your Germany Timeline
         </span>
         <h2 className="font-serif font-bold mb-4 leading-tight" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
           A Structured Roadmap,{' '}
-          <span style={{ color: '#4A90D9' }}>Month by Month</span>
+          <span style={{ color: '#0f4c8f' }}>Month by Month</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub, maxWidth: '52ch', margin: '0 auto' }}>
           From your first consultation to landing in Germany — every stage planned, every document tracked, every decision supported.
@@ -309,7 +309,7 @@ export default function ProcessTimeline() {
         {/* Vertical line (desktop only) */}
         <div
           className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
-          style={{ background: isDark ? 'rgba(74,144,217,0.15)' : 'rgba(74,144,217,0.20)' }}
+          style={{ background: isDark ? 'rgba(15,76,143,0.15)' : 'rgba(15,76,143,0.20)' }}
           aria-hidden
         />
 

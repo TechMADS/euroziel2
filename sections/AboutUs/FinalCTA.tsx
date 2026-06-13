@@ -45,7 +45,7 @@ export default function FinalCTASection() {
   const isDark = mounted ? resolvedTheme === 'dark' : true;
   const text = isDark ? '#f0f6ff' : '#1a2a4a';
   const sub = isDark ? 'rgba(200,220,245,0.68)' : 'rgba(30,50,80,0.65)';
-  const border = isDark ? 'rgba(74,144,217,0.15)' : 'rgba(74,144,217,0.18)';
+  const border = isDark ? 'rgba(15,76,143,0.15)' : 'rgba(15,76,143,0.18)';
   
   if (!mounted) return null;
   
@@ -53,15 +53,15 @@ export default function FinalCTASection() {
     <section className="py-28 px-5 sm:px-8 max-w-3xl mx-auto text-center">
       <Reveal>
         <div className="rounded-3xl px-8 py-16 relative overflow-hidden" style={{
-          background: isDark ? 'linear-gradient(135deg, #0d2540 0%, #061628 100%)' : 'linear-gradient(135deg, #e8f4ff 0%, #f0f8ff 100%)',
+          background: isDark ? 'linear-gradient(135deg, #0d2540 0%, #0b1323 100%)' : 'linear-gradient(135deg, #eef8ff 0%, #f8fafc 100%)',
           border: `1px solid ${border}`,
-          boxShadow: isDark ? '0 16px 60px rgba(0,0,0,0.40)' : '0 16px 60px rgba(74,144,217,0.12)',
+          boxShadow: isDark ? '0 16px 60px rgba(0,0,0,0.40)' : '0 16px 60px rgba(15,76,143,0.12)',
         }}>
-          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(74,144,217,0.18) 0%, transparent 70%)' }} aria-hidden />
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(15,76,143,0.18) 0%, transparent 70%)' }} aria-hidden />
           <div className="relative z-10">
-            <p className="text-[13px] font-semibold uppercase tracking-widest mb-5" style={{ color: '#4A90D9' }}>Free Consultation · Limited Slots</p>
+            <p className="text-[13px] font-semibold uppercase tracking-widest mb-5" style={{ color: '#0f4c8f' }}>Free Consultation · Limited Slots</p>
             <h2 className="font-serif font-bold mb-5 leading-tight" style={{ fontSize: 'clamp(28px, 4.5vw, 42px)', color: text }}>
-              Ready to start your <span style={{ color: '#FFD97D' }}>Germany journey?</span>
+              Ready to start your <span style={{ color: '#f59e0b' }}>Germany journey?</span>
             </h2>
             <p className="text-[17px] leading-relaxed mb-10 mx-auto" style={{ color: sub, maxWidth: '44ch' }}>
               Get a free 30-minute consultation with someone who actually knows your domain and the German system — not a generalist reading from a script.
@@ -70,9 +70,9 @@ export default function FinalCTASection() {
               <button
                 onClick={openEnquiryModal}
                 className="rounded-full px-8 py-4 text-[16px] font-bold transition-all duration-200 cursor-pointer"
-                style={{ background: '#FFD97D', color: '#1a1200', boxShadow: '0 4px 20px rgba(255,217,125,0.38)' }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 30px rgba(255,217,125,0.55)'; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(255,217,125,0.38)'; }}
+                style={{ background: '#f59e0b', color: '#1a1200', boxShadow: '0 4px 20px rgba(245,158,11,0.38)' }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 30px rgba(245,158,11,0.55)'; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(245,158,11,0.38)'; }}
               >
                 Book Free Consultation →
               </button>

@@ -41,9 +41,9 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
     <span
       className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full"
       style={{
-        background: 'rgba(74,144,217,0.12)',
-        border: '1px solid rgba(74,144,217,0.30)',
-        color: '#4A90D9',
+        background: 'rgba(15,76,143,0.12)',
+        border: '1px solid rgba(15,76,143,0.30)',
+        color: '#0f4c8f',
       }}
     >
       {children}
@@ -55,7 +55,7 @@ function FounderCard({ name, role, bio, initials, accentColor, isDark, delay }: 
   name: string; role: string; bio: string[]; initials: string; accentColor: string; isDark: boolean; delay: number;
 }) {
   const surface = isDark ? '#0d2540' : '#ffffff';
-  const border = isDark ? 'rgba(74,144,217,0.18)' : 'rgba(74,144,217,0.20)';
+  const border = isDark ? 'rgba(15,76,143,0.18)' : 'rgba(15,76,143,0.20)';
   const text = isDark ? '#f0f6ff' : '#1a2a4a';
   const sub = isDark ? 'rgba(200,220,245,0.65)' : 'rgba(30,50,80,0.62)';
 
@@ -92,8 +92,8 @@ export default function TeamSection() {
   const isDark = mounted ? resolvedTheme === 'dark' : true;
   const text = isDark ? '#f0f6ff' : '#1a2a4a';
   const sub = isDark ? 'rgba(200,220,245,0.68)' : 'rgba(30,50,80,0.65)';
-  const surfaceAlt = isDark ? 'rgba(13,37,64,0.5)' : 'rgba(74,144,217,0.04)';
-  const border = isDark ? 'rgba(74,144,217,0.15)' : 'rgba(74,144,217,0.18)';
+  const surfaceAlt = isDark ? 'rgba(13,37,64,0.5)' : 'rgba(15,76,143,0.04)';
+  const border = isDark ? 'rgba(15,76,143,0.15)' : 'rgba(15,76,143,0.18)';
   
   if (!mounted) return null;
   
@@ -114,7 +114,7 @@ export default function TeamSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <FounderCard
-            delay={0} isDark={isDark} accentColor="#4A90D9" initials="YJ"
+            delay={0} isDark={isDark} accentColor="#0f4c8f" initials="YJ"
             name="Yuvasri Jagadeesan"
             role="Co-Founder · Academic Strategy & Student Success"
             bio={[

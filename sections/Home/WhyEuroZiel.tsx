@@ -11,26 +11,26 @@ export default function WhyEuroZiel() {
   const isDark = mounted ? resolvedTheme === 'dark' : true;
 
   const sectionBg = isDark
-    ? 'linear-gradient(160deg,#061628 0%,#0d2540 60%,#061628 100%)'
+    ? 'linear-gradient(160deg,#0b1323 0%,#0d2540 60%,#0b1323 100%)'
     : 'linear-gradient(160deg,#e8f4fd 0%,#d4eaff 60%,#e8f4fd 100%)';
   const textColor = isDark ? '#f0f6ff' : '#1a2a4a';
   const textSub = isDark ? 'rgba(200,220,245,0.75)' : 'rgba(30,50,80,0.72)';
-  const imageBorder = isDark ? 'rgba(74,144,217,0.20)' : 'rgba(74,144,217,0.30)';
+  const imageBorder = isDark ? 'rgba(15,76,143,0.20)' : 'rgba(15,76,143,0.30)';
   const cardBg = isDark ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.72)';
-  const cardBorder = isDark ? 'rgba(74,144,217,0.18)' : 'rgba(74,144,217,0.28)';
+  const cardBorder = isDark ? 'rgba(15,76,143,0.18)' : 'rgba(15,76,143,0.28)';
 
   return (
     <section className="relative h-screen flex items-center overflow-hidden pt-16 pb-2" style={{ background: sectionBg }}>
       {/* Grid texture */}
       <div className="pointer-events-none absolute inset-0" style={{
-        backgroundImage: 'linear-gradient(rgba(74,144,217,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(74,144,217,0.04) 1px,transparent 1px)',
+        backgroundImage: 'linear-gradient(rgba(15,76,143,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(15,76,143,0.04) 1px,transparent 1px)',
         backgroundSize: '56px 56px',
       }} />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
         {/* <div className="flex justify-center mb-6">
           <span className="inline-block text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"
-            style={{ background: 'rgba(74,144,217,0.15)', border: '1px solid rgba(74,144,217,0.35)', letterSpacing: '0.15em', color: '#ffd97d' }}>
+            style={{ background: 'rgba(15,76,143,0.15)', border: '1px solid rgba(15,76,143,0.35)', letterSpacing: '0.15em', color: '#f59e0b' }}>
             Why EuroZiel
           </span>
         </div> */}
@@ -41,9 +41,9 @@ export default function WhyEuroZiel() {
           {/* Image */}
           <div className="relative order-2 lg:order-1">
             <div className="absolute -left-4 top-8 bottom-8 w-[3px] rounded-full hidden lg:block"
-              style={{ background: 'linear-gradient(to bottom,#4A90D9,#ffd97d)' }} />
+              style={{ background: 'linear-gradient(to bottom,#0f4c8f,#f59e0b)' }} />
             <div className="relative rounded-2xl overflow-hidden"
-              style={{ border: `1px solid ${imageBorder}`, boxShadow: isDark ? '0 24px 64px rgba(0,0,0,0.55)' : '0 24px 64px rgba(74,144,217,0.18)' }}>
+              style={{ border: `1px solid ${imageBorder}`, boxShadow: isDark ? '0 24px 64px rgba(0,0,0,0.55)' : '0 24px 64px rgba(15,76,143,0.18)' }}>
               <div className="absolute inset-0 z-10 pointer-events-none"
                 style={{ background: 'linear-gradient(135deg,rgba(6,22,40,0.55) 0%,rgba(6,22,40,0.15) 100%)' }} />
               {/* <Image src="/images/home/why-euroziel.jpg" alt="EuroZiel guidance" width={680} height={520}
@@ -57,8 +57,8 @@ export default function WhyEuroZiel() {
               />
 
               {[
-                { val: '100%', label: 'Germany-Focused', accent: '#4A90D9', pos: 'bottom-5 left-5' },
-                { val: 'Real', label: 'Student Insight', accent: '#ffd97d', pos: 'top-5 right-5' },
+                { val: '100%', label: 'Germany-Focused', accent: '#0f4c8f', pos: 'bottom-5 left-5' },
+                { val: 'Real', label: 'Student Insight', accent: '#f59e0b', pos: 'top-5 right-5' },
               ].map(({ val, label, accent, pos }) => (
                 <div key={label} className={`absolute ${pos} z-20 px-4 py-3 rounded-xl`}
                   style={{ background: isDark ? 'rgba(6,22,40,0.88)' : 'rgba(255,255,255,0.90)', border: `1px solid ${accent}44`, backdropFilter: 'blur(8px)' }}>
@@ -73,7 +73,7 @@ export default function WhyEuroZiel() {
           <div className="order-1 lg:order-2 stagger-children">
             <h2 className="font-bold leading-tight mb-3" style={{ fontSize: 'clamp(26px,3.5vw,48px)', color: textColor }}>
               More Than a Consultancy.{' '}
-              <span style={{ color: '#4A90D9' }}>A Real Bridge</span> to Germany.
+              <span style={{ color: '#0f4c8f' }}>A Real Bridge</span> to Germany.
             </h2>
 
             <p className="leading-relaxed mb-4" style={{ fontSize: 'clamp(14px,1.1vw,17px)', color: textSub, maxWidth: '54ch' }}>
@@ -99,8 +99,8 @@ export default function WhyEuroZiel() {
               ].map((pt) => (
                 <div key={pt} className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
-                    style={{ background: 'rgba(74,144,217,0.15)', border: '1px solid rgba(74,144,217,0.35)' }}>
-                    <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="#4A90D9" /></svg>
+                    style={{ background: 'rgba(15,76,143,0.15)', border: '1px solid rgba(15,76,143,0.35)' }}>
+                    <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="#0f4c8f" /></svg>
                   </span>
                   <span className="text-[14px] font-medium leading-relaxed" style={{ color: textSub }}>{pt}</span>
                 </div>
@@ -110,9 +110,9 @@ export default function WhyEuroZiel() {
             {/* CTA */}
             {/* <a href="#get-started"
               className="inline-flex items-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-7 text-sm"
-              style={{ background: '#4A90D9', color: '#ffffff', boxShadow: '0 4px 20px rgba(74,144,217,0.40)' }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(74,144,217,0.55)'; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(74,144,217,0.40)'; }}>
+              style={{ background: '#0f4c8f', color: '#ffffff', boxShadow: '0 4px 20px rgba(15,76,143,0.40)' }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(15,76,143,0.55)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(15,76,143,0.40)'; }}>
               Start Your Germany Journey
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

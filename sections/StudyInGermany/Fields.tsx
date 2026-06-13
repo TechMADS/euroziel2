@@ -8,7 +8,7 @@ const FIELDS = [
   {
     icon: '⚙️',
     title: 'Engineering & Technology',
-    accent: '#4A90D9',
+    accent: '#0f4c8f',
     companies: ['Siemens', 'Bosch', 'BASF', 'Volkswagen', 'Airbus'],
     universities: ['TU Munich', 'RWTH Aachen', 'KIT'],
     body: 'Germany is not just an engineering country by reputation. It is where core R&D actually happens. A German engineering degree is recognised in over 50 countries as a benchmark qualification.',
@@ -38,7 +38,7 @@ const FIELDS = [
   {
     icon: '🔬',
     title: 'Natural Sciences',
-    accent: '#F59E0B',
+    accent: '#f59e0b',
     companies: ['Max Planck Institute', 'Helmholtz', 'Fraunhofer', 'BASF Research'],
     universities: ['Heidelberg', 'TU Munich', 'Göttingen'],
     body: 'Germany funds more scientific research per capita than almost any country in the world. The DFG alone distributes over €3 billion annually. If you are going into research, Germany is where the funding is.',
@@ -88,7 +88,7 @@ function FieldCard({ field, index, isDark }: { field: typeof FIELDS[0]; index: n
   const [hovered, setHovered] = useState(false);
   const text = isDark ? '#f0f6ff' : '#1a2a4a';
   const sub = isDark ? 'rgba(200,220,245,0.68)' : 'rgba(30,50,80,0.65)';
-  const chipBg = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(74,144,217,0.06)';
+  const chipBg = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(15,76,143,0.06)';
   const chipColor = isDark ? 'rgba(200,220,245,0.55)' : 'rgba(30,50,80,0.50)';
 
   return (
@@ -109,7 +109,7 @@ function FieldCard({ field, index, isDark }: { field: typeof FIELDS[0]; index: n
         border: `1px solid ${hovered ? field.accent + '45' : field.accent + '20'}`,
         boxShadow: hovered
           ? `0 12px 40px ${field.accent}20`
-          : isDark ? '0 2px 12px rgba(0,0,0,0.20)' : '0 2px 12px rgba(74,144,217,0.06)',
+          : isDark ? '0 2px 12px rgba(0,0,0,0.20)' : '0 2px 12px rgba(15,76,143,0.06)',
       }}
     >
       {/* Header */}
@@ -156,7 +156,7 @@ function FieldCard({ field, index, isDark }: { field: typeof FIELDS[0]; index: n
         </p>
         <div className="flex flex-wrap gap-1.5">
           {field.companies.map((c, i) => (
-            <span key={i} className="text-[11px] px-2.5 py-1 rounded-full" style={{ background: chipBg, color: chipColor, border: `1px solid rgba(74,144,217,0.12)` }}>
+            <span key={i} className="text-[11px] px-2.5 py-1 rounded-full" style={{ background: chipBg, color: chipColor, border: `1px solid rgba(15,76,143,0.12)` }}>
               {c}
             </span>
           ))}
@@ -192,8 +192,8 @@ export default function StudyFields() {
       className="relative py-28 px-5 sm:px-8"
       style={{
         background: isDark
-          ? 'linear-gradient(180deg, #030e1c 0%, #061628 100%)'
-          : 'linear-gradient(180deg, #eef7ff 0%, #f5faff 100%)',
+          ? 'linear-gradient(180deg, #030e1c 0%, #0b1323 100%)'
+          : 'linear-gradient(180deg, #f8fafc 0%, #f5faff 100%)',
       }}
     >
       <div
@@ -206,12 +206,12 @@ export default function StudyFields() {
         }}
       >
         <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#4A90D9', background: 'rgba(74,144,217,0.10)', border: '1px solid rgba(74,144,217,0.22)' }}>
+          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
           Fields & Specialisations
         </span>
         <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
           What You Can Study{' '}
-          <span style={{ color: '#4A90D9' }}>and Where It Takes You</span>
+          <span style={{ color: '#0f4c8f' }}>and Where It Takes You</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
           Every field below has a real industry behind it in Germany — not just a degree programme.

@@ -8,7 +8,7 @@ const CARDS = [
     icon: '📋',
     title: 'APS Processing',
     body: 'APS timelines can vary significantly based on document load and season. Starting early is not optional — it is essential.',
-    accent: '#4A90D9',
+    accent: '#0f4c8f',
     stat: '8–12 weeks',
     statLabel: 'avg. APS processing time',
   },
@@ -32,7 +32,7 @@ const CARDS = [
     icon: '💼',
     title: 'Career Opportunities',
     body: 'Germany offers strong demand across engineering, IT, healthcare, business, and technical sectors with an 18-month job seeker visa.',
-    accent: '#F59E0B',
+    accent: '#f59e0b',
     stat: '18 months',
     statLabel: 'post-study job seeker visa',
   },
@@ -94,7 +94,7 @@ function InsightCard({ card, index, isDark }: { card: typeof CARDS[0]; index: nu
         border: `1px solid ${hovered ? card.accent + '40' : card.accent + '20'}`,
         boxShadow: hovered
           ? `0 12px 40px ${card.accent}20`
-          : isDark ? '0 2px 12px rgba(0,0,0,0.20)' : '0 2px 12px rgba(74,144,217,0.06)',
+          : isDark ? '0 2px 12px rgba(0,0,0,0.20)' : '0 2px 12px rgba(15,76,143,0.06)',
       }}
     >
       {/* Icon */}
@@ -157,8 +157,8 @@ export default function ProcessInsights() {
       className="relative py-28 px-5 sm:px-8"
       style={{
         background: isDark
-          ? 'linear-gradient(180deg, #061628 0%, #030e1c 100%)'
-          : 'linear-gradient(180deg, #f5faff 0%, #eef7ff 100%)',
+          ? 'linear-gradient(180deg, #0b1323 0%, #030e1c 100%)'
+          : 'linear-gradient(180deg, #f5faff 0%, #f8fafc 100%)',
       }}
     >
       {/* Header */}
@@ -172,12 +172,12 @@ export default function ProcessInsights() {
         }}
       >
         <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#4A90D9', background: 'rgba(74,144,217,0.10)', border: '1px solid rgba(74,144,217,0.22)' }}>
+          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
           Germany Journey Insights
         </span>
         <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
           What You Should Know{' '}
-          <span style={{ color: '#4A90D9' }}>Before You Begin</span>
+          <span style={{ color: '#0f4c8f' }}>Before You Begin</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
           Real numbers and honest context from students and professionals already in Germany.

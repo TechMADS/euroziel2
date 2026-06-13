@@ -38,16 +38,16 @@ export default function ProcessHero() {
       className="relative min-h-[92vh] flex flex-col items-center justify-center px-5 pt-32 pb-20 overflow-hidden"
       style={{
         background: isDark
-          ? 'linear-gradient(160deg, #020d1a 0%, #061628 50%, #0a1f35 100%)'
-          : 'linear-gradient(160deg, #e8f4ff 0%, #f5faff 50%, #eef7ff 100%)',
+          ? 'linear-gradient(160deg, #020d1a 0%, #0b1323 50%, #0a1f35 100%)'
+          : 'linear-gradient(160deg, #eef8ff 0%, #f5faff 50%, #f8fafc 100%)',
       }}
     >
       {/* Ambient orbs */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, #4A90D9 0%, transparent 70%)', filter: 'blur(60px)' }} />
+          style={{ background: 'radial-gradient(circle, #0f4c8f 0%, transparent 70%)', filter: 'blur(60px)' }} />
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, #FFD97D 0%, transparent 70%)', filter: 'blur(60px)' }} />
+          style={{ background: 'radial-gradient(circle, #f59e0b 0%, transparent 70%)', filter: 'blur(60px)' }} />
       </div>
 
       {/* Floating pill badge */}
@@ -55,12 +55,12 @@ export default function ProcessHero() {
         <span
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-semibold uppercase tracking-widest"
           style={{
-            background: isDark ? 'rgba(74,144,217,0.12)' : 'rgba(74,144,217,0.10)',
-            border: '1px solid rgba(74,144,217,0.30)',
-            color: '#4A90D9',
+            background: isDark ? 'rgba(15,76,143,0.12)' : 'rgba(15,76,143,0.10)',
+            border: '1px solid rgba(15,76,143,0.30)',
+            color: '#0f4c8f',
           }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#4A90D9] animate-pulse inline-block" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#0f4c8f] animate-pulse inline-block" />
           EuroZiel · Full Germany Roadmap
         </span>
       </div>
@@ -73,7 +73,7 @@ export default function ProcessHero() {
         >
           Germany Is More Than{' '}
           <br className="hidden sm:block" />
-          <span style={{ color: '#FFD97D' }}>Just an Offer Letter</span>
+          <span style={{ color: '#f59e0b' }}>Just an Offer Letter</span>
         </h1>
         <p
           className="mx-auto leading-relaxed"
@@ -85,7 +85,7 @@ export default function ProcessHero() {
 
       {/* Animated "what students miss" cards */}
       <div className="relative z-10 w-full max-w-2xl mb-12">
-        <p className="text-center text-[11px] font-semibold uppercase tracking-widest mb-4" style={{ color: 'rgba(74,144,217,0.7)' }}>
+        <p className="text-center text-[11px] font-semibold uppercase tracking-widest mb-4" style={{ color: 'rgba(15,76,143,0.7)' }}>
           What students often overlook
         </p>
         <div className="flex flex-wrap justify-center gap-3">
@@ -95,11 +95,11 @@ export default function ProcessHero() {
               className="flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-500"
               style={{
                 background: active === i
-                  ? isDark ? 'rgba(74,144,217,0.22)' : 'rgba(74,144,217,0.14)'
-                  : isDark ? 'rgba(255,255,255,0.04)' : 'rgba(74,144,217,0.05)',
+                  ? isDark ? 'rgba(15,76,143,0.22)' : 'rgba(15,76,143,0.14)'
+                  : isDark ? 'rgba(255,255,255,0.04)' : 'rgba(15,76,143,0.05)',
                 border: active === i
-                  ? '1px solid rgba(74,144,217,0.50)'
-                  : '1px solid rgba(74,144,217,0.14)',
+                  ? '1px solid rgba(15,76,143,0.50)'
+                  : '1px solid rgba(15,76,143,0.14)',
                 color: active === i ? (isDark ? '#c8dcf5' : '#1a3a6a') : sub,
                 transform: active === i ? 'scale(1.06)' : 'scale(1)',
               }}
@@ -116,7 +116,7 @@ export default function ProcessHero() {
         <button
           onClick={openEnquiryModal}
           className="rounded-full px-8 py-4 text-[15px] font-bold transition-all duration-200"
-          style={{ background: '#FFD97D', color: '#1a1200', boxShadow: '0 4px 24px rgba(255,217,125,0.40)' }}
+          style={{ background: '#f59e0b', color: '#1a1200', boxShadow: '0 4px 24px rgba(245,158,11,0.40)' }}
           onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
         >
@@ -126,12 +126,12 @@ export default function ProcessHero() {
           href="#timeline"
           className="rounded-full px-8 py-4 text-[15px] font-semibold transition-all duration-200 flex items-center gap-2"
           style={{
-            background: isDark ? 'rgba(74,144,217,0.10)' : 'rgba(74,144,217,0.08)',
-            border: '1px solid rgba(74,144,217,0.28)',
+            background: isDark ? 'rgba(15,76,143,0.10)' : 'rgba(15,76,143,0.08)',
+            border: '1px solid rgba(15,76,143,0.28)',
             color: isDark ? '#c8dcf5' : '#1a3a6a',
           }}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(74,144,217,0.18)'; }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? 'rgba(74,144,217,0.10)' : 'rgba(74,144,217,0.08)'; }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(15,76,143,0.18)'; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? 'rgba(15,76,143,0.10)' : 'rgba(15,76,143,0.08)'; }}
         >
           View Full Timeline ↓
         </a>
@@ -140,7 +140,7 @@ export default function ProcessHero() {
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40">
         <span className="text-[11px] uppercase tracking-widest" style={{ color: sub }}>Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-[#4A90D9] to-transparent" />
+        <div className="w-px h-8 bg-gradient-to-b from-[#0f4c8f] to-transparent" />
       </div>
     </section>
   );

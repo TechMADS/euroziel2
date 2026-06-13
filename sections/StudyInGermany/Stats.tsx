@@ -9,7 +9,7 @@ const STATS = [
     number: '400,000+',
     label: 'International Students',
     context: 'The third largest destination for Indian students after the US and Canada — and growing faster than both.',
-    accent: '#4A90D9',
+    accent: '#0f4c8f',
     icon: '🎓',
   },
   {
@@ -30,7 +30,7 @@ const STATS = [
     number: '1.7 million',
     label: 'Unfilled Skilled Jobs',
     context: 'The government is not just welcoming international graduates — it is actively changing laws to keep them.',
-    accent: '#F59E0B',
+    accent: '#f59e0b',
     icon: '💼',
   },
 ];
@@ -75,7 +75,7 @@ function StatCard({ stat, index, isDark }: { stat: typeof STATS[0]; index: numbe
         border: `1px solid ${hovered ? stat.accent + '45' : stat.accent + '22'}`,
         boxShadow: hovered
           ? `0 16px 48px ${stat.accent}22`
-          : isDark ? '0 2px 12px rgba(0,0,0,0.20)' : '0 2px 12px rgba(74,144,217,0.06)',
+          : isDark ? '0 2px 12px rgba(0,0,0,0.20)' : '0 2px 12px rgba(15,76,143,0.06)',
       }}
     >
       <div
@@ -129,8 +129,8 @@ export default function StudyStats() {
       className="relative py-28 px-5 sm:px-8"
       style={{
         background: isDark
-          ? 'linear-gradient(180deg, #061628 0%, #030e1c 100%)'
-          : 'linear-gradient(180deg, #f5faff 0%, #eef7ff 100%)',
+          ? 'linear-gradient(180deg, #0b1323 0%, #030e1c 100%)'
+          : 'linear-gradient(180deg, #f5faff 0%, #f8fafc 100%)',
       }}
     >
       <div
@@ -143,12 +143,12 @@ export default function StudyStats() {
         }}
       >
         <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#4A90D9', background: 'rgba(74,144,217,0.10)', border: '1px solid rgba(74,144,217,0.22)' }}>
+          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
           Why Germany
         </span>
         <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
           Numbers That Actually{' '}
-          <span style={{ color: '#4A90D9' }}>Mean Something</span>
+          <span style={{ color: '#0f4c8f' }}>Mean Something</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
           Not marketing statistics. Real figures that change how you think about the decision.

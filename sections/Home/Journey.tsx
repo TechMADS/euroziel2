@@ -24,7 +24,7 @@ const steps = [
     description: "Start with a personalized consultation to map your unique path to Germany.",
     Icon: Search,
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200",
-    accent: "#4A90D9"
+    accent: "#0f4c8f"
   },
   {
     number: "02",
@@ -33,7 +33,7 @@ const steps = [
     description: "Customized university and career strategy based on your profile.",
     Icon: Map,
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200",
-    accent: "#ffd97d"
+    accent: "#f59e0b"
   },
   {
     number: "03",
@@ -69,7 +69,7 @@ const steps = [
     description: "Career and long term mentorship.",
     Icon: TrendingUp,
     image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200",
-    accent: "#4A90D9"
+    accent: "#0f4c8f"
   }
 ];
 
@@ -160,7 +160,7 @@ export default function Journey() {
       className="relative py-32 overflow-hidden"
       style={{
         background: dark
-          ? "linear-gradient(160deg,#061628,#04111f)"
+          ? "linear-gradient(160deg,#0b1323,#04111f)"
           : "#eef8ff"
       }}
     >
@@ -175,7 +175,7 @@ export default function Journey() {
             }}
           >
             Six Steps To{" "}
-            <span style={{ color: "#4A90D9" }}>Germany</span>
+            <span style={{ color: "#0f4c8f" }}>Germany</span>
           </h2>
 
           <p
@@ -202,7 +202,7 @@ export default function Journey() {
             <path
               ref={pathRef}
               d="M250 120 C80 300 420 500 250 750 C70 1000 430 1200 250 1500 C80 1800 420 2200 250 2500"
-              stroke="#4A90D9"
+              stroke="#0f4c8f"
               strokeWidth="5"
               strokeLinecap="round"
               opacity=".7"
@@ -238,7 +238,7 @@ export default function Journey() {
                           style={{
                             color: dark
                               ? "rgba(255,255,255,.06)"
-                              : "rgba(74,144,217,.12)"
+                              : "rgba(15,76,143,.12)"
                           }}
                         >
                           {step.number}
@@ -348,7 +348,7 @@ export default function Journey() {
                           style={{
                             color: dark
                               ? "rgba(255,255,255,.06)"
-                              : "rgba(74,144,217,.12)"
+                              : "rgba(15,76,143,.12)"
                           }}
                         >
                           {step.number}

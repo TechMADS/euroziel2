@@ -43,7 +43,7 @@ export default function FloatingNavbar() {
 
   const linkStyle = (isActive: boolean) => ({
     color: isActive ? '#ffffff' : isDark ? 'rgba(200,220,245,0.75)' : 'rgba(30,50,80,0.70)',
-    background: isActive ? '#4A90D9' : 'transparent',
+    background: isActive ? '#0f4c8f' : 'transparent',
     fontWeight: isActive ? 600 : 400,
   });
 
@@ -56,7 +56,7 @@ export default function FloatingNavbar() {
           background: scrolled ? `rgba(${navBg},0.96)` : `rgba(${navBg},0.80)`,
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
-          border: '1px solid rgba(74,144,217,0.18)',
+          border: '1px solid rgba(15,76,143,0.18)',
           boxShadow: scrolled
             ? `0 8px 32px rgba(${shadowRgb},0.14)`
             : `0 4px 16px rgba(${shadowRgb},0.08)`,
@@ -73,7 +73,7 @@ export default function FloatingNavbar() {
               onMouseEnter={(e) => {
                 if (isActive) return;
                 e.currentTarget.style.color = isDark ? '#f0f6ff' : '#1a2a4a';
-                e.currentTarget.style.background = 'rgba(74,144,217,0.10)';
+                e.currentTarget.style.background = 'rgba(15,76,143,0.10)';
               }}
               onMouseLeave={(e) => {
                 if (isActive) return;
@@ -87,7 +87,7 @@ export default function FloatingNavbar() {
         })}
 
         {/* Theme toggle */}
-        {/* <div className="ml-1 pl-2" style={{ borderLeft: '1px solid rgba(74,144,217,0.20)' }}>
+        {/* <div className="ml-1 pl-2" style={{ borderLeft: '1px solid rgba(15,76,143,0.20)' }}>
           <FloatingThemeToggle inline className="scale-90" />
         </div> */}
       </nav>
@@ -99,7 +99,7 @@ export default function FloatingNavbar() {
           background: `rgba(${navBg},0.96)`,
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
-          border: '1px solid rgba(74,144,217,0.18)',
+          border: '1px solid rgba(15,76,143,0.18)',
           boxShadow: `0 4px 16px rgba(${shadowRgb},0.10)`,
         }}
       >
@@ -155,7 +155,7 @@ export default function FloatingNavbar() {
           background: `rgba(${navBg},0.98)`,
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
-          border: '1px solid rgba(74,144,217,0.18)',
+          border: '1px solid rgba(15,76,143,0.18)',
           boxShadow: `0 8px 32px rgba(${shadowRgb},0.14)`,
           maxHeight: menuOpen ? '520px' : '0px',
           opacity: menuOpen ? 1 : 0,
@@ -174,12 +174,12 @@ export default function FloatingNavbar() {
                 className="px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200"
                 style={{
                   color: isActive ? '#ffffff' : isDark ? 'rgba(200,220,245,0.75)' : 'rgba(30,50,80,0.70)',
-                  background: isActive ? '#4A90D9' : 'transparent',
+                  background: isActive ? '#0f4c8f' : 'transparent',
                   fontWeight: isActive ? 600 : 400,
                 }}
                 onMouseEnter={(e) => {
                   if (isActive) return;
-                  e.currentTarget.style.background = 'rgba(74,144,217,0.10)';
+                  e.currentTarget.style.background = 'rgba(15,76,143,0.10)';
                   e.currentTarget.style.color = isDark ? '#f0f6ff' : '#1a2a4a';
                 }}
                 onMouseLeave={(e) => {
@@ -194,13 +194,13 @@ export default function FloatingNavbar() {
           })}
 
           {/* Divider */}
-          <div className="my-1" style={{ borderTop: '1px solid rgba(74,144,217,0.15)' }} />
+          <div className="my-1" style={{ borderTop: '1px solid rgba(15,76,143,0.15)' }} />
 
           {/* Enquiry CTA in mobile menu */}
           <button
             onClick={() => { setMenuOpen(false); openEnquiryModal(); }}
             className="px-4 py-3 rounded-xl text-sm font-bold text-center transition-all duration-200"
-            style={{ background: '#ffd97d', color: '#1a1200' }}
+            style={{ background: '#f59e0b', color: '#1a1200' }}
           >
             Book Free Consultation →
           </button>

@@ -22,7 +22,7 @@ export default function FAQPage() {
   const { resolvedTheme } = useTheme();
   const [selectedCategory, setSelectedCategory] = React.useState('ausbildung');
   const isDark = resolvedTheme === 'dark';
-  const bg = isDark ? '#061628' : '#f0f8ff';
+  const bg = isDark ? '#0b1323' : '#f8fafc';
 
   const categories = [
     { id: 'ausbildung', label: 'Ausbildung' },

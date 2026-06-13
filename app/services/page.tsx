@@ -17,7 +17,7 @@ export default function ServicesPage() {
   useEffect(() => setMounted(true), []);
   
   const isDark = mounted ? resolvedTheme === 'dark' : true;
-  const bg = isDark ? '#061628' : '#f0f8ff';
+  const bg = isDark ? '#0b1323' : '#f8fafc';
   
   if (!mounted) return null;
   

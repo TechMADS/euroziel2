@@ -30,7 +30,7 @@ function createIdFromQuestion(question: string) {
 }
 
 export default function AccordionItem({ question, answer, isDark, isOpen, onToggle }: AccordionItemProps) {
-  const border = isDark ? 'rgba(74,144,217,0.15)' : 'rgba(74,144,217,0.18)';
+  const border = isDark ? 'rgba(15,76,143,0.15)' : 'rgba(15,76,143,0.18)';
   const surface = isDark ? '#0d2540' : '#ffffff';
   const text = isDark ? '#f0f6ff' : '#1a2a4a';
   const sub = isDark ? 'rgba(200,220,245,0.9)' : 'rgba(30,50,80,0.9)';

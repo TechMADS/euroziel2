@@ -41,9 +41,9 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
     <span
       className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full"
       style={{
-        background: 'rgba(74,144,217,0.12)',
-        border: '1px solid rgba(74,144,217,0.30)',
-        color: '#4A90D9',
+        background: 'rgba(15,76,143,0.12)',
+        border: '1px solid rgba(15,76,143,0.30)',
+        color: '#0f4c8f',
       }}
     >
       {children}
@@ -51,7 +51,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
   );
 }
 
-function FAQIcon({ color = '#4A90D9', size = 64 }) {
+function FAQIcon({ color = '#0f4c8f', size = 64 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke={color} strokeWidth="1.5"/>
@@ -79,8 +79,8 @@ export default function FAQHeroSection() {
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full pointer-events-none"
         style={{
           background: isDark
-            ? 'radial-gradient(ellipse, rgba(74,144,217,0.12) 0%, transparent 70%)'
-            : 'radial-gradient(ellipse, rgba(74,144,217,0.10) 0%, transparent 70%)',
+            ? 'radial-gradient(ellipse, rgba(15,76,143,0.12) 0%, transparent 70%)'
+            : 'radial-gradient(ellipse, rgba(15,76,143,0.10) 0%, transparent 70%)',
         }}
         aria-hidden
       />
@@ -91,7 +91,7 @@ export default function FAQHeroSection() {
 
       <Reveal delay={80}>
         <div className="flex justify-center mb-6">
-          <FAQIcon color="#4A90D9" size={56} />
+          <FAQIcon color="#0f4c8f" size={56} />
         </div>
         <h1
           className="font-serif font-bold mt-4 mb-6 leading-[1.2]"
@@ -104,7 +104,7 @@ export default function FAQHeroSection() {
           <br />
           <span
             style={{
-              background: 'linear-gradient(135deg, #4A90D9, #7ED8A4)',
+              background: 'linear-gradient(135deg, #0f4c8f, #7ED8A4)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
 import AccordionItem from './AccordionItem';
 
-function CheckIcon({ color = '#4A90D9', size = 28 }) {
+function CheckIcon({ color = '#0f4c8f', size = 28 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <circle cx="12" cy="12" r="10" stroke={color} strokeWidth="1.5"/>

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
 import AccordionItem from './AccordionItem';
 
-function ScholarshipIcon({ color = '#4A90D9', size = 28 }) {
+function ScholarshipIcon({ color = '#0f4c8f', size = 28 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 3L14 8H19L15 11L17 16L12 13L7 16L9 11L5 8H10L12 3Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -52,7 +52,7 @@ export default function Part9Scholarships() {
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="flex items-center gap-3 mb-8">
-        <ScholarshipIcon color="#FFD97D" size={32} />
+        <ScholarshipIcon color="#f59e0b" size={32} />
         <h2 className="font-serif font-bold text-[28px] sm:text-[32px]" style={{ color: text }}>
           Part 9 — Scholarships
         </h2>

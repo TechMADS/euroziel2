@@ -42,9 +42,9 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
     <span
       className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full"
       style={{
-        background: 'rgba(74,144,217,0.12)',
-        border: '1px solid rgba(74,144,217,0.30)',
-        color: '#4A90D9',
+        background: 'rgba(15,76,143,0.12)',
+        border: '1px solid rgba(15,76,143,0.30)',
+        color: '#0f4c8f',
       }}
     >
       {children}
@@ -69,8 +69,8 @@ export default function HeroSection() {
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full pointer-events-none"
         style={{
           background: isDark
-            ? 'radial-gradient(ellipse, rgba(74,144,217,0.12) 0%, transparent 70%)'
-            : 'radial-gradient(ellipse, rgba(74,144,217,0.10) 0%, transparent 70%)',
+            ? 'radial-gradient(ellipse, rgba(15,76,143,0.12) 0%, transparent 70%)'
+            : 'radial-gradient(ellipse, rgba(15,76,143,0.10) 0%, transparent 70%)',
         }}
         aria-hidden
       />
@@ -90,7 +90,7 @@ export default function HeroSection() {
           Not a consultancy that{' '}
           <span
             style={{
-              background: 'linear-gradient(135deg, #4A90D9, #7ED8A4)',
+              background: 'linear-gradient(135deg, #0f4c8f, #7ED8A4)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -100,7 +100,7 @@ export default function HeroSection() {
           </span>
           <br />
           Connected to people{' '}
-          <span style={{ color: '#FFD97D' }}>living it right now.</span>
+          <span style={{ color: '#f59e0b' }}>living it right now.</span>
         </h1>
       </Reveal>
 
@@ -110,17 +110,17 @@ export default function HeroSection() {
             onClick={openEnquiryModal}
             className="rounded-full px-8 py-4 text-[16px] font-bold transition-all duration-200 cursor-pointer"
             style={{
-              background: '#4A90D9',
+              background: '#0f4c8f',
               color: '#fff',
-              boxShadow: '0 4px 20px rgba(74,144,217,0.38)',
+              boxShadow: '0 4px 20px rgba(15,76,143,0.38)',
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
-              (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 30px rgba(74,144,217,0.50)';
+              (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 30px rgba(15,76,143,0.50)';
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
-              (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(74,144,217,0.38)';
+              (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(15,76,143,0.38)';
             }}
           >
             Book Free Consultation →

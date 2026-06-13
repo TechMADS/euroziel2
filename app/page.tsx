@@ -58,7 +58,7 @@ export default function Home() {
         .section-rule {
           width:100%;
           height:1px;
-          background:linear-gradient(to right,transparent 0%,rgba(74,144,217,0.30) 30%,rgba(255,217,125,0.28) 70%,transparent 100%);
+          background:linear-gradient(to right,transparent 0%,rgba(15,76,143,0.30) 30%,rgba(245,158,11,0.28) 70%,transparent 100%);
         }
       `}</style>
 

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
+import ImagePlaceholder from '@/components/ImagePlaceholder';
 
 function useReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,7 +37,7 @@ function Reveal({ children, delay = 0, className = '' }: { children: React.React
   );
 }
 
-function GraduationCapIcon({ color = '#4A90D9', size = 32 }) {
+function GraduationCapIcon({ color = '#0f4c8f', size = 32 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 3L2 9L12 15L22 9L12 3Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -71,43 +72,54 @@ export default function BachelorsSection() {
   if (!mounted) return null;
   
   return (
-    <section className="py-24 px-5 sm:px-8 max-w-5xl mx-auto">
+    <section className="py-24 px-5 sm:px-8 max-w-6xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <Reveal delay={100} className="order-2 md:order-1">
           <div className="space-y-5">
-            <div className="flex gap-4 items-start p-4 rounded-xl" style={{ background: isDark ? 'rgba(0,0,0,0.2)' : 'rgba(74,144,217,0.04)' }}>
-              <GraduationCapIcon color="#4A90D9" size={28} />
+            <div className="flex gap-4 items-start p-6 rounded-2xl hover-lift" style={{ background: isDark ? 'rgba(15,76,143,0.08)' : 'rgba(15,76,143,0.06)', border: '1px solid rgba(15,76,143,0.15)' }}>
+              <GraduationCapIcon color="#0f4c8f" size={28} />
               <div>
                 <h3 className="font-serif font-bold text-[18px] mb-1" style={{ color: text }}>Entry Routes Explained</h3>
-                <p className="text-[15px]" style={{ color: sub }}>Direct entry, Studienkolleg, or Indian university years — we tell you exactly which applies.</p>
+                <p className="text-[15px] leading-relaxed" style={{ color: sub }}>Direct entry, Studienkolleg, or Indian university years — we tell you exactly which applies.</p>
               </div>
             </div>
-            <div className="flex gap-4 items-start p-4 rounded-xl" style={{ background: isDark ? 'rgba(0,0,0,0.2)' : 'rgba(74,144,217,0.04)' }}>
+            <div className="flex gap-4 items-start p-6 rounded-2xl hover-lift" style={{ background: isDark ? 'rgba(126,216,164,0.06)' : 'rgba(126,216,164,0.05)', border: '1px solid rgba(126,216,164,0.15)' }}>
               <ZeroFeeIcon color="#7ED8A4" size={28} />
               <div>
                 <h3 className="font-serif font-bold text-[18px] mb-1" style={{ color: text }}>Almost Zero Tuition</h3>
-                <p className="text-[15px]" style={{ color: sub }}>World-class public universities at almost no tuition fees. Your investment is time and language.</p>
+                <p className="text-[15px] leading-relaxed" style={{ color: sub }}>World-class public universities at almost no tuition fees. Your investment is time and language.</p>
               </div>
             </div>
           </div>
         </Reveal>
         
         <Reveal className="order-1 md:order-2">
-          <div>
-            <span className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4" style={{ background: '#4A90D9', color: '#fff' }}>
-              UNDERGRADUATE PATHWAY
-            </span>
-            <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(32px, 5vw, 48px)', color: text }}>
-              Bachelor's
-              <br />
-              <span style={{ color: '#7ED8A4' }}>Programmes</span>
-            </h2>
-            <p className="text-[18px] leading-relaxed mb-4" style={{ color: sub }}>
-              Applying for a bachelor's degree in Germany as an Indian student is a different process compared to master's — and most consultancies do not explain this clearly upfront.
-            </p>
-            <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
-              Your Class 12 certificate alone is usually not enough for direct university entry. Depending on your stream and score, you may need to complete one or two years of university in India first, or go through a Studienkolleg foundation programme in Germany. We assess your exact situation, tell you honestly which route applies to you, and build your application strategy from there.
-            </p>
+          <div className="space-y-6">
+            <div>
+              <span className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4" style={{ background: '#0f4c8f', color: '#fff' }}>
+                UNDERGRADUATE PATHWAY
+              </span>
+              <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(32px, 5vw, 48px)', color: text }}>
+                Bachelor's
+                <br />
+                <span style={{ color: '#7ED8A4' }}>Programmes</span>
+              </h2>
+              <p className="text-[18px] leading-relaxed mb-4" style={{ color: sub }}>
+                Applying for a bachelor's degree in Germany as an Indian student is a different process compared to master's — and most consultancies do not explain this clearly upfront.
+              </p>
+              <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
+                Your Class 12 certificate alone is usually not enough for direct university entry. Depending on your stream and score, you may need to complete one or two years of university in India first, or go through a Studienkolleg foundation programme in Germany. We assess your exact situation, tell you honestly which route applies to you, and build your application strategy from there.
+              </p>
+            </div>
+
+            {/* Image Placeholder */}
+            <div className="mt-8 rounded-2xl overflow-hidden shadow-lg hover-lift">
+              <ImagePlaceholder
+                height="320px"
+                icon="🎓"
+                label="Bachelor's Program Overview"
+              />
+            </div>
           </div>
         </Reveal>
       </div>

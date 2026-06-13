@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
+import ImagePlaceholder from '@/components/ImagePlaceholder';
 
 function useReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,7 +37,7 @@ function Reveal({ children, delay = 0, className = '' }: { children: React.React
   );
 }
 
-function BriefcaseIcon({ color = '#4A90D9', size = 32 }) {
+function BriefcaseIcon({ color = '#0f4c8f', size = 32 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <rect x="2" y="7" width="20" height="14" rx="2" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -58,7 +59,7 @@ function EuroIcon({ color = '#7ED8A4', size = 32 }) {
   );
 }
 
-function CompanyIcon({ color = '#FFD97D', size = 32 }) {
+function CompanyIcon({ color = '#f59e0b', size = 32 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <rect x="4" y="6" width="16" height="14" rx="1" stroke={color} strokeWidth="1.5"/>
@@ -77,55 +78,66 @@ export default function AusbildungSection() {
   const isDark = mounted ? resolvedTheme === 'dark' : true;
   const text = isDark ? '#f0f6ff' : '#1a2a4a';
   const sub = isDark ? 'rgba(200,220,245,0.68)' : 'rgba(30,50,80,0.65)';
-  const surfaceAlt = isDark ? 'rgba(13,37,64,0.5)' : 'rgba(74,144,217,0.04)';
-  const border = isDark ? 'rgba(74,144,217,0.15)' : 'rgba(74,144,217,0.18)';
+  const surfaceAlt = isDark ? 'rgba(13,37,64,0.5)' : 'rgba(15,76,143,0.04)';
+  const border = isDark ? 'rgba(15,76,143,0.15)' : 'rgba(15,76,143,0.18)';
   
   if (!mounted) return null;
   
   return (
     <section className="py-24 px-5 sm:px-8" style={{ background: surfaceAlt, borderTop: `1px solid ${border}`, borderBottom: `1px solid ${border}` }}>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <Reveal>
-            <div>
-              <span className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4" style={{ background: '#4A90D9', color: '#fff' }}>
-                MOST UNDERRATED PATHWAY
-              </span>
-              <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(32px, 5vw, 48px)', color: text }}>
-                Ausbildung
-                <br />
-                <span style={{ color: '#4A90D9' }}>(Vocational Training)</span>
-              </h2>
-              <p className="text-[18px] leading-relaxed mb-6" style={{ color: sub }}>
-                Most Indian students have never heard of Ausbildung and that is exactly why they miss one of Germany's best kept opportunities.
-              </p>
-              <p className="text-[16px] leading-relaxed mb-6" style={{ color: sub }}>
-                Ausbildung is Germany's dual vocational training system where you split your time between a real company and a vocational school. You are not an intern. You are a registered trainee with a contract, a monthly salary between €600 and €1,200, and a clear qualification at the end.
-              </p>
+            <div className="space-y-6">
+              <div>
+                <span className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4" style={{ background: '#0f4c8f', color: '#fff' }}>
+                  MOST UNDERRATED PATHWAY
+                </span>
+                <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(32px, 5vw, 48px)', color: text }}>
+                  Ausbildung
+                  <br />
+                  <span style={{ color: '#0f4c8f' }}>(Vocational Training)</span>
+                </h2>
+                <p className="text-[18px] leading-relaxed mb-6" style={{ color: sub }}>
+                  Most Indian students have never heard of Ausbildung and that is exactly why they miss one of Germany's best kept opportunities.
+                </p>
+                <p className="text-[16px] leading-relaxed mb-6" style={{ color: sub }}>
+                  Ausbildung is Germany's dual vocational training system where you split your time between a real company and a vocational school. You are not an intern. You are a registered trainee with a contract, a monthly salary between €600 and €1,200, and a clear qualification at the end.
+                </p>
+              </div>
+
+              {/* Image Placeholder */}
+              <div className="mt-8 rounded-2xl overflow-hidden shadow-lg hover-lift">
+                <ImagePlaceholder
+                  height="300px"
+                  icon="💼"
+                  label="Ausbildung Programme"
+                />
+              </div>
             </div>
           </Reveal>
           
           <Reveal delay={100}>
             <div className="space-y-5">
-              <div className="flex gap-4 items-start p-4 rounded-xl" style={{ background: isDark ? 'rgba(0,0,0,0.2)' : 'rgba(74,144,217,0.04)' }}>
-                <BriefcaseIcon color="#4A90D9" size={28} />
+              <div className="flex gap-4 items-start p-6 rounded-2xl hover-lift" style={{ background: isDark ? 'rgba(15,76,143,0.08)' : 'rgba(15,76,143,0.06)', border: '1px solid rgba(15,76,143,0.15)' }}>
+                <BriefcaseIcon color="#0f4c8f" size={28} />
                 <div>
                   <h3 className="font-serif font-bold text-[18px] mb-1" style={{ color: text }}>Top Companies</h3>
-                  <p className="text-[15px]" style={{ color: sub }}>Bosch, BMW, Deutsche Bahn, Siemens — real contracts with real employers.</p>
+                  <p className="text-[15px] leading-relaxed" style={{ color: sub }}>Bosch, BMW, Deutsche Bahn, Siemens — real contracts with real employers.</p>
                 </div>
               </div>
-              <div className="flex gap-4 items-start p-4 rounded-xl" style={{ background: isDark ? 'rgba(0,0,0,0.2)' : 'rgba(74,144,217,0.04)' }}>
+              <div className="flex gap-4 items-start p-6 rounded-2xl hover-lift" style={{ background: isDark ? 'rgba(126,216,164,0.06)' : 'rgba(126,216,164,0.05)', border: '1px solid rgba(126,216,164,0.15)' }}>
                 <EuroIcon color="#7ED8A4" size={28} />
                 <div>
                   <h3 className="font-serif font-bold text-[18px] mb-1" style={{ color: text }}>Earn While You Learn</h3>
-                  <p className="text-[15px]" style={{ color: sub }}>€600-€1,200 monthly salary + guaranteed qualification + direct job pathway.</p>
+                  <p className="text-[15px] leading-relaxed" style={{ color: sub }}>€600-€1,200 monthly salary + guaranteed qualification + direct job pathway.</p>
                 </div>
               </div>
-              <div className="flex gap-4 items-start p-4 rounded-xl" style={{ background: isDark ? 'rgba(0,0,0,0.2)' : 'rgba(74,144,217,0.04)' }}>
-                <CompanyIcon color="#FFD97D" size={28} />
+              <div className="flex gap-4 items-start p-6 rounded-2xl hover-lift" style={{ background: isDark ? 'rgba(245,158,11,0.06)' : 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.15)' }}>
+                <CompanyIcon color="#f59e0b" size={28} />
                 <div>
                   <h3 className="font-serif font-bold text-[18px] mb-1" style={{ color: text }}>German Language Required</h3>
-                  <p className="text-[15px]" style={{ color: sub }}>B1 to B2 needed. We guide you through the entire language and application process.</p>
+                  <p className="text-[15px] leading-relaxed" style={{ color: sub }}>B1 to B2 needed. We guide you through the entire language and application process.</p>
                 </div>
               </div>
             </div>

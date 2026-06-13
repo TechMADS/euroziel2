@@ -6,12 +6,12 @@ import { Users, Globe, Brain, Target, LifeBuoy, MessageSquare } from 'lucide-rea
 
 const CARDS = [
   {
-    Icon: Users, accent: '#4A90D9',
+    Icon: Users, accent: '#0f4c8f',
     title: 'Real People. Real Guidance.',
     body: 'Speak directly with Indian students currently enrolled in German universities and professionals working across Europe — not agents reading from a script.',
   },
   {
-    Icon: Globe, accent: '#ffd97d',
+    Icon: Globe, accent: '#f59e0b',
     title: 'Germany Exclusive Focus',
     body: 'Built specifically for Germany and Europe pathways. Every university recommendation, visa process, APS strategy, and settlement guide comes from deep knowledge of the German education system.',
   },
@@ -31,7 +31,7 @@ const CARDS = [
     body: 'From university shortlisting to Anmeldung, blocked account, visa, accommodation, and settlement support. We stay connected even after you land in Germany.',
   },
   {
-    Icon: MessageSquare, accent: '#4A90D9',
+    Icon: MessageSquare, accent: '#0f4c8f',
     title: 'Language Coaching Support',
     body: 'German language preparation is critical. We guide students with structured coaching support, exam preparation direction, and practical learning strategies for both university and Ausbildung pathways.',
   },
@@ -48,11 +48,11 @@ export default function WhyChoose() {
   useEffect(() => setMounted(true), []);
   const isDark = mounted ? resolvedTheme === 'dark' : true;
 
-  const sectionBg = isDark ? '#04111f' : '#f0f8ff';
+  const sectionBg = isDark ? '#04111f' : '#f8fafc';
   const textColor = isDark ? '#f0f6ff' : '#1a2a4a';
   const textSub = isDark ? 'rgba(200,220,245,0.72)' : 'rgba(30,50,80,0.70)';
   const cardBg = isDark ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.80)';
-  const cardBorder = isDark ? 'rgba(74,144,217,0.16)' : 'rgba(74,144,217,0.22)';
+  const cardBorder = isDark ? 'rgba(15,76,143,0.16)' : 'rgba(15,76,143,0.22)';
 
   return (
     <section
@@ -60,7 +60,7 @@ export default function WhyChoose() {
       style={{ background: sectionBg }}
     >
       <div className="pointer-events-none absolute inset-0" style={{
-        backgroundImage: 'linear-gradient(rgba(74,144,217,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(74,144,217,0.035) 1px,transparent 1px)',
+        backgroundImage: 'linear-gradient(rgba(15,76,143,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(15,76,143,0.035) 1px,transparent 1px)',
         backgroundSize: '56px 56px',
       }} />
 
@@ -68,12 +68,12 @@ export default function WhyChoose() {
         {/* Header */}
         <div className="text-center mb-8 stagger-children">
           {/* <span className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"
-            style={{ background: 'rgba(74,144,217,0.15)', border: '1px solid rgba(74,144,217,0.35)', letterSpacing: '0.15em', color: '#ffd97d' }}>
+            style={{ background: 'rgba(15,76,143,0.15)', border: '1px solid rgba(15,76,143,0.35)', letterSpacing: '0.15em', color: '#f59e0b' }}>
             Why Students Choose EuroZiel
           </span> */}
           <h2 className="font-bold leading-tight" style={{ fontSize: 'clamp(26px,4vw,52px)', color: textColor }}>
             Real People.{' '}
-            <span style={{ color: '#4A90D9' }}>Real Guidance.</span>
+            <span style={{ color: '#0f4c8f' }}>Real Guidance.</span>
           </h2>
           <p className="mt-4 mx-auto leading-relaxed" style={{ fontSize: 'clamp(14px,1.2vw,17px)', color: textSub, maxWidth: '46ch' }}>
             Six reasons students across India trust EuroZiel for their Germany journey.
@@ -85,9 +85,9 @@ export default function WhyChoose() {
           {CARDS.map(({ Icon, accent, title, body }) => (
             <div key={title}
               className="rounded-2xl p-4 flex flex-col gap-3 transition-all duration-300 group"
-              style={{ background: cardBg, border: `1px solid ${cardBorder}`, boxShadow: isDark ? 'none' : '0 4px 20px rgba(74,144,217,0.07)' }}
+              style={{ background: cardBg, border: `1px solid ${cardBorder}`, boxShadow: isDark ? 'none' : '0 4px 20px rgba(15,76,143,0.07)' }}
               onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-4px)'; (e.currentTarget as HTMLDivElement).style.borderColor = `rgba(${hexToRgb(accent)},0.45)`; (e.currentTarget as HTMLDivElement).style.boxShadow = `0 12px 40px rgba(${hexToRgb(accent)},0.15)`; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)'; (e.currentTarget as HTMLDivElement).style.borderColor = cardBorder; (e.currentTarget as HTMLDivElement).style.boxShadow = isDark ? 'none' : '0 4px 20px rgba(74,144,217,0.07)'; }}>
+              onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)'; (e.currentTarget as HTMLDivElement).style.borderColor = cardBorder; (e.currentTarget as HTMLDivElement).style.boxShadow = isDark ? 'none' : '0 4px 20px rgba(15,76,143,0.07)'; }}>
               <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
                 style={{ background: `rgba(${hexToRgb(accent)},0.12)`, border: `1px solid rgba(${hexToRgb(accent)},0.28)` }}>
                 <Icon style={{ width: 22, height: 22, color: accent }} strokeWidth={1.5} />

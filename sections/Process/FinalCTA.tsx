@@ -46,23 +46,23 @@ export default function ProcessFinalCTA() {
           className="rounded-3xl px-8 py-16 relative overflow-hidden text-center"
           style={{
             background: isDark
-              ? 'linear-gradient(135deg, #0d2540 0%, #061628 100%)'
-              : 'linear-gradient(135deg, #e8f4ff 0%, #f0f8ff 100%)',
-            border: '1px solid rgba(74,144,217,0.18)',
+              ? 'linear-gradient(135deg, #0d2540 0%, #0b1323 100%)'
+              : 'linear-gradient(135deg, #eef8ff 0%, #f8fafc 100%)',
+            border: '1px solid rgba(15,76,143,0.18)',
             boxShadow: isDark
               ? '0 16px 60px rgba(0,0,0,0.40)'
-              : '0 16px 60px rgba(74,144,217,0.12)',
+              : '0 16px 60px rgba(15,76,143,0.12)',
           }}
         >
           {/* Ambient glow */}
           <div
             className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(74,144,217,0.18) 0%, transparent 70%)' }}
+            style={{ background: 'radial-gradient(circle, rgba(15,76,143,0.18) 0%, transparent 70%)' }}
             aria-hidden
           />
 
           <div className="relative z-10">
-            <p className="text-[12px] font-bold uppercase tracking-widest mb-5" style={{ color: '#4A90D9' }}>
+            <p className="text-[12px] font-bold uppercase tracking-widest mb-5" style={{ color: '#0f4c8f' }}>
               Still Confused About Your Germany Pathway?
             </p>
             <h2
@@ -70,7 +70,7 @@ export default function ProcessFinalCTA() {
               style={{ fontSize: 'clamp(26px, 4.5vw, 42px)', color: text }}
             >
               Get a Realistic Evaluation{' '}
-              <span style={{ color: '#FFD97D' }}>of Your Profile</span>
+              <span style={{ color: '#f59e0b' }}>of Your Profile</span>
             </h2>
             <p
               className="text-[17px] leading-relaxed mb-10 mx-auto"
@@ -83,14 +83,14 @@ export default function ProcessFinalCTA() {
               <button
                 onClick={openEnquiryModal}
                 className="rounded-full px-8 py-4 text-[16px] font-bold transition-all duration-200 cursor-pointer"
-                style={{ background: '#FFD97D', color: '#1a1200', boxShadow: '0 4px 20px rgba(255,217,125,0.38)' }}
+                style={{ background: '#f59e0b', color: '#1a1200', boxShadow: '0 4px 20px rgba(245,158,11,0.38)' }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 30px rgba(255,217,125,0.55)';
+                  (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 30px rgba(245,158,11,0.55)';
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(255,217,125,0.38)';
+                  (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(245,158,11,0.38)';
                 }}
               >
                 Get Your Germany Roadmap →
