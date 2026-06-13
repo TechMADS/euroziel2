@@ -24,7 +24,7 @@ const steps = [
     description: "Start with a personalized consultation to map your unique path to Germany.",
     Icon: Search,
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200",
-    accent: "#0f4c8f"
+    accent: "#006d9e"
   },
   {
     number: "02",
@@ -42,7 +42,7 @@ const steps = [
     description: "Complete SOP, APS and university application support.",
     Icon: FileText,
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200",
-    accent: "#7ED8A4"
+    accent: "#059669"
   },
   {
     number: "04",
@@ -51,7 +51,7 @@ const steps = [
     description: "Visa, blocked account and pre departure guidance.",
     Icon: Plane,
     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200",
-    accent: "#C084FC"
+    accent: "#7c3aed"
   },
   {
     number: "05",
@@ -60,7 +60,7 @@ const steps = [
     description: "Support after landing in Germany.",
     Icon: Home,
     image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200",
-    accent: "#FB923C"
+    accent: "#ea580c"
   },
   {
     number: "06",
@@ -69,7 +69,7 @@ const steps = [
     description: "Career and long term mentorship.",
     Icon: TrendingUp,
     image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200",
-    accent: "#0f4c8f"
+    accent: "#0891b2"
   }
 ];
 
