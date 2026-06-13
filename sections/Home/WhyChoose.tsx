@@ -64,7 +64,7 @@ export default function WhyChoose() {
         backgroundSize: '56px 56px',
       }} />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto section-px">
         {/* Header */}
         <div className="text-center mb-8 stagger-children">
           {/* <span className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"

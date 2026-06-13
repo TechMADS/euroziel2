@@ -37,7 +37,7 @@ function Reveal({ children, delay = 0, className = '' }: { children: React.React
   );
 }
 
-function MastersIcon({ color = '#0f4c8f', size = 32 }) {
+function MastersIcon({ color = '#006d9e', size = 32 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -88,7 +88,7 @@ export default function MastersSection() {
           <Reveal>
             <div className="space-y-6">
               <div>
-                <span className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4" style={{ background: '#0f4c8f', color: '#fff' }}>
+                <span className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4" style={{ background: '#006d9e', color: '#fff' }}>
                   MOST POPULAR PATHWAY
                 </span>
                 <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(32px, 5vw, 48px)', color: text }}>
@@ -118,7 +118,7 @@ export default function MastersSection() {
           <Reveal delay={100}>
             <div className="space-y-5">
               <div className="flex gap-4 items-start p-6 rounded-2xl hover-lift" style={{ background: isDark ? 'rgba(15,76,143,0.08)' : 'rgba(15,76,143,0.06)', border: '1px solid rgba(15,76,143,0.15)' }}>
-                <MastersIcon color="#0f4c8f" size={28} />
+                <MastersIcon color="#006d9e" size={28} />
                 <div>
                   <h3 className="font-serif font-bold text-[18px] mb-1" style={{ color: text }}>Research-Intensive & Global</h3>
                   <p className="text-[15px] leading-relaxed" style={{ color: sub }}>Germany's master's programmes are world-class, globally respected, and largely free.</p>

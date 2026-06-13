@@ -60,7 +60,7 @@ export default function ProcessHero() {
             color: isDark ? '#22d3ee' : '#006d9e',
           }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#0f4c8f] animate-pulse inline-block" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#006d9e] animate-pulse inline-block" />
           EuroZiel · Full Germany Roadmap
         </span>
       </div>
@@ -140,7 +140,7 @@ export default function ProcessHero() {
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40">
         <span className="text-[11px] uppercase tracking-widest" style={{ color: sub }}>Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-[#0f4c8f] to-transparent" />
+        <div className="w-px h-8 bg-gradient-to-b from-[#006d9e] to-transparent" />
       </div>
     </section>
   );

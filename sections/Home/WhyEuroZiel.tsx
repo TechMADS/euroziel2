@@ -27,7 +27,7 @@ export default function WhyEuroZiel() {
         backgroundSize: '56px 56px',
       }} />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto section-px">
         <div
           className="grid grid-cols-1 lg:grid-cols-2 gap-6 xl:gap-12 items-center">
 
@@ -91,7 +91,7 @@ export default function WhyEuroZiel() {
                 <div key={pt} className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
                     style={{ background: 'rgba(15,76,143,0.15)', border: '1px solid rgba(15,76,143,0.35)' }}>
-                    <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="#0f4c8f" /></svg>
+                    <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="#006d9e" /></svg>
                   </span>
                   <span className="text-[14px] font-medium leading-relaxed" style={{ color: textSub }}>{pt}</span>
                 </div>
@@ -101,7 +101,7 @@ export default function WhyEuroZiel() {
             {/* CTA */}
             {/* <a href="#get-started"
               className="inline-flex items-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-7 text-sm"
-              style={{ background: '#0f4c8f', color: '#ffffff', boxShadow: '0 4px 20px rgba(15,76,143,0.40)' }}
+              style={{ background: '#006d9e', color: '#ffffff', boxShadow: '0 4px 20px rgba(15,76,143,0.40)' }}
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(15,76,143,0.55)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(15,76,143,0.40)'; }}>
               Start Your Germany Journey

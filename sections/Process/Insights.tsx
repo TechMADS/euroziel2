@@ -8,7 +8,7 @@ const CARDS = [
     icon: '📋',
     title: 'APS Processing',
     body: 'APS timelines can vary significantly based on document load and season. Starting early is not optional — it is essential.',
-    accent: '#0f4c8f',
+    accent: '#006d9e',
     stat: '8–12 weeks',
     statLabel: 'avg. APS processing time',
   },
@@ -172,12 +172,12 @@ export default function ProcessInsights() {
         }}
       >
         <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
+          style={{ color: '#006d9e', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
           Germany Journey Insights
         </span>
         <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
           What You Should Know{' '}
-          <span style={{ color: '#0f4c8f' }}>Before You Begin</span>
+          <span style={{ color: '#006d9e' }}>Before You Begin</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
           Real numbers and honest context from students and professionals already in Germany.

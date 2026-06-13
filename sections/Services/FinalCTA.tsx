@@ -59,7 +59,7 @@ export default function ServicesFinalCTASection() {
         }}>
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(15,76,143,0.18) 0%, transparent 70%)' }} aria-hidden />
           <div className="relative z-10">
-            <p className="text-[13px] font-semibold uppercase tracking-widest mb-5" style={{ color: '#0f4c8f' }}>Free Consultation · Limited Slots</p>
+            <p className="text-[13px] font-semibold uppercase tracking-widest mb-5" style={{ color: '#006d9e' }}>Free Consultation · Limited Slots</p>
             <h2 className="font-serif font-bold mb-5 leading-tight" style={{ fontSize: 'clamp(28px, 4.5vw, 42px)', color: text }}>
               Ready to start your{' '}
               <span style={{ color: '#f59e0b' }}>Germany journey?</span>

@@ -69,7 +69,7 @@ export default function Hero() {
   }, [mounted, isDark]);
 
   const skyStyle: CSSProperties = (!mounted || isDark)
-    ? { background: 'linear-gradient(to bottom, #0b1323 0%, #0d2540 40%, #0f3060 70%, #0f4c8f 100%)' }
+    ? { background: 'linear-gradient(to bottom, #0b1323 0%, #0d2540 40%, #0f3060 70%, #006d9e 100%)' }
     : { background: 'linear-gradient(to bottom, #1a6fbf 0%, #0ea5e9 30%, #0ea5e9 65%, #a8d4f5 100%)' };
 
   const textPanelStyle: CSSProperties = {
@@ -109,44 +109,44 @@ export default function Hero() {
         <div className="w-full grid grid-cols-1 md:grid-cols-2 items-center gap-0">
 
           {/* Left panel */}
-          <div className="flex flex-col items-start text-left px-8 py-10 sm:px-10 md:px-12 lg:px-16 xl:px-20" style={textPanelStyle}>
+          <div className="flex flex-col items-start text-left section-px section-py" style={textPanelStyle}>
             {/* <span className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-3 py-1 sm:px-4 sm:py-1.5 rounded-full" style={eyebrowStyle}>
               Germany&apos;s Trusted Student Bridge
             </span> */}
 
-            <h1 className="font-bold mb-4 leading-[1.12] tracking-tight text-[clamp(20px,3.2vw,50px)]" style={{ color: '#f0f6ff' }}>
+            <h1 className="font-bold mb-6 leading-tight tracking-tight text-[clamp(36px,5vw,64px)]" style={{ color: '#f0f6ff' }}>
               Your bridge from India<br />to Germany,{' '}
-              <span style={{ color: '#0f4c8f' }}>built by people already there.</span>
+              <span style={{ color: '#006d9e' }}>built by people already there.</span>
             </h1>
 
-            <p className="mb-5 max-w-sm leading-relaxed text-[clamp(13px,1.1vw,16px)]" style={{ color: 'rgba(200,220,245,0.82)', fontWeight: 400 }}>
+            <p className="mb-8 max-w-lg leading-relaxed text-[18px]" style={{ color: 'rgba(200,220,245,0.90)', fontWeight: 400 }}>
               Not templates. Not generic advice. Direct access to Indian students at German universities
               and professionals working across Europe — before you decide, during your application,
               and after you land.
             </p>
 
             {/* Stats row */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5 w-full max-w-md">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8 w-full max-w-md">
               {STATS.map((s) => (
-                <div key={s.label} className="rounded-xl px-3 py-2 text-center"
+                <div key={s.label} className="rounded-xl px-4 py-3 text-center"
                   style={{ background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
-                  <div className="text-[16px] font-bold" style={{ color: '#0f4c8f' }}>{s.value}</div>
-                  <div className="text-[10px] leading-tight mt-0.5" style={{ color: 'rgba(200,220,245,0.65)' }}>{s.label}</div>
+                  <div className="text-[18px] font-bold" style={{ color: '#006d9e' }}>{s.value}</div>
+                  <div className="text-[12px] leading-snug mt-1" style={{ color: 'rgba(200,220,245,0.75)' }}>{s.label}</div>
                 </div>
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-3 mb-6">
+            <div className="flex flex-wrap gap-4 mb-8">
               <button
                 onClick={openEnquiryModal}
-                className="inline-flex items-center gap-2 font-semibold rounded-full transition-all duration-300 py-2.5 px-6 text-sm"
+                className="inline-flex items-center gap-2 font-semibold rounded-lg transition-all duration-300 py-3 px-7 text-base"
                 style={{ background: 'var(--accent-gold,#f59e0b)', color: '#1a1200', boxShadow: '0 4px 24px rgba(245,158,11,0.45)' }}
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(245,158,11,0.6)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(245,158,11,0.45)'; }}>
                 Book a Free Consultation
               </button>
               <a href="#how-it-works"
-                className="inline-flex items-center gap-2 font-semibold rounded-full transition-all duration-300 py-2.5 px-6 text-sm"
+                className="inline-flex items-center gap-2 font-semibold rounded-lg transition-all duration-300 py-3 px-7 text-base"
                 style={{ background: 'rgba(255,255,255,0.08)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.25)' }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.16)'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; }}>
@@ -200,7 +200,7 @@ export default function Hero() {
                 >
                   <div
                     className="w-2 h-2 rounded-full"
-                    style={{ background: '#0f4c8f' }}
+                    style={{ background: '#006d9e' }}
                   />
 
                   <span
@@ -244,7 +244,7 @@ export default function Hero() {
                         width: i === activeFlow ? 20 : 6,
                         background:
                           i === activeFlow
-                            ? '#0f4c8f'
+                            ? '#006d9e'
                             : 'rgba(15,76,143,0.25)'
                       }}
                     />
@@ -262,7 +262,7 @@ export default function Hero() {
               {STATS.map((s) => (
                 <div key={s.label} className="rounded-xl px-4 py-4 text-center transition-all duration-300 hover:scale-[1.03]"
                   style={{ background: 'rgba(6,22,40,0.72)', border: '1px solid rgba(15,76,143,0.22)', backdropFilter: 'blur(8px)' }}>
-                  <div className="text-[26px] font-bold leading-none mb-1" style={{ color: '#0f4c8f' }}>{s.value}</div>
+                  <div className="text-[26px] font-bold leading-none mb-1" style={{ color: '#006d9e' }}>{s.value}</div>
                   <div className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'rgba(200,220,245,0.6)' }}>{s.label}</div>
                 </div>
               ))}

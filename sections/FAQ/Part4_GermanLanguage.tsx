@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
 import AccordionItem from './AccordionItem';
 
-function LanguageIcon({ color = '#0f4c8f', size = 28 }) {
+function LanguageIcon({ color = '#006d9e', size = 28 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2V22" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>

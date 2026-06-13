@@ -71,7 +71,7 @@ export default function ProcessChecklist() {
           }}
         >
           <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-            style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
+            style={{ color: '#006d9e', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
             Pre-Departure Checklist
           </span>
           <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 40px)', color: text }}>
@@ -96,7 +96,7 @@ export default function ProcessChecklist() {
             <span className="text-[13px] font-semibold" style={{ color: text }}>
               {checkedCount} of {ITEMS.length} completed
             </span>
-            <span className="text-[13px] font-bold" style={{ color: progress === 100 ? '#22C55E' : '#0f4c8f' }}>
+            <span className="text-[13px] font-bold" style={{ color: progress === 100 ? '#22C55E' : '#006d9e' }}>
               {Math.round(progress)}%
             </span>
           </div>
@@ -107,7 +107,7 @@ export default function ProcessChecklist() {
                 width: `${progress}%`,
                 background: progress === 100
                   ? 'linear-gradient(90deg, #22C55E, #16a34a)'
-                  : 'linear-gradient(90deg, #0f4c8f, #6C63FF)',
+                  : 'linear-gradient(90deg, #006d9e, #6C63FF)',
               }}
             />
           </div>

@@ -137,7 +137,7 @@ export default function Testimonials() {
             {TESTIMONIALS.map((_, i) => (
               <button key={i} onClick={() => setActive(i)}
                 className="rounded-full transition-all duration-300"
-                style={{ width: i === active ? 20 : 6, height: 6, background: i === active ? '#0f4c8f' : 'rgba(15,76,143,0.25)' }} />
+                style={{ width: i === active ? 20 : 6, height: 6, background: i === active ? '#006d9e' : 'rgba(15,76,143,0.25)' }} />
             ))}
           </div>
         </div>
@@ -149,7 +149,7 @@ export default function Testimonials() {
           </p>
           <a href="#get-started"
             className="inline-flex items-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-8 text-sm"
-            style={{ background: '#0f4c8f', color: '#fff', boxShadow: '0 4px 20px rgba(15,76,143,0.38)' }}
+            style={{ background: '#006d9e', color: '#fff', boxShadow: '0 4px 20px rgba(15,76,143,0.38)' }}
             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(15,76,143,0.55)'; }}
             onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(15,76,143,0.38)'; }}>
             Read More Stories →

@@ -43,7 +43,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
       style={{
         background: 'rgba(15,76,143,0.12)',
         border: '1px solid rgba(15,76,143,0.30)',
-        color: '#0f4c8f',
+        color: '#006d9e',
       }}
     >
       {children}
@@ -52,7 +52,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
 }
 
 // Icons
-function UsersIcon({ color = '#0f4c8f', size = 26 }) {
+function UsersIcon({ color = '#006d9e', size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M17 21V19C17 16.8 15.2 15 13 15H5C2.8 15 1 16.8 1 19V21" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -63,7 +63,7 @@ function UsersIcon({ color = '#0f4c8f', size = 26 }) {
   );
 }
 
-function BriefcaseIcon({ color = '#0f4c8f', size = 26 }) {
+function BriefcaseIcon({ color = '#006d9e', size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <rect x="2" y="7" width="20" height="14" rx="2" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -73,7 +73,7 @@ function BriefcaseIcon({ color = '#0f4c8f', size = 26 }) {
   );
 }
 
-function GermanyIcon({ color = '#0f4c8f', size = 26 }) {
+function GermanyIcon({ color = '#006d9e', size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
@@ -84,7 +84,7 @@ function GermanyIcon({ color = '#0f4c8f', size = 26 }) {
   );
 }
 
-function ShieldIcon({ color = '#0f4c8f', size = 26 }) {
+function ShieldIcon({ color = '#006d9e', size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2L3 6V12C3 17.5 7.5 22 12 22C16.5 22 21 17.5 21 12V6L12 2Z" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -107,7 +107,7 @@ export default function TrustSection() {
   if (!mounted) return null;
   
   const trustItems = [
-    { title: "Peer Proof", icon: UsersIcon, body: "You hear directly from students at TU Munich, RWTH Aachen, TU Berlin, University of Hamburg, and more. Not brochures. Not recycled success stories. Real people you can speak to.", accent: "#0f4c8f", delay: 0 },
+    { title: "Peer Proof", icon: UsersIcon, body: "You hear directly from students at TU Munich, RWTH Aachen, TU Berlin, University of Hamburg, and more. Not brochures. Not recycled success stories. Real people you can speak to.", accent: "#006d9e", delay: 0 },
     { title: "Professional Network", icon: BriefcaseIcon, body: "Our connections extend beyond university campuses. Indian professionals working in Germany across engineering, IT, healthcare, and business give our students an honest picture of what the career landscape actually looks like after graduation.", accent: "#f59e0b", delay: 80 },
     { title: "Germany Only", icon: GermanyIcon, body: "We are not spreading our attention across ten countries. Every resource, connection, and piece of knowledge we have is built around Germany and Europe specifically.", accent: "#7ED8A4", delay: 160 },
     { title: "No Hidden Anything", icon: ShieldIcon, body: "What we offer is on our website. What we charge is discussed upfront. What we cannot help with, we tell you directly instead of pretending otherwise.", accent: "#c084fc", delay: 240 },

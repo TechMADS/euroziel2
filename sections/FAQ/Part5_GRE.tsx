@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
 import AccordionItem from './AccordionItem';
 
-function GREIcon({ color = '#0f4c8f', size = 28 }) {
+function GREIcon({ color = '#006d9e', size = 28 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <rect x="3" y="3" width="18" height="18" rx="2" stroke={color} strokeWidth="1.5"/>

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
 import AccordionItem from './AccordionItem';
 
-function ScholarshipIcon({ color = '#0f4c8f', size = 28 }) {
+function ScholarshipIcon({ color = '#006d9e', size = 28 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 3L14 8H19L15 11L17 16L12 13L7 16L9 11L5 8H10L12 3Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>

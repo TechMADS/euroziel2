@@ -90,7 +90,7 @@ export default function HeroSection() {
           Not a consultancy that{' '}
           <span
             style={{
-              background: 'linear-gradient(135deg, #0f4c8f, #7ED8A4)',
+              background: 'linear-gradient(135deg, #006d9e, #7ED8A4)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -110,7 +110,7 @@ export default function HeroSection() {
             onClick={openEnquiryModal}
             className="rounded-full px-8 py-4 text-[16px] font-bold transition-all duration-200 cursor-pointer"
             style={{
-              background: '#0f4c8f',
+              background: '#006d9e',
               color: '#fff',
               boxShadow: '0 4px 20px rgba(15,76,143,0.38)',
             }}

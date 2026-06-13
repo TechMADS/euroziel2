@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
 import AccordionItem from './AccordionItem';
 
-function HomeIcon({ color = '#0f4c8f', size = 28 }) {
+function HomeIcon({ color = '#006d9e', size = 28 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M3 9L12 3L21 9V20H3V9Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -52,7 +52,7 @@ export default function Part10Accommodation() {
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="flex items-center gap-3 mb-8">
-        <HomeIcon color="#0f4c8f" size={32} />
+        <HomeIcon color="#006d9e" size={32} />
         <h2 className="font-serif font-bold text-[28px] sm:text-[32px]" style={{ color: text }}>
           Part 10 — Accommodation
         </h2>

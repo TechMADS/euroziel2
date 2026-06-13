@@ -175,7 +175,7 @@ export default function Journey() {
             }}
           >
             Six Steps To{" "}
-            <span style={{ color: "#0f4c8f" }}>Germany</span>
+            <span style={{ color: "#006d9e" }}>Germany</span>
           </h2>
 
           <p
@@ -202,7 +202,7 @@ export default function Journey() {
             <path
               ref={pathRef}
               d="M250 120 C80 300 420 500 250 750 C70 1000 430 1200 250 1500 C80 1800 420 2200 250 2500"
-              stroke="#0f4c8f"
+              stroke="#006d9e"
               strokeWidth="5"
               strokeLinecap="round"
               opacity=".7"

@@ -37,7 +37,7 @@ function Reveal({ children, delay = 0, className = '' }: { children: React.React
   );
 }
 
-function GraduationCapIcon({ color = '#0f4c8f', size = 32 }) {
+function GraduationCapIcon({ color = '#006d9e', size = 32 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 3L2 9L12 15L22 9L12 3Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -77,7 +77,7 @@ export default function BachelorsSection() {
         <Reveal delay={100} className="order-2 md:order-1">
           <div className="space-y-5">
             <div className="flex gap-4 items-start p-6 rounded-2xl hover-lift" style={{ background: isDark ? 'rgba(15,76,143,0.08)' : 'rgba(15,76,143,0.06)', border: '1px solid rgba(15,76,143,0.15)' }}>
-              <GraduationCapIcon color="#0f4c8f" size={28} />
+              <GraduationCapIcon color="#006d9e" size={28} />
               <div>
                 <h3 className="font-serif font-bold text-[18px] mb-1" style={{ color: text }}>Entry Routes Explained</h3>
                 <p className="text-[15px] leading-relaxed" style={{ color: sub }}>Direct entry, Studienkolleg, or Indian university years — we tell you exactly which applies.</p>
@@ -96,7 +96,7 @@ export default function BachelorsSection() {
         <Reveal className="order-1 md:order-2">
           <div className="space-y-6">
             <div>
-              <span className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4" style={{ background: '#0f4c8f', color: '#fff' }}>
+              <span className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4" style={{ background: '#006d9e', color: '#fff' }}>
                 UNDERGRADUATE PATHWAY
               </span>
               <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(32px, 5vw, 48px)', color: text }}>

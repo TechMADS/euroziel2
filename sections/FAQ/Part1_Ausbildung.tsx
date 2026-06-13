@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
 import AccordionItem from './AccordionItem';
 
-function BriefcaseIcon({ color = '#0f4c8f', size = 28 }) {
+function BriefcaseIcon({ color = '#006d9e', size = 28 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <rect x="2" y="7" width="20" height="14" rx="2" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -57,7 +57,7 @@ export default function Part1Ausbildung() {
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="flex items-center gap-3 mb-8">
-        <BriefcaseIcon color="#0f4c8f" size={32} />
+        <BriefcaseIcon color="#006d9e" size={32} />
         <h2 className="font-serif font-bold text-[28px] sm:text-[32px]" style={{ color: text }}>
           Part 1 — Ausbildung (Vocational Training)
         </h2>

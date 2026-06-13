@@ -43,7 +43,7 @@ const CONNECTIONS: [number, number][] = [
 
 const CITY_COLORS = [
   '#E85D75', // Munich - pink-red
-  '#0f4c8f', // Aachen - blue
+  '#006d9e', // Aachen - blue
   '#F5A623', // Berlin - amber
   '#7ED321', // Hamburg - green
   '#9B59B6', // Frankfurt - purple
@@ -54,9 +54,9 @@ const CITY_COLORS = [
 ];
 
 const CONNECTION_COLORS = [
-  '#E85D75', '#0f4c8f', '#F5A623', '#7ED321',
+  '#E85D75', '#006d9e', '#F5A623', '#7ED321',
   '#9B59B6', '#1ABC9C', '#E74C3C', '#3498DB',
-  '#F39C12', '#E85D75', '#0f4c8f', '#F5A623',
+  '#F39C12', '#E85D75', '#006d9e', '#F5A623',
 ];
 
 const GEO_URL =
@@ -96,7 +96,7 @@ function Reveal({ children, delay = 0, className = '' }: { children: React.React
 function Pill({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full"
-      style={{ background: 'rgba(15,76,143,0.12)', border: '1px solid rgba(15,76,143,0.30)', color: '#0f4c8f' }}>
+      style={{ background: 'rgba(15,76,143,0.12)', border: '1px solid rgba(15,76,143,0.30)', color: '#006d9e' }}>
       {children}
     </span>
   );
@@ -104,27 +104,27 @@ function Pill({ children }: { children: React.ReactNode }) {
 
 const AcademicCapIcon = () => (
   <svg width={28} height={28} viewBox="0 0 24 24" fill="none">
-    <path d="M12 3L2 9L12 15L22 9L12 3Z" stroke="#0f4c8f" strokeWidth="1.5" strokeLinejoin="round"/>
-    <path d="M6 12V16L12 19L18 16V12" stroke="#0f4c8f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M12 3L2 9L12 15L22 9L12 3Z" stroke="#006d9e" strokeWidth="1.5" strokeLinejoin="round"/>
+    <path d="M6 12V16L12 19L18 16V12" stroke="#006d9e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 const UsersIcon = () => (
   <svg width={28} height={28} viewBox="0 0 24 24" fill="none">
-    <path d="M17 21V19C17 16.8 15.2 15 13 15H5C2.8 15 1 16.8 1 19V21" stroke="#0f4c8f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="9" cy="7" r="4" stroke="#0f4c8f" strokeWidth="1.5"/>
-    <path d="M23 21V19C22.8 16.9 21.5 15.5 19 15" stroke="#0f4c8f" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M16 3.13C18.3 3.55 20 5.52 20 8" stroke="#0f4c8f" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M17 21V19C17 16.8 15.2 15 13 15H5C2.8 15 1 16.8 1 19V21" stroke="#006d9e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <circle cx="9" cy="7" r="4" stroke="#006d9e" strokeWidth="1.5"/>
+    <path d="M23 21V19C22.8 16.9 21.5 15.5 19 15" stroke="#006d9e" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M16 3.13C18.3 3.55 20 5.52 20 8" stroke="#006d9e" strokeWidth="1.5" strokeLinecap="round"/>
   </svg>
 );
 const BriefcaseIcon = () => (
   <svg width={28} height={28} viewBox="0 0 24 24" fill="none">
-    <rect x="2" y="7" width="20" height="14" rx="2" stroke="#0f4c8f" strokeWidth="1.5" strokeLinejoin="round"/>
-    <path d="M16 21V5C16 3.9 15.1 3 14 3H10C8.9 3 8 3.9 8 5V21" stroke="#0f4c8f" strokeWidth="1.5" strokeLinejoin="round"/>
+    <rect x="2" y="7" width="20" height="14" rx="2" stroke="#006d9e" strokeWidth="1.5" strokeLinejoin="round"/>
+    <path d="M16 21V5C16 3.9 15.1 3 14 3H10C8.9 3 8 3.9 8 5V21" stroke="#006d9e" strokeWidth="1.5" strokeLinejoin="round"/>
   </svg>
 );
 const ShieldIcon = () => (
   <svg width={28} height={28} viewBox="0 0 24 24" fill="none">
-    <path d="M12 2L3 6V12C3 17.5 7.5 22 12 22C16.5 22 21 17.5 21 12V6L12 2Z" stroke="#0f4c8f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M12 2L3 6V12C3 17.5 7.5 22 12 22C16.5 22 21 17.5 21 12V6L12 2Z" stroke="#006d9e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -417,7 +417,7 @@ export default function NetworkMapSection({ variant = 'full', showTitle = true }
           {stats.map(({ icon, value, label }) => (
             <div key={label} className="text-center p-4 rounded-xl" style={{ background: surf }}>
               <div className="flex justify-center mb-3">{icon}</div>
-              <div className="font-serif font-bold text-2xl" style={{ color: '#0f4c8f' }}>{value}</div>
+              <div className="font-serif font-bold text-2xl" style={{ color: '#006d9e' }}>{value}</div>
               <div className="text-[13px]" style={{ color: sub }}>{label}</div>
             </div>
           ))}

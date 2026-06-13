@@ -119,7 +119,7 @@ export default function ServicesHeroSection() {
             onClick={openEnquiryModal}
             className="rounded-full px-8 py-4 text-[16px] font-bold transition-all duration-200 cursor-pointer"
             style={{
-              background: '#0f4c8f',
+              background: '#006d9e',
               color: '#fff',
               boxShadow: '0 4px 20px rgba(15,76,143,0.38)',
             }}
