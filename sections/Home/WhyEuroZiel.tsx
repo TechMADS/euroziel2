@@ -28,28 +28,19 @@ export default function WhyEuroZiel() {
       }} />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
-        {/* <div className="flex justify-center mb-6">
-          <span className="inline-block text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"
-            style={{ background: 'rgba(15,76,143,0.15)', border: '1px solid rgba(15,76,143,0.35)', letterSpacing: '0.15em', color: '#f59e0b' }}>
-            Why EuroZiel
-          </span>
-        </div> */}
-
         <div
           className="grid grid-cols-1 lg:grid-cols-2 gap-6 xl:gap-12 items-center">
 
           {/* Image */}
           <div className="relative order-2 lg:order-1">
             <div className="absolute -left-4 top-8 bottom-8 w-[3px] rounded-full hidden lg:block"
-              style={{ background: 'linear-gradient(to bottom,#0f4c8f,#f59e0b)' }} />
+              style={{ background: 'linear-gradient(to bottom,#006d9e,#0891b2,#f59e0b)' }} />
             <div className="relative rounded-2xl overflow-hidden"
-              style={{ border: `1px solid ${imageBorder}`, boxShadow: isDark ? '0 24px 64px rgba(0,0,0,0.55)' : '0 24px 64px rgba(15,76,143,0.18)' }}>
+              style={{ border: `2px solid ${imageBorder}`, boxShadow: isDark ? '0 24px 64px rgba(0,0,0,0.55)' : '0 24px 64px rgba(8,145,178,0.25)' }}>
               <div className="absolute inset-0 z-10 pointer-events-none"
-                style={{ background: 'linear-gradient(135deg,rgba(6,22,40,0.55) 0%,rgba(6,22,40,0.15) 100%)' }} />
-              {/* <Image src="/images/home/why-euroziel.jpg" alt="EuroZiel guidance" width={680} height={520}
-                className="w-full h-auto object-cover" style={{ display: 'block', minHeight: 340, objectFit: 'cover' }} /> */}
+                style={{ background: 'linear-gradient(135deg,rgba(6,22,40,0.35) 0%,rgba(6,22,40,0.05) 100%)' }} />
               <Image
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&q=80"
+                src="/images/home/hero-bg.png"
                 alt="Students planning their Germany education journey"
                 width={680}
                 height={520}
@@ -57,13 +48,13 @@ export default function WhyEuroZiel() {
               />
 
               {[
-                { val: '100%', label: 'Germany-Focused', accent: '#0f4c8f', pos: 'bottom-5 left-5' },
+                { val: '100%', label: 'Germany-Focused', accent: '#006d9e', pos: 'bottom-5 left-5' },
                 { val: 'Real', label: 'Student Insight', accent: '#f59e0b', pos: 'top-5 right-5' },
               ].map(({ val, label, accent, pos }) => (
-                <div key={label} className={`absolute ${pos} z-20 px-4 py-3 rounded-xl`}
-                  style={{ background: isDark ? 'rgba(6,22,40,0.88)' : 'rgba(255,255,255,0.90)', border: `1px solid ${accent}44`, backdropFilter: 'blur(8px)' }}>
+                <div key={label} className={`absolute ${pos} z-20 px-4 py-3 rounded-xl backdrop-blur-lg`}
+                  style={{ background: isDark ? 'rgba(6,22,40,0.92)' : 'rgba(255,255,255,0.95)', border: `2px solid ${accent}`, boxShadow: `0 8px 32px ${accent}33` }}>
                   <div className="text-[22px] font-bold leading-none mb-0.5" style={{ color: accent }}>{val}</div>
-                  <div className="text-[11px] font-medium uppercase tracking-wider" style={{ color: textSub }}>{label}</div>
+                  <div className="text-[11px] font-medium uppercase tracking-wider" style={{ color: accent === '#f59e0b' ? '#1a1200' : textSub }}>{label}</div>
                 </div>
               ))}
             </div>
@@ -73,7 +64,7 @@ export default function WhyEuroZiel() {
           <div className="order-1 lg:order-2 stagger-children">
             <h2 className="font-bold leading-tight mb-3" style={{ fontSize: 'clamp(26px,3.5vw,48px)', color: textColor }}>
               More Than a Consultancy.{' '}
-              <span style={{ color: '#0f4c8f' }}>A Real Bridge</span> to Germany.
+              <span style={{ color: '#006d9e' }}>A Real Bridge</span> to Germany.
             </h2>
 
             <p className="leading-relaxed mb-4" style={{ fontSize: 'clamp(14px,1.1vw,17px)', color: textSub, maxWidth: '54ch' }}>

@@ -157,11 +157,11 @@ export default function Hero() {
             {/* Social */}
             <div className="flex flex-wrap items-center gap-3">
               {[
-                { href: '#', label: 'WhatsApp', Icon: FaWhatsapp, color: '#25D366', glow: 'rgba(37,211,102,0.5)' },
-                { href: 'mailto:yourmail@example.com', label: 'Email', Icon: FaEnvelope, color: '#EA4335', glow: 'rgba(234,67,53,0.5)' },
-                { href: '#', label: 'YouTube', Icon: FaYoutube, color: '#FF0000', glow: 'rgba(255,0,0,0.5)' },
-                { href: '#', label: 'Instagram', Icon: FaInstagram, color: '#E4405F', glow: 'rgba(228,64,95,0.5)' },
-                { href: '#', label: 'LinkedIn', Icon: FaLinkedin, color: '#0A66C2', glow: 'rgba(10,102,194,0.5)' },
+                { href: '#', label: 'WhatsApp', Icon: FaWhatsapp, color: '#10b981', glow: 'rgba(16,185,129,0.5)' },
+                { href: 'mailto:yourmail@example.com', label: 'Email', Icon: FaEnvelope, color: '#dc2626', glow: 'rgba(220,38,38,0.5)' },
+                { href: '#', label: 'YouTube', Icon: FaYoutube, color: '#ef4444', glow: 'rgba(239,68,68,0.5)' },
+                { href: '#', label: 'Instagram', Icon: FaInstagram, color: '#ec4899', glow: 'rgba(236,72,153,0.5)' },
+                { href: '#', label: 'LinkedIn', Icon: FaLinkedin, color: '#0891b2', glow: 'rgba(8,145,178,0.5)' },
               ].map(({ href, label, Icon, color, glow }) => (
                 <a key={label} href={href} aria-label={label}
                   className="flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300"

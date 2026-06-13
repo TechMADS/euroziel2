@@ -24,27 +24,45 @@ export default function StudyHero() {
           : 'linear-gradient(160deg, #eef8ff 0%, #f5faff 55%, #f8fafc 100%)',
       }}
     >
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <img 
+          src="/images/study/hero-bg.png" 
+          alt="" 
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center top' }}
+        />
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: isDark 
+              ? 'linear-gradient(to bottom, rgba(2,13,26,0.75), rgba(11,19,35,0.85), rgba(10,31,53,0.90))'
+              : 'linear-gradient(to bottom, rgba(238,248,255,0.85), rgba(245,250,255,0.90), rgba(248,250,252,0.95))'
+          }}
+        />
+      </div>
+
       {/* Ambient orbs */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden>
-        <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, #0f4c8f 0%, transparent 70%)', filter: 'blur(80px)' }} />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, #f59e0b 0%, transparent 70%)', filter: 'blur(60px)' }} />
-        <div className="absolute top-1/4 right-1/3 w-64 h-64 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, #6C63FF 0%, transparent 70%)', filter: 'blur(60px)' }} />
+      <div className="absolute inset-0 pointer-events-none z-[1]" aria-hidden>
+        <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] rounded-full opacity-15"
+          style={{ background: 'radial-gradient(circle, #006d9e 0%, transparent 70%)', filter: 'blur(100px)' }} />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full opacity-10"
+          style={{ background: 'radial-gradient(circle, #0891b2 0%, transparent 70%)', filter: 'blur(80px)' }} />
+        <div className="absolute top-1/4 right-1/3 w-72 h-72 rounded-full opacity-12"
+          style={{ background: 'radial-gradient(circle, #f59e0b 0%, transparent 70%)', filter: 'blur(80px)' }} />
       </div>
 
       {/* Badge */}
       <div className="relative z-10 mb-8">
         <span
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-semibold uppercase tracking-widest"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-semibold uppercase tracking-widest backdrop-blur-sm"
           style={{
-            background: isDark ? 'rgba(15,76,143,0.12)' : 'rgba(15,76,143,0.10)',
-            border: '1px solid rgba(15,76,143,0.30)',
-            color: '#0f4c8f',
+            background: isDark ? 'rgba(0,109,158,0.15)' : 'rgba(8,145,178,0.12)',
+            border: '1px solid rgba(8,145,178,0.40)',
+            color: isDark ? '#22d3ee' : '#006d9e',
           }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#0f4c8f] animate-pulse inline-block" />
+          <span className="w-1.5 h-1.5 rounded-full animate-pulse inline-block" style={{ background: isDark ? '#22d3ee' : '#006d9e' }} />
           Study in Germany & Europe
         </span>
       </div>
@@ -57,8 +75,8 @@ export default function StudyHero() {
         >
           The degree costs nothing.{' '}
           <br className="hidden sm:block" />
-          <span style={{ color: '#f59e0b' }}>The opportunity costs everything</span>{' '}
-          if you miss it.
+          <span style={{ color: '#f59e0b' }}>The opportunity</span> is{' '}
+          <span style={{ color: '#0891b2' }}>everything.</span>
         </h1>
         <p
           className="mx-auto leading-relaxed"
@@ -83,12 +101,12 @@ export default function StudyHero() {
           href="#fields"
           className="rounded-full px-8 py-4 text-[15px] font-semibold transition-all duration-200"
           style={{
-            background: isDark ? 'rgba(15,76,143,0.10)' : 'rgba(15,76,143,0.08)',
-            border: '1px solid rgba(15,76,143,0.28)',
-            color: isDark ? '#c8dcf5' : '#1a3a6a',
+            background: isDark ? 'rgba(8,145,178,0.12)' : 'rgba(8,145,178,0.10)',
+            border: '2px solid rgba(8,145,178,0.35)',
+            color: isDark ? '#22d3ee' : '#006d9e',
           }}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(15,76,143,0.18)'; }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? 'rgba(15,76,143,0.10)' : 'rgba(15,76,143,0.08)'; }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? 'rgba(8,145,178,0.20)' : 'rgba(8,145,178,0.16)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = isDark ? 'rgba(8,145,178,0.12)' : 'rgba(8,145,178,0.10)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
         >
           Explore Fields ↓
         </a>
