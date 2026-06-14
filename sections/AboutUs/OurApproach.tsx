@@ -43,7 +43,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
       style={{
         background: 'rgba(15,76,143,0.12)',
         border: '1px solid rgba(15,76,143,0.30)',
-        color: '#0f4c8f',
+        color: '#006d9e',
       }}
     >
       {children}
@@ -52,7 +52,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
 }
 
 // Icons
-function GermanyIcon({ color = '#0f4c8f', size = 26 }) {
+function GermanyIcon({ color = '#006d9e', size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
@@ -143,7 +143,7 @@ export default function OurApproachSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <DiffCard delay={0} accent="#0f4c8f" isDark={isDark} icon={GermanyIcon}
+          <DiffCard delay={0} accent="#006d9e" isDark={isDark} icon={GermanyIcon}
             title="Germany Only"
             body="We work exclusively on Germany and European pathways. Not the US. Not the UK. Not Canada. Every piece of advice we give comes from deep and current knowledge of the German system specifically."
           />

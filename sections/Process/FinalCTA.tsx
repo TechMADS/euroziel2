@@ -62,7 +62,7 @@ export default function ProcessFinalCTA() {
           />
 
           <div className="relative z-10">
-            <p className="text-[12px] font-bold uppercase tracking-widest mb-5" style={{ color: '#0f4c8f' }}>
+            <p className="text-[12px] font-bold uppercase tracking-widest mb-5" style={{ color: '#006d9e' }}>
               Still Confused About Your Germany Pathway?
             </p>
             <h2

@@ -43,7 +43,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
       style={{
         background: 'rgba(15,76,143,0.12)',
         border: '1px solid rgba(15,76,143,0.30)',
-        color: '#0f4c8f',
+        color: '#006d9e',
       }}
     >
       {children}
@@ -52,7 +52,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
 }
 
 // Icons
-function UsersIcon({ color = '#0f4c8f', size = 26 }) {
+function UsersIcon({ color = '#006d9e', size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M17 21V19C17 16.8 15.2 15 13 15H5C2.8 15 1 16.8 1 19V21" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -144,7 +144,7 @@ export default function WhatMakesDiffSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-        <DiffCard delay={0} accent="#0f4c8f" isDark={isDark} icon={UsersIcon}
+        <DiffCard delay={0} accent="#006d9e" isDark={isDark} icon={UsersIcon}
           title="Peer Network Built In"
           body="Not testimonials on a website. Real students at TU Munich, RWTH Aachen, TU Berlin, University of Hamburg, and more — people you can speak to before you decide, during your application, and after you land."
         />

@@ -49,18 +49,18 @@ export default function StudyFinalCTA() {
             background: isDark
               ? 'linear-gradient(135deg, #0d2540 0%, #0b1323 100%)'
               : 'linear-gradient(135deg, #eef8ff 0%, #f8fafc 100%)',
-            border: '1px solid rgba(15,76,143,0.18)',
-            boxShadow: isDark ? '0 16px 60px rgba(0,0,0,0.40)' : '0 16px 60px rgba(15,76,143,0.12)',
+            border: '1px solid rgba(0,109,158,0.25)',
+            boxShadow: isDark ? '0 16px 60px rgba(0,0,0,0.40)' : '0 16px 60px rgba(0,109,158,0.18)',
           }}
         >
           <div
             className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(15,76,143,0.18) 0%, transparent 70%)' }}
+            style={{ background: isDark ? 'radial-gradient(circle, rgba(34,211,238,0.12) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(0,109,158,0.12) 0%, transparent 70%)' }}
             aria-hidden
           />
 
           <div className="relative z-10">
-            <p className="text-[12px] font-bold uppercase tracking-widest mb-5" style={{ color: '#0f4c8f' }}>
+            <p className="text-[12px] font-bold uppercase tracking-widest mb-5" style={{ color: isDark ? '#22d3ee' : '#006d9e' }}>
               Already Thinking About Germany?
             </p>
             <h2

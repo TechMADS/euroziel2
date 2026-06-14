@@ -2,14 +2,16 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
+import { FaSearch, FaPen, FaChartBar, FaEnvelope, FaPlane, FaCheckCircle } from 'react-icons/fa';
+import { MdGpsFixed } from 'react-icons/md';
 
 const MONTHS = [
   {
     range: 'Month 1–2',
     title: 'Discovery, Planning & APS',
     tag: 'Foundation',
-    tagColor: '#0f4c8f',
-    icon: '🔍',
+    tagColor: '#006d9e',
+    icon: 'search',
     description: 'Your journey begins with understanding your profile, goals, and the right pathway for Germany.',
     items: [
       'Free Profile Evaluation',
@@ -24,8 +26,8 @@ const MONTHS = [
     range: 'Month 2–4',
     title: 'Language, SOP, LOR & CV',
     tag: 'Profile Building',
-    tagColor: '#6C63FF',
-    icon: '📝',
+    tagColor: '#7c3aed',
+    icon: 'pen',
     description: 'Strengthen your profile and initiate essential documentation processes.',
     items: [
       'IELTS / German Language Coaching',
@@ -39,8 +41,8 @@ const MONTHS = [
     range: 'Month 4–5',
     title: 'GRE, GMAT & Documentation',
     tag: 'Preparation',
-    tagColor: '#0ABFA3',
-    icon: '📊',
+    tagColor: '#059669',
+    icon: 'chart',
     description: 'Prepare strong, professional application materials aligned with German university standards.',
     items: [
       'GRE / GMAT Preparation Guidance',
@@ -55,7 +57,7 @@ const MONTHS = [
     title: 'University Applications',
     tag: 'Submission',
     tagColor: '#f59e0b',
-    icon: '🎯',
+    icon: 'target',
     description: 'Applications strategically submitted based on deadlines, profile fit, and admission potential.',
     items: [
       'University Application Submission',
@@ -69,8 +71,8 @@ const MONTHS = [
     range: 'Month 7–8',
     title: 'Offers & Financial Planning',
     tag: 'Decision',
-    tagColor: '#EC4899',
-    icon: '📬',
+    tagColor: '#0891b2',
+    icon: 'envelope',
     description: 'Once offers arrive, we help you evaluate universities and make informed decisions.',
     items: [
       'Offer Letter Evaluation',
@@ -83,8 +85,8 @@ const MONTHS = [
     range: 'Month 8–9',
     title: 'Blocked Account, Insurance & Visa',
     tag: 'Visa Stage',
-    tagColor: '#EF4444',
-    icon: '🛂',
+    tagColor: '#dc2626',
+    icon: 'passport',
     description: 'Full documentation support for your German student visa process.',
     items: [
       'Blocked Account (Sperrkonto) Guidance',
@@ -98,8 +100,8 @@ const MONTHS = [
     range: 'Month 10–12',
     title: 'Pre-Departure & Germany Arrival',
     tag: 'Final Stage',
-    tagColor: '#22C55E',
-    icon: '✈️',
+    tagColor: '#059669',
+    icon: 'plane',
     description: 'The final stage prepares you for a smooth transition into Germany.',
     items: [
       'Visa Approval & Passport Collection',
@@ -110,6 +112,20 @@ const MONTHS = [
     finale: 'Fly to Germany with confidence and the EuroZiel network behind you.',
   },
 ];
+
+function getIcon(iconName: string, size = 24) {
+  const iconProps = { size, style: { color: 'currentColor' } };
+  switch (iconName) {
+    case 'search': return <FaSearch {...iconProps} />;
+    case 'pen': return <FaPen {...iconProps} />;
+    case 'chart': return <FaChartBar {...iconProps} />;
+    case 'target': return <MdGpsFixed {...iconProps} />;
+    case 'envelope': return <FaEnvelope {...iconProps} />;
+    case 'passport': return <FaPlane {...iconProps} />;
+    case 'plane': return <FaPlane {...iconProps} />;
+    default: return null;
+  }
+}
 
 function useReveal(threshold = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
@@ -144,41 +160,43 @@ function TimelineCard({ month, index, isDark }: { month: typeof MONTHS[0]; index
       }}
     >
       {/* Left spacer / content (desktop) */}
-      <div className={`hidden lg:flex flex-col w-[calc(50%-32px)] ${isEven ? 'items-end pr-10 text-right' : 'order-last items-start pl-10 text-left'}`}>
+      <div className={`hidden lg:flex flex-col w-[calc(50%-32px)] ${isEven ? 'items-end pr-10 text-right justify-center' : 'order-last items-start pl-10 text-left justify-center'}`}>
         {isEven && <CardContent month={month} isDark={isDark} text={text} sub={sub} align="right" />}
       </div>
 
       {/* Center node */}
-      <div className="hidden lg:flex flex-col items-center w-16 flex-shrink-0">
+      <div className="hidden lg:flex flex-col items-center justify-center w-16 flex-shrink-0">
         <div
-          className="w-12 h-12 rounded-full flex items-center justify-center text-xl z-10 flex-shrink-0"
+          className="w-12 h-12 rounded-full flex items-center justify-center z-10 flex-shrink-0"
           style={{
             background: isDark
               ? `radial-gradient(circle, ${month.tagColor}22, ${month.tagColor}10)`
               : `radial-gradient(circle, ${month.tagColor}18, ${month.tagColor}08)`,
             border: `2px solid ${month.tagColor}55`,
             boxShadow: `0 0 20px ${month.tagColor}30`,
+            color: month.tagColor,
           }}
         >
-          {month.icon}
+          {getIcon(month.icon, 20)}
         </div>
       </div>
 
       {/* Right content (desktop) */}
-      <div className={`hidden lg:flex flex-col w-[calc(50%-32px)] ${isEven ? 'order-last items-start pl-10' : 'items-end pr-10 text-right'}`}>
+      <div className={`hidden lg:flex flex-col w-[calc(50%-32px)] ${isEven ? 'order-last items-start pl-10 justify-center' : 'items-end pr-10 text-right justify-center'}`}>
         {!isEven && <CardContent month={month} isDark={isDark} text={text} sub={sub} align="left" />}
       </div>
 
       {/* Mobile: always stacked */}
       <div className="flex lg:hidden items-start gap-4 w-full">
         <div
-          className="w-10 h-10 rounded-full flex items-center justify-center text-lg flex-shrink-0 mt-1"
+          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
           style={{
             background: isDark ? `${month.tagColor}18` : `${month.tagColor}12`,
             border: `2px solid ${month.tagColor}50`,
+            color: month.tagColor,
           }}
         >
-          {month.icon}
+          {getIcon(month.icon, 16)}
         </div>
         <div className="flex-1">
           <CardContent month={month} isDark={isDark} text={text} sub={sub} align="left" />
@@ -241,28 +259,28 @@ function CardContent({
       {/* Alert box */}
       {month.alert && (
         <div
-          className="mt-4 px-4 py-2.5 rounded-xl text-[12px] font-medium"
+          className="mt-4 px-4 py-2.5 rounded-xl text-[12px] font-medium flex items-center gap-2"
           style={{
             background: isDark ? 'rgba(245,158,11,0.08)' : 'rgba(245,158,11,0.18)',
             border: '1px solid rgba(245,158,11,0.30)',
             color: isDark ? '#f59e0b' : '#92650a',
           }}
         >
-          ⚠️ {month.alert}
+          <span>⚠</span> {month.alert}
         </div>
       )}
 
       {/* Finale box */}
       {month.finale && (
         <div
-          className="mt-4 px-4 py-2.5 rounded-xl text-[13px] font-semibold text-center"
+          className="mt-4 px-4 py-2.5 rounded-xl text-[13px] font-semibold text-center flex items-center justify-center gap-2"
           style={{
             background: 'rgba(34,197,94,0.10)',
             border: '1px solid rgba(34,197,94,0.28)',
             color: isDark ? '#86efac' : '#166534',
           }}
         >
-          🎉 {month.finale}
+          <FaCheckCircle size={16} /> {month.finale}
         </div>
       )}
     </div>
@@ -291,13 +309,13 @@ export default function ProcessTimeline() {
     >
       {/* Section header */}
       <div className="max-w-2xl mx-auto text-center mb-20">
-        <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
+        <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full backdrop-blur-sm"
+          style={{ color: isDark ? '#22d3ee' : '#006d9e', background: isDark ? 'rgba(8,145,178,0.15)' : 'rgba(0,109,158,0.12)', border: '1px solid rgba(8,145,178,0.40)' }}>
           Your Germany Timeline
         </span>
         <h2 className="font-serif font-bold mb-4 leading-tight" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
           A Structured Roadmap,{' '}
-          <span style={{ color: '#0f4c8f' }}>Month by Month</span>
+          <span style={{ color: '#006d9e' }}>Month by Month</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub, maxWidth: '52ch', margin: '0 auto' }}>
           From your first consultation to landing in Germany — every stage planned, every document tracked, every decision supported.

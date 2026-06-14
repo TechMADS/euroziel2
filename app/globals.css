@@ -58,8 +58,9 @@
   --background: #ffffff;
   --foreground: #0f172a; /* Slate 900 for high-contrast reading */
   
-  --primary: #0f4c8f;        /* Strong brand blue */
-  --primary-hover: #1f6ec4;  /* Brighter blue for interactive states */
+  /* Primary: Professional Deep Teal */
+  --primary: #006d9e;        /* Deep teal - primary brand */
+  --primary-hover: #004d6e;  /* Darker teal for interactive states */
   --primary-foreground: #ffffff;
   
   --card: #ffffff;
@@ -72,32 +73,35 @@
   --muted: #f1f5f9;
   --muted-foreground: #475569;
   --accent: #f8fafc;
-  --accent-foreground: #0f4c8f;
+  --accent-foreground: #006d9e;
   
-  --accent-gold: #f59e0b;
-  --accent-gold-hover: #d97706;        /* stronger gold hover */
-  --accent-gold-foreground: #0f172a;   /* dark text on gold */
+  /* Vibrant Accent Colors - Sharp Contrast */
+  --accent-gold: #f59e0b;              /* Warm gold */
+  --accent-gold-hover: #d97706;        /* Darker gold hover */
+  --accent-gold-foreground: #0f172a;   /* Dark text on gold */
   
-  --accent-teal: #0ea5e9;
-  --accent-emerald: #16a34a;
-  --accent-coral: #fb923c;
-  --accent-violet: #7c3aed;
+  --accent-teal: #0891b2;              /* Cyan teal */
+  --accent-emerald: #059669;           /* Rich emerald */
+  --accent-coral: #ea580c;             /* Vibrant coral */
+  --accent-violet: #7c3aed;            /* Bold violet */
+  --accent-rose: #dc2626;              /* Vibrant red */
+  --accent-indigo: #4f46e5;            /* Deep indigo */
   
   --destructive: oklch(0.577 0.245 27.325);
   --border: #cbd5e1;
   --input: #e2e8f0;
-  --ring: #0ea5e9;
+  --ring: #0891b2;
   --radius: 0.625rem;
 
   /* Sidebar Light styling */
   --sidebar: #f8fafc;
   --sidebar-foreground: #334155;
-  --sidebar-primary: #0f4c8f;
+  --sidebar-primary: #006d9e;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #e2e8f0;
-  --sidebar-accent-foreground: #0f4c8f;
+  --sidebar-accent-foreground: #006d9e;
   --sidebar-border: #e2e8f0;
-  --sidebar-ring: #0f4c8f;
+  --sidebar-ring: #006d9e;
 
   --navbar-bg-rgb: 255, 255, 255;  /* White for light mode */
   --shadow-color-rgb: 15, 23, 42;   /* Slate 900 for shadows */
@@ -108,9 +112,10 @@
   --background: #0f172a;     /* Midnight Slate Background */
   --foreground: #f8fafc;
   
-  --primary: #0f4c8f;        /* Strong brand blue */
-  --primary-hover: #1f6ec4;  /* Brighter blue for interactive states */
-  --primary-foreground: #ffffff;
+  /* Primary: Professional Deep Teal */
+  --primary: #22d3ee;        /* Bright cyan for dark mode */
+  --primary-hover: #0891b2;  /* Darker teal for interactive states */
+  --primary-foreground: #0f172a;
   
   --card: #0f172a;
   --card-foreground: #f8fafc;
@@ -122,31 +127,34 @@
   --muted: #1f2937;
   --muted-foreground: #cbd5e1;
   --accent: #111827;
-  --accent-foreground: #f8fafc;
+  --accent-foreground: #22d3ee;
 
-  --accent-gold: #f59e0b;              /* rich gold accent */
-  --accent-gold-hover: #d97706;
+  /* Vibrant Accent Colors - Sharp Contrast */
+  --accent-gold: #fbbf24;              /* Bright gold for dark mode */
+  --accent-gold-hover: #f59e0b;
   --accent-gold-foreground: #0f172a;
   
-  --accent-teal: #0ea5e9;
-  --accent-emerald: #16a34a;
-  --accent-coral: #fb923c;
-  --accent-violet: #7c3aed;
+  --accent-teal: #06b6d4;              /* Bright cyan teal */
+  --accent-emerald: #10b981;           /* Bright emerald */
+  --accent-coral: #ff7f50;             /* Bright coral */
+  --accent-violet: #a78bfa;            /* Bright violet */
+  --accent-rose: #f87171;              /* Bright rose */
+  --accent-indigo: #818cf8;            /* Bright indigo */
   
   --destructive: oklch(0.704 0.191 22.216);
   --border: #334155;
   --input: #334155;
-  --ring: #0ea5e9;
+  --ring: #06b6d4;
 
   /* Sidebar Dark styling */
   --sidebar: #111827;
   --sidebar-foreground: #94a3b8;
-  --sidebar-primary: #0f4c8f;
+  --sidebar-primary: #22d3ee;
   --sidebar-primary-foreground: #0f172a;
   --sidebar-accent: #1e293b;
-  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-accent-foreground: #22d3ee;
   --sidebar-border: #1e293b;
-  --sidebar-ring: #0f4c8f;
+  --sidebar-ring: #22d3ee;
 
   --navbar-bg-rgb: 15, 23, 42;      /* Dark slate for dark mode */
   --shadow-color-rgb: 0, 0, 0;      /* Black for shadows */
@@ -160,18 +168,108 @@
     @apply bg-background text-foreground font-sans antialiased;
     transition: background-color 0.3s, color 0.3s;
   }
-  h1, h2, h3, h4, h5, h6, .font-serif {
+  
+  /* Typography System */
+  h1 {
+    @apply font-serif font-bold tracking-tight;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.2;
+  }
+  
+  h2 {
+    @apply font-serif font-bold tracking-tight;
+    font-size: clamp(32px, 4.5vw, 52px);
+    line-height: 1.3;
+  }
+  
+  h3 {
+    @apply font-serif font-bold tracking-tight;
+    font-size: clamp(24px, 3.5vw, 36px);
+    line-height: 1.3;
+  }
+  
+  h4 {
+    @apply font-serif font-bold tracking-tight;
+    font-size: clamp(20px, 2.5vw, 28px);
+    line-height: 1.4;
+  }
+  
+  h5 {
+    @apply font-serif font-bold;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+  h6 {
+    @apply font-serif font-semibold;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  .text-base {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  .text-sm {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  .text-xs {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .font-serif {
     @apply font-serif tracking-tight;
   }
 }
 
 html {
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
 
 * {
     -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
 }
 
 
@@ -330,15 +428,117 @@ html {
     }
 }
 
-/* Professional Spacing */
+/* Professional Spacing System (8px base) */
+.section-py {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.section-px {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
 .space-between-sections {
     margin: 4rem 0;
 }
 
 @media (max-width: 768px) {
+    .section-py {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    
+    .section-px {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
     .space-between-sections {
         margin: 2rem 0;
     }
+}
+
+/* Standard Gap Utilities */
+.gap-standard {
+    gap: 1.5rem;
+}
+
+.gap-large {
+    gap: 2.5rem;
+}
+
+/* Container Max Width */
+.container-max {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Unified Button Styles */
+.btn-primary {
+    @apply px-6 py-3 font-semibold rounded-lg text-base transition-all duration-300;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: 2px solid var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 109, 158, 0.25);
+}
+
+.btn-secondary {
+    @apply px-6 py-3 font-semibold rounded-lg text-base transition-all duration-300;
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    @apply px-6 py-3 font-semibold rounded-lg text-base transition-all duration-300;
+    background-color: transparent;
+    color: var(--foreground);
+    border: 2px solid var(--border);
+}
+
+.btn-outline:hover {
+    background-color: var(--muted);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Unified Card Styles */
+.card-base {
+    @apply rounded-xl p-6 transition-all duration-300;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-base:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+.card-feature {
+    @apply rounded-2xl p-8 transition-all duration-300;
+    background: linear-gradient(135deg, var(--card), var(--accent));
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
+
+.card-feature:hover {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px);
 }
 
 /* Hover Effects */

@@ -39,11 +39,11 @@ function Reveal({ children, delay = 0, className = '' }: { children: React.React
 function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean }) {
   return (
     <span
-      className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full"
+      className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full backdrop-blur-sm"
       style={{
-        background: 'rgba(15,76,143,0.12)',
-        border: '1px solid rgba(15,76,143,0.30)',
-        color: '#0f4c8f',
+        background: isDark ? 'rgba(8,145,178,0.15)' : 'rgba(0,109,158,0.12)',
+        border: '1px solid rgba(8,145,178,0.40)',
+        color: isDark ? '#22d3ee' : '#006d9e',
       }}
     >
       {children}
@@ -51,7 +51,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
   );
 }
 
-function FAQIcon({ color = '#0f4c8f', size = 64 }) {
+function FAQIcon({ color = '#006d9e', size = 64 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke={color} strokeWidth="1.5"/>
@@ -91,7 +91,7 @@ export default function FAQHeroSection() {
 
       <Reveal delay={80}>
         <div className="flex justify-center mb-6">
-          <FAQIcon color="#0f4c8f" size={56} />
+          <FAQIcon color="#006d9e" size={56} />
         </div>
         <h1
           className="font-serif font-bold mt-4 mb-6 leading-[1.2]"
@@ -104,7 +104,7 @@ export default function FAQHeroSection() {
           <br />
           <span
             style={{
-              background: 'linear-gradient(135deg, #0f4c8f, #7ED8A4)',
+              background: 'linear-gradient(135deg, #006d9e, #7ED8A4)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',

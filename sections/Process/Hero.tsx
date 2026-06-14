@@ -44,23 +44,23 @@ export default function ProcessHero() {
     >
       {/* Ambient orbs */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, #0f4c8f 0%, transparent 70%)', filter: 'blur(60px)' }} />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, #f59e0b 0%, transparent 70%)', filter: 'blur(60px)' }} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-15"
+          style={{ background: 'radial-gradient(circle, #006d9e 0%, transparent 70%)', filter: 'blur(80px)' }} />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-12"
+          style={{ background: 'radial-gradient(circle, #0891b2 0%, transparent 70%)', filter: 'blur(80px)' }} />
       </div>
 
       {/* Floating pill badge */}
       <div className="relative z-10 mb-8">
         <span
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-semibold uppercase tracking-widest"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-semibold uppercase tracking-widest backdrop-blur-sm"
           style={{
-            background: isDark ? 'rgba(15,76,143,0.12)' : 'rgba(15,76,143,0.10)',
-            border: '1px solid rgba(15,76,143,0.30)',
-            color: '#0f4c8f',
+            background: isDark ? 'rgba(8,145,178,0.15)' : 'rgba(0,109,158,0.12)',
+            border: '1px solid rgba(8,145,178,0.40)',
+            color: isDark ? '#22d3ee' : '#006d9e',
           }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#0f4c8f] animate-pulse inline-block" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#006d9e] animate-pulse inline-block" />
           EuroZiel · Full Germany Roadmap
         </span>
       </div>
@@ -140,7 +140,7 @@ export default function ProcessHero() {
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40">
         <span className="text-[11px] uppercase tracking-widest" style={{ color: sub }}>Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-[#0f4c8f] to-transparent" />
+        <div className="w-px h-8 bg-gradient-to-b from-[#006d9e] to-transparent" />
       </div>
     </section>
   );

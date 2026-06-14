@@ -38,7 +38,7 @@ export default function FinalCTA() {
           style={{ fontSize: 'clamp(32px,5.5vw,72px)', color: textColor, letterSpacing: '-0.02em' }}>
           Germany Is A Big Move.{' '}
           <br className="hidden sm:block" />
-          <span style={{ color: '#0f4c8f' }}>You Should Not Have To</span>
+          <span style={{ color: '#006d9e' }}>You Should Not Have To</span>
           <br className="hidden sm:block" />
           Figure It Out Alone.
         </h2>
@@ -78,7 +78,7 @@ export default function FinalCTA() {
             { val: 'Free', label: 'First Consultation' },
           ].map(({ val, label }) => (
             <div key={label} className="text-center">
-              <div className="text-[22px] font-bold" style={{ color: '#0f4c8f' }}>{val}</div>
+              <div className="text-[22px] font-bold" style={{ color: '#006d9e' }}>{val}</div>
               <div className="text-[11px] font-medium uppercase tracking-wider mt-0.5" style={{ color: textSub }}>{label}</div>
             </div>
           ))}

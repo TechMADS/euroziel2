@@ -40,11 +40,11 @@ function Reveal({ children, delay = 0, className = '' }: { children: React.React
 function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean }) {
   return (
     <span
-      className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full"
+      className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full backdrop-blur-sm"
       style={{
-        background: 'rgba(15,76,143,0.12)',
-        border: '1px solid rgba(15,76,143,0.30)',
-        color: '#0f4c8f',
+        background: isDark ? 'rgba(8,145,178,0.15)' : 'rgba(0,109,158,0.12)',
+        border: '1px solid rgba(8,145,178,0.40)',
+        color: isDark ? '#22d3ee' : '#006d9e',
       }}
     >
       {children}
@@ -90,7 +90,9 @@ export default function ServicesHeroSection() {
           Guided by people{' '}
           <span
             style={{
-              background: 'linear-gradient(135deg, #0f4c8f, #7ED8A4)',
+              background: isDark 
+                ? 'linear-gradient(135deg, #22d3ee, #0891b2)' 
+                : 'linear-gradient(135deg, #006d9e, #0891b2)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -117,7 +119,7 @@ export default function ServicesHeroSection() {
             onClick={openEnquiryModal}
             className="rounded-full px-8 py-4 text-[16px] font-bold transition-all duration-200 cursor-pointer"
             style={{
-              background: '#0f4c8f',
+              background: '#006d9e',
               color: '#fff',
               boxShadow: '0 4px 20px rgba(15,76,143,0.38)',
             }}

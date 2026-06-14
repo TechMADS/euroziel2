@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
+import SVGMorphCard from '@/components/SVGMorphCard';
 
 function useReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -39,11 +40,11 @@ function Reveal({ children, delay = 0, className = '' }: { children: React.React
 function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean }) {
   return (
     <span
-      className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full"
+      className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full backdrop-blur-sm"
       style={{
-        background: 'rgba(15,76,143,0.12)',
-        border: '1px solid rgba(15,76,143,0.30)',
-        color: '#0f4c8f',
+        background: isDark ? 'rgba(8,145,178,0.15)' : 'rgba(0,109,158,0.12)',
+        border: '1px solid rgba(8,145,178,0.40)',
+        color: isDark ? '#22d3ee' : '#006d9e',
       }}
     >
       {children}
@@ -113,25 +114,21 @@ export default function TeamSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <FounderCard
-            delay={0} isDark={isDark} accentColor="#0f4c8f" initials="YJ"
+          <SVGMorphCard
             name="Yuvasri Jagadeesan"
-            role="Co-Founder · Academic Strategy & Student Success"
-            bio={[
-              "Yuvasri leads EuroZiel's student support and academic process framework with strong experience in overseas education counselling and Germany-focused application guidance. Her expertise spans profile evaluation, university shortlisting, application planning, APS coordination, documentation review, and visa guidance.",
-              "Known for her structured and accountable approach, she has worked closely with students across multiple academic backgrounds, helping them navigate complex admission processes with clarity and confidence. Her focus on transparent communication, timely process management, and personalized mentorship has been instrumental in building EuroZiel's student-first counselling model.",
-              "Through her leadership, EuroZiel has developed a professional and structured support system designed not just around admissions, but around helping students transition successfully into their academic and professional future in Germany.",
-            ]}
+            role="Co-Founder · Academic Strategy"
+            imageSrc="/images/about/team.png"
+            description="Yuvasri leads EuroZiel's student support framework with expertise in profile evaluation, university shortlisting, APS coordination, and visa guidance. Her structured approach and focus on transparent communication has been instrumental in building EuroZiel's student-first counselling model."
+            accent="#006d9e"
+            index={0}
           />
-          <FounderCard
-            delay={120} isDark={isDark} accentColor="#7ED8A4" initials="SV"
+          <SVGMorphCard
             name="Sarathkumar Venkateshwaran"
-            role="Co-Founder · European Network & Student Ecosystem"
-            bio={[
-              "Sarathkumar leads EuroZiel's European network and ecosystem development initiatives, building strong connections across universities, student communities, graduates, and working professionals throughout Germany and Europe.",
-              "His expertise lies in creating a network-driven guidance system that provides students with practical exposure and real-world insights beyond the traditional admission process. Through continuous collaboration with students and professionals across multiple European cities, he helps strengthen EuroZiel's ability to deliver informed, ground-level guidance on academics, student life, accommodation, internships, career pathways, and professional transition opportunities.",
-              "With a strong focus on long-term student outcomes and ecosystem development, he plays a key role in positioning EuroZiel as a modern, connected, and professionally driven Germany education guidance platform.",
-            ]}
+            role="Co-Founder · European Network"
+            imageSrc="/images/about/network.png"
+            description="Sarathkumar leads EuroZiel's European network development, building strong connections across universities and student communities. His expertise in creating network-driven guidance helps students with practical exposure and real-world insights beyond admissions."
+            accent="#059669"
+            index={1}
           />
         </div>
       </div>

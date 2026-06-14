@@ -3,12 +3,14 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
+import { FaCogs, FaCode, FaChartLine, FaAtom, FaPalette, FaHeartbeat } from 'react-icons/fa';
 
 const FIELDS = [
   {
-    icon: '⚙️',
+    icon: 'cogs',
     title: 'Engineering & Technology',
-    accent: '#0f4c8f',
+    accent: '#006d9e',
+    image: '/images/study/engineering.png',
     companies: ['Siemens', 'Bosch', 'BASF', 'Volkswagen', 'Airbus'],
     universities: ['TU Munich', 'RWTH Aachen', 'KIT'],
     body: 'Germany is not just an engineering country by reputation. It is where core R&D actually happens. A German engineering degree is recognised in over 50 countries as a benchmark qualification.',
@@ -16,9 +18,10 @@ const FIELDS = [
     statLabel: 'TU Munich, RWTH, KIT rankings',
   },
   {
-    icon: '💻',
+    icon: 'code',
     title: 'Computer Science & IT',
-    accent: '#6C63FF',
+    accent: '#7c3aed',
+    image: '/images/study/computer-science.png',
     companies: ['Zalando', 'N26', 'Celonis', 'SAP', 'DeepMind Berlin'],
     universities: ['TU Berlin', 'LMU Munich', 'TU Dresden'],
     body: "Berlin is Europe's fastest growing tech hub with 4,000+ startups. CS programmes combine strong theoretical foundations with mandatory industry internships.",
@@ -26,9 +29,10 @@ const FIELDS = [
     statLabel: 'graduate employment within 6 months',
   },
   {
-    icon: '📈',
+    icon: 'chart',
     title: 'Business & Management',
-    accent: '#0ABFA3',
+    accent: '#059669',
+    image: '/images/study/business.png',
     companies: ['Deutsche Bank', 'Allianz', 'PwC Germany', 'McKinsey Frankfurt'],
     universities: ['Mannheim', 'Frankfurt School', 'WHU'],
     body: 'The focus is on applied economics, international finance, and supply chain management — not case study competitions. Consistently ranked in Europe\'s top 20.',
@@ -36,9 +40,10 @@ const FIELDS = [
     statLabel: 'European business school rankings',
   },
   {
-    icon: '🔬',
+    icon: 'atom',
     title: 'Natural Sciences',
-    accent: '#f59e0b',
+    accent: '#dc2626',
+    image: '/images/study/natural-sciences.png',
     companies: ['Max Planck Institute', 'Helmholtz', 'Fraunhofer', 'BASF Research'],
     universities: ['Heidelberg', 'TU Munich', 'Göttingen'],
     body: 'Germany funds more scientific research per capita than almost any country in the world. The DFG alone distributes over €3 billion annually. If you are going into research, Germany is where the funding is.',
@@ -46,9 +51,10 @@ const FIELDS = [
     statLabel: 'annual DFG research funding',
   },
   {
-    icon: '🎨',
+    icon: 'palette',
     title: 'Design & Architecture',
-    accent: '#EC4899',
+    accent: '#0891b2',
+    image: '/images/study/student-life.png',
     companies: ['Porsche Design', 'BMW Group Design', 'Adidas', 'Braun'],
     universities: ['Bauhaus-Universität', 'HfG Offenbach', 'UdK Berlin'],
     body: 'The Bauhaus school started in Germany. That legacy runs through every design programme. German design qualifications are among the most respected globally in product design, urban planning, and industrial design.',
@@ -56,9 +62,10 @@ const FIELDS = [
     statLabel: 'Bauhaus design legacy',
   },
   {
-    icon: '🏥',
+    icon: 'heart',
     title: 'Medicine & Health',
-    accent: '#22C55E',
+    accent: '#f59e0b',
+    image: '/images/study/career-prospects.png',
     companies: ['Charité Berlin', 'Heidelberg Hospital', 'Siemens Healthineers'],
     universities: ['Charité – Universitätsmedizin', 'LMU Munich', 'Heidelberg'],
     body: 'A German medical degree is recognised in over 100 countries including the UK, Australia, and the Gulf. Research intensive, hospital integrated, and among the most rigorous in the world.',
@@ -66,6 +73,19 @@ const FIELDS = [
     statLabel: 'where the degree is recognised',
   },
 ];
+
+function getFieldIcon(iconName: string, size = 24) {
+  const iconProps = { size, style: { color: 'currentColor' } };
+  switch (iconName) {
+    case 'cogs': return <FaCogs {...iconProps} />;
+    case 'code': return <FaCode {...iconProps} />;
+    case 'chart': return <FaChartLine {...iconProps} />;
+    case 'atom': return <FaAtom {...iconProps} />;
+    case 'palette': return <FaPalette {...iconProps} />;
+    case 'heart': return <FaHeartbeat {...iconProps} />;
+    default: return null;
+  }
+}
 
 function useReveal(threshold = 0.10) {
   const ref = useRef<HTMLDivElement>(null);
@@ -96,29 +116,51 @@ function FieldCard({ field, index, isDark }: { field: typeof FIELDS[0]; index: n
       ref={ref}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="rounded-2xl p-6 flex flex-col gap-5 transition-all duration-300"
+      className="rounded-2xl overflow-hidden flex flex-col gap-0 transition-all duration-300 group"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible
           ? hovered ? 'translateY(-5px)' : 'translateY(0)'
           : 'translateY(32px)',
         transition: `opacity 0.65s ease ${index * 60}ms, transform 0.5s cubic-bezier(0.22,1,0.36,1)`,
-        background: hovered
-          ? isDark ? `linear-gradient(135deg, ${field.accent}18, ${field.accent}06)` : `linear-gradient(135deg, ${field.accent}10, ${field.accent}03)`
-          : isDark ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.85)',
-        border: `1px solid ${hovered ? field.accent + '45' : field.accent + '20'}`,
+        border: `2px solid ${field.accent}`,
         boxShadow: hovered
-          ? `0 12px 40px ${field.accent}20`
-          : isDark ? '0 2px 12px rgba(0,0,0,0.20)' : '0 2px 12px rgba(15,76,143,0.06)',
+          ? `0 12px 40px ${field.accent}40`
+          : `0 4px 20px ${field.accent}20`,
       }}
     >
-      {/* Header */}
+      {/* Image Section */}
+      <div className="relative h-32 overflow-hidden">
+        <img 
+          src={field.image} 
+          alt={field.title}
+          className="w-full h-full object-cover transition-transform duration-500"
+          style={{ transform: hovered ? 'scale(1.05)' : 'scale(1)' }}
+        />
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(135deg, ${field.accent}30, ${field.accent}10)`,
+          }}
+        />
+      </div>
+
+      {/* Content Section */}
+      <div 
+        className="p-6 flex flex-col gap-5 flex-grow transition-all duration-300"
+        style={{
+          background: hovered
+            ? isDark ? `linear-gradient(135deg, ${field.accent}12, ${field.accent}04)` : `linear-gradient(135deg, ${field.accent}08, ${field.accent}02)`
+            : isDark ? 'rgba(15,23,42,0.95)' : 'rgba(255,255,255,0.95)',
+        }}
+      >
+        {/* Header */}
       <div className="flex items-start gap-3">
         <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-          style={{ background: `${field.accent}18`, border: `1px solid ${field.accent}30` }}
+          className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+          style={{ background: `${field.accent}18`, border: `1px solid ${field.accent}30`, color: field.accent }}
         >
-          {field.icon}
+          {getFieldIcon(field.icon, 20)}
         </div>
         <div>
           <h3 className="font-serif font-bold text-[17px] leading-snug" style={{ color: text }}>
@@ -171,6 +213,7 @@ function FieldCard({ field, index, isDark }: { field: typeof FIELDS[0]; index: n
           width: hovered ? '100%' : '30%',
         }}
       />
+      </div>
     </div>
   );
 }
@@ -205,13 +248,13 @@ export default function StudyFields() {
           transition: 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1)',
         }}
       >
-        <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
+        <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full backdrop-blur-sm"
+          style={{ color: isDark ? '#22d3ee' : '#006d9e', background: isDark ? 'rgba(8,145,178,0.15)' : 'rgba(0,109,158,0.12)', border: '1px solid rgba(8,145,178,0.40)' }}>
           Fields & Specialisations
         </span>
         <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
           What You Can Study{' '}
-          <span style={{ color: '#0f4c8f' }}>and Where It Takes You</span>
+          <span style={{ color: '#006d9e' }}>and Where It Takes You</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
           Every field below has a real industry behind it in Germany — not just a degree programme.

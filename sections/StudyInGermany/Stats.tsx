@@ -9,21 +9,21 @@ const STATS = [
     number: '400,000+',
     label: 'International Students',
     context: 'The third largest destination for Indian students after the US and Canada — and growing faster than both.',
-    accent: '#0f4c8f',
+    accent: '#006d9e',
     icon: '🎓',
   },
   {
     number: '€0',
     label: 'Tuition Fees',
     context: 'Even the exceptions charge under €3,000/year — less than one semester at a private Indian college.',
-    accent: '#22C55E',
+    accent: '#059669',
     icon: '🏛️',
   },
   {
     number: '18 months',
     label: 'Post-Study Visa',
     context: 'No other major study destination gives you this much time to find a job without leaving the country.',
-    accent: '#6C63FF',
+    accent: '#7c3aed',
     icon: '🛂',
   },
   {
@@ -126,7 +126,7 @@ export default function StudyStats() {
 
   return (
     <section
-      className="relative py-28 px-5 sm:px-8"
+      className="relative py-20 px-5 sm:px-8"
       style={{
         background: isDark
           ? 'linear-gradient(180deg, #0b1323 0%, #030e1c 100%)'
@@ -135,20 +135,20 @@ export default function StudyStats() {
     >
       <div
         ref={ref}
-        className="max-w-2xl mx-auto text-center mb-16"
+        className="max-w-2xl mx-auto text-center mb-20"
         style={{
           opacity: visible ? 1 : 0,
           transform: visible ? 'translateY(0)' : 'translateY(28px)',
           transition: 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1)',
         }}
       >
-        <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-          style={{ color: '#0f4c8f', background: 'rgba(15,76,143,0.10)', border: '1px solid rgba(15,76,143,0.22)' }}>
+        <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full backdrop-blur-sm"
+          style={{ color: isDark ? '#22d3ee' : '#006d9e', background: isDark ? 'rgba(8,145,178,0.15)' : 'rgba(0,109,158,0.12)', border: '1px solid rgba(8,145,178,0.40)' }}>
           Why Germany
         </span>
         <h2 className="font-serif font-bold mb-4" style={{ fontSize: 'clamp(26px, 4vw, 42px)', color: text }}>
           Numbers That Actually{' '}
-          <span style={{ color: '#0f4c8f' }}>Mean Something</span>
+          <span style={{ color: '#006d9e' }}>Mean Something</span>
         </h2>
         <p className="text-[16px] leading-relaxed" style={{ color: sub }}>
           Not marketing statistics. Real figures that change how you think about the decision.

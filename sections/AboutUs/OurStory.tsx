@@ -43,7 +43,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
       style={{
         background: 'rgba(15,76,143,0.12)',
         border: '1px solid rgba(15,76,143,0.30)',
-        color: '#0f4c8f',
+        color: '#006d9e',
       }}
     >
       {children}
@@ -51,7 +51,7 @@ function Pill({ children, isDark }: { children: React.ReactNode; isDark: boolean
   );
 }
 
-function BridgeLine({ color = '#0f4c8f' }: { color?: string }) {
+function BridgeLine({ color = '#006d9e' }: { color?: string }) {
   const { ref, visible } = useReveal(0.3);
   return (
     <div ref={ref} className="flex items-center gap-3 my-16" aria-hidden>
@@ -112,7 +112,7 @@ export default function OurStorySection() {
         </div>
       </Reveal>
 
-      <BridgeLine color="#0f4c8f" />
+      <BridgeLine color="#006d9e" />
     </section>
   );
 }

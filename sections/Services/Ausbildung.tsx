@@ -37,7 +37,7 @@ function Reveal({ children, delay = 0, className = '' }: { children: React.React
   );
 }
 
-function BriefcaseIcon({ color = '#0f4c8f', size = 32 }) {
+function BriefcaseIcon({ color = '#006d9e', size = 32 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <rect x="2" y="7" width="20" height="14" rx="2" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
@@ -90,13 +90,13 @@ export default function AusbildungSection() {
           <Reveal>
             <div className="space-y-6">
               <div>
-                <span className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4" style={{ background: '#0f4c8f', color: '#fff' }}>
+                <span className="inline-block text-[13px] font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4" style={{ background: '#006d9e', color: '#fff' }}>
                   MOST UNDERRATED PATHWAY
                 </span>
                 <h2 className="font-serif font-bold mb-5" style={{ fontSize: 'clamp(32px, 5vw, 48px)', color: text }}>
                   Ausbildung
                   <br />
-                  <span style={{ color: '#0f4c8f' }}>(Vocational Training)</span>
+                  <span style={{ color: '#006d9e' }}>(Vocational Training)</span>
                 </h2>
                 <p className="text-[18px] leading-relaxed mb-6" style={{ color: sub }}>
                   Most Indian students have never heard of Ausbildung and that is exactly why they miss one of Germany's best kept opportunities.
@@ -120,7 +120,7 @@ export default function AusbildungSection() {
           <Reveal delay={100}>
             <div className="space-y-5">
               <div className="flex gap-4 items-start p-6 rounded-2xl hover-lift" style={{ background: isDark ? 'rgba(15,76,143,0.08)' : 'rgba(15,76,143,0.06)', border: '1px solid rgba(15,76,143,0.15)' }}>
-                <BriefcaseIcon color="#0f4c8f" size={28} />
+                <BriefcaseIcon color="#006d9e" size={28} />
                 <div>
                   <h3 className="font-serif font-bold text-[18px] mb-1" style={{ color: text }}>Top Companies</h3>
                   <p className="text-[15px] leading-relaxed" style={{ color: sub }}>Bosch, BMW, Deutsche Bahn, Siemens — real contracts with real employers.</p>

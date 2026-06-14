@@ -9,7 +9,7 @@ const TESTIMONIALS = [
     name: 'Aditya R.',
     role: 'M.Sc Computer Science, Germany',
     initials: 'AR',
-    accent: '#0f4c8f',
+    accent: '#006d9e',
   },
   {
     quote: 'The biggest difference was honesty. They clearly explained which universities matched my profile and what improvements I needed instead of giving false promises. That transparency saved me months.',
@@ -23,14 +23,14 @@ const TESTIMONIALS = [
     name: 'Vishnu Prasad',
     role: 'TU Berlin Student',
     initials: 'VP',
-    accent: '#7ED8A4',
+    accent: '#059669',
   },
   {
     quote: 'I was confused about Ausbildung pathways and language requirements. EuroZiel connected me with people who had already gone through the same process, which made everything much easier to understand.',
     name: 'Nithya M.',
     role: 'Healthcare Ausbildung Pathway',
     initials: 'NM',
-    accent: '#C084FC',
+    accent: '#7c3aed',
   },
 ];
 
@@ -70,13 +70,13 @@ export default function Testimonials() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         {/* Header */}
         <div className="text-center mb-14">
-          <span className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"
-            style={{ background: 'rgba(15,76,143,0.15)', border: '1px solid rgba(15,76,143,0.35)', letterSpacing: '0.15em', color: '#f59e0b' }}>
+          <span className="inline-block mb-4 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full backdrop-blur-sm"
+            style={{ background: isDark ? 'rgba(8,145,178,0.15)' : 'rgba(0,109,158,0.12)', border: '1px solid rgba(8,145,178,0.40)', letterSpacing: '0.15em', color: isDark ? '#22d3ee' : '#006d9e' }}>
             What Our Students Say
           </span>
           <h2 className="font-bold leading-tight" style={{ fontSize: 'clamp(26px,4vw,52px)', color: textColor }}>
             Real Experiences from{' '}
-            <span style={{ color: '#0f4c8f' }}>Real Students.</span>
+            <span style={{ color: '#006d9e' }}>Real Students.</span>
           </h2>
           <p className="mt-4 mx-auto leading-relaxed" style={{ fontSize: 'clamp(14px,1.1vw,17px)', color: textSub, maxWidth: '42ch' }}>
             Students who trusted EuroZiel for their Germany journey share what made the difference.
@@ -137,7 +137,7 @@ export default function Testimonials() {
             {TESTIMONIALS.map((_, i) => (
               <button key={i} onClick={() => setActive(i)}
                 className="rounded-full transition-all duration-300"
-                style={{ width: i === active ? 20 : 6, height: 6, background: i === active ? '#0f4c8f' : 'rgba(15,76,143,0.25)' }} />
+                style={{ width: i === active ? 20 : 6, height: 6, background: i === active ? '#006d9e' : 'rgba(15,76,143,0.25)' }} />
             ))}
           </div>
         </div>
@@ -149,7 +149,7 @@ export default function Testimonials() {
           </p>
           <a href="#get-started"
             className="inline-flex items-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-8 text-sm"
-            style={{ background: '#0f4c8f', color: '#fff', boxShadow: '0 4px 20px rgba(15,76,143,0.38)' }}
+            style={{ background: '#006d9e', color: '#fff', boxShadow: '0 4px 20px rgba(15,76,143,0.38)' }}
             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(15,76,143,0.55)'; }}
             onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(15,76,143,0.38)'; }}>
             Read More Stories →
